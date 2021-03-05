@@ -46,3 +46,54 @@ html{
 	top: 10px;
 	color:white;
 }
+
+form.searchBar input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+
+form.searchBar button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #000080;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+
+form.searchBar button:hover {
+  background: #0033cc;
+}
+
+form.searchBar::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+a:link {
+  color: white;
+}
+
+a:visited {
+  color: white;
+}
+
+a:hover {
+  color: white;
+}
+
+a:active {
+  color: white;
+}
+
+a {
+    text-decoration: none !important;
+}
