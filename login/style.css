@@ -1,0 +1,75 @@
+@font-face {
+   font-family: murrayStateFont;
+   src: url(FreightTextBold.otf);
+}
+.wrapper {
+    text-align: center;
+}
+.button {
+	padding: 30px 20px;
+	margin: 50px;
+	font-family: murrayStateFont;
+	font-size: 22px;
+	font-color:#000080;
+	color: #000080;
+	background-color: #000080;
+	border-radius: 10px;
+	border-color: white;
+}
+.home{
+	position:absolute;
+	right:30px;
+	top:50px;
+	background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}
+body{
+	background: top / cover no-repeat url('HomePageGradient.png');
+
+}
+html{
+	height: 100%;
+}
+#title{
+	font-family: murrayStateFont;
+	font-size: 64px;
+	color: #000080;
+}
+#footer{
+	background-color:#000080;
+	height: 80px;
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	width: 100%;
+}
+#footer-text{
+	position:absolute; 
+	left:80px;
+	top: 10px;
+	color:white;
+}
+
+a:link {
+  color: white;
+}
+
+a:visited {
+  color: white;
+}
+
+a:hover {
+  color: white;
+}
+
+a:active {
+  color: white;
+}
+
+a {
+    text-decoration: none !important;
+}
