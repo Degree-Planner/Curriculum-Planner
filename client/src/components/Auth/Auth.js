@@ -20,8 +20,8 @@ const Auth = () => {
         const token = res?.tokenId;
 
         try {
-            dispatch(authAdmin(result, token));
-            //history.push('/');
+            dispatch(authAdmin(result, token, history));
+            //history.push('/csc530/dev');
         } catch (error) {
             console.log(error);
         }
@@ -33,7 +33,8 @@ const Auth = () => {
     }
 
     useEffect(() => {
-        if (authData != null){
+        console.log(authData);
+        if (authData !== undefined){
             history.push('/csc530/dev')
         }
     }, [authData])

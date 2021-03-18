@@ -2,8 +2,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import background from "./HomePageGradient.png";
 
 export default makeStyles(() => ({
-  appBar: {
+  topAppBar: {
     padding: '150px 20px',
+  },
+  bottomAppBar: {
+    top: 'auto',
+    bottom: 0,
   },
   background: {
     backgroundImage: `url(${background})`,

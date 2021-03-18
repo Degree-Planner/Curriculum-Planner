@@ -15,7 +15,7 @@ const Degree = ({ degree }) => {
             <AccordionSummary 
                 expandIcon={<ExpandMoreIcon />}>
                 <div>
-                    <Typography className={classes.title} variant="body1">{degree.DegreeTitle}</Typography>
+                    <Typography className={classes.title} variant="body1">{degree.DegreeName}</Typography>
                 </div>
                 <Button color="primary" variant="contained">VIEW</Button>
             </AccordionSummary>
