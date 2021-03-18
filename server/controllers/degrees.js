@@ -11,3 +11,29 @@ export const getDegrees = async (req, res) => {
         res.status(404).json({ message: error.message})
     }
 }
+
+export const createDegree = async (req, res) => {
+    const degree = req.body;
+
+    const newDegree = DegreeInformation(degree);
+    
+    try {
+        await newDegree.save();
+
+        res.status(201).json(newDegree);
+    } catch (error) {
+        res.status(409).json({ message: error.message})
+    }
+}
+
+export const updateDegree = async (req, res) => {
+    const {id: _id } = req.params;
+    const degree = req.body;
+    
+    if(!mongoose.Types.ObjectId.isValid(_id)) return res.status(404).send('No post with that id');
+
+    const updatedDegree = await DegreeMessage.findByIdAndUpdate(_id, degree, { new: true });
+
+    res.json(updatedDegree);
+}
+
