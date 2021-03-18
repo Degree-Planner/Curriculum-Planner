@@ -13,3 +13,7 @@ export const createCourse = (newCourse) => API.post('/courses', newCourse);
 export const authAdmin = (email) => API.post('/admins', email);
 
 export const fetchDegrees = () => API.get('/degrees');
+
+export const createDegree = (newDegree) => API.post('/degrees',newDegree);
+
+export const updateDegree = () => API.patch('/degrees');
