@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 const degreeSchema = mongoose.Schema({
-    DegreeTitle: String,
+    DegreeName: String,
     DegreeDescription: String
 });
 
