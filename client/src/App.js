@@ -11,6 +11,7 @@ import Auth from './components/Auth/Auth';
 import DegreesList from './components/DegreesList/DegreesList';
 import Admin from './components/Admin/Admin';
 import AddDegree from './components/AddDegree/AddDegree';
+import Footer from './components/Footer/Footer';
 
 const App = () => {
     const classes = useStyles();
@@ -40,9 +41,7 @@ const App = () => {
                     )}/>
                 </Switch>
                 </div>
-                <AppBar position="fixed" color="primary" className={classes.bottomAppBar}>
-                    Hello there
-                </AppBar>
+                <Footer/>
             </Container>
         </BrowserRouter>
     );

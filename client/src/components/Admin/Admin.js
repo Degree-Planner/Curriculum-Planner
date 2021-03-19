@@ -18,7 +18,7 @@ const Admin = () => {
         <Grow in>
             <Container>
                     <Typography className={classes.heading} variant="h2" align="center">Admin Dashboard</Typography>
-                    <Typography className={classes.heading} variant="h5" align="center">Explore our many programs of study to find the one that best fits you.</Typography>
+                    <Typography className={classes.heading} variant="h5" align="center">Create a degree or edit an existing degree.</Typography>
                     <br></br>
                     <br></br>
                     <Button variant="contained" className={classes.buttons} size="large" color="primary" component={Link} to="/csc530/dev/admin/add">Add Degree</Button>
