@@ -16,7 +16,7 @@ export default makeStyles((theme) => ({
   image: {
     marginLeft: '15px',
   },
-    search: {
+  input: {
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
     backgroundColor: fade(theme.palette.common.white, 0.15),
@@ -28,7 +28,7 @@ export default makeStyles((theme) => ({
     width: '100%',
     [theme.breakpoints.up('sm')]: {
       marginLeft: theme.spacing(3),
-      width: 'auto',
+      width: '700px',
     },
   },
   searchIcon: {

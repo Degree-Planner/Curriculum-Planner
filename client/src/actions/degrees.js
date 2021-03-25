@@ -9,6 +9,15 @@ export const getDegrees = () => async (dispatch) => {
         console.log(error.message);
     }
 }
+export const searchDegrees = () => async (dispatch) => {
+    try {
+        const { data } = await api.fetchSearchDegrees();
+
+        dispatch({ type: 'FETCH_SEARCH', payload: data });
+    } catch (error) {
+        console.log(error.message);
+    }
+}
 export const getCourses = (degree) => async (dispatch) => {
     try {
         const { data } = await api.fetchDegrees();

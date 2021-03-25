@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { AppBar, Avatar, Toolbar, Typography, Button } from '@material-ui/core';
+import { AppBar, Avatar, Toolbar, Typography, Button, Grid } from '@material-ui/core';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
@@ -37,9 +37,21 @@ const Navbar = () => {
         <Toolbar className={classes.toolbar}>
             {user ? (
                 <div classname={classes.profile}>
-                    <Avatar className={classes.purple} alt={user.userData.name} src={user.userData.imageUrl}>{user.userData.name.charAt(0)}</Avatar>
-                    <Typography className={classes.userName} variant="h6">{user.userData.name}</Typography>
-                    <Button variant="contained" className={classes.logout} color="secondary" onClick={logout}>Logout</Button>
+                    <Grid container spacing={5}>
+                        <Grid item xs={3}>
+                            <Avatar className={classes.purple} alt={user.userData.name} src={user.userData.imageUrl}>{user.userData.name.charAt(0)}</Avatar>
+                        </Grid>
+                        <Grid item xs={9}>
+                            <Typography className={classes.userName} noWrap={true} variant="h6">{user.userData.name}</Typography>
+                        </Grid>
+                    </Grid>
+                    <Grid container spacing={0}>
+                        <Grid item xs={4}>
+                        </Grid>
+                        <Grid item xs={3}>
+                            <Button variant="contained" className={classes.logout} color="secondary" onClick={logout}>Logout</Button>
+                        </Grid>
+                    </Grid>
                 </div>
             ) : (
                 <Button component={Link} to="/csc530/dev/auth" variant="contained" color="primary">Sign In</Button>
