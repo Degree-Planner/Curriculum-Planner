@@ -1,10 +1,11 @@
 import express from 'express';
 
-import { getDegrees, createDegree, updateDegree } from '../controllers/degrees.js';
+import { getDegrees, createDegree, updateDegree, getCourses } from '../controllers/degrees.js';
 
 const router = express.Router();
 
 router.get('/', getDegrees);
+router.get('/', getCourses);
 router.post('/', createDegree);
 router.patch('/', updateDegree);
 

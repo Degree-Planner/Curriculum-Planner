@@ -1,5 +1,5 @@
 import React from 'react';
-import { Accordion, AccordionActions, AccordionSummary, Card, Button, Typography, AccordionDetails } from '@material-ui/core';
+import { Accordion, AccordionActions, AccordionSummary, Container, Button, Typography, AccordionDetails } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import EditIcon from '@material-ui/icons/Edit';
@@ -10,14 +10,14 @@ import useStyles from './styles';
 const Course = ({ course }) => {
     const classes = useStyles();
     return (
+        <Container>
         <Accordion className={classes.card}>
             <AccordionSummary 
                 expandIcon={<ExpandMoreIcon />}>
                 <div>
-                    <Typography className={classes.title} variant="body1">{course.DepartmentCode} {course.CourseNumber}</Typography>
+                    <Typography className={classes.title} variant="body1">{course.CourseID}</Typography>
                 </div>
                 <Typography className={classes.title} variant="body1">{course.CourseTitle}</Typography>
-                <Button color="primary" variant="contained">HI!</Button>
             </AccordionSummary>
             <AccordionDetails className={classes.details}>
                 <div>
@@ -33,6 +33,7 @@ const Course = ({ course }) => {
                 </div>
             </AccordionDetails>
         </Accordion>
+        </Container>
     );
 }
 

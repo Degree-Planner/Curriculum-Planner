@@ -12,6 +12,18 @@ export const getDegrees = async (req, res) => {
     }
 }
 
+export const getCourses = async (req, res) => {
+    const DegreeName = req.body;
+    try {
+        console.log(DegreeName)
+        const degreeInformation = await DegreeInformation.findOne({DegreeName: DegreeName});
+
+        res.status(200).json(degreeInformation.Courses);
+    } catch (error) {
+        res.status(404).json({ message: error.message})
+    }
+}
+
 export const createDegree = async (req, res) => {
     const degree = req.body;
 

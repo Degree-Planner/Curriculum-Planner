@@ -9,6 +9,15 @@ export const getDegrees = () => async (dispatch) => {
         console.log(error.message);
     }
 }
+export const getCourses = (degree) => async (dispatch) => {
+    try {
+        const { data } = await api.fetchDegrees();
+        console.log(data)
+        dispatch({ type: 'FETCH_ALL', payload: data });
+    } catch (error) {
+        console.log(error.message);
+    }
+}
 export const createDegree = (degree) => async (dispatch) => {
     try{
         const {data} = await api.createDegree(degree);

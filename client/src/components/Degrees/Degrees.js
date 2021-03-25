@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, CircularProgress } from '@material-ui/core';
+import { Grid, CircularProgress, Container } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 
 import Degree from './Degree/Degree';
@@ -13,7 +13,7 @@ const Degrees = ({ setCurrentId }) => {
       !degrees.length ? <CircularProgress /> : (
         <Grid className={classes.container} container alignItems="stretch" spacing={3}>
           {degrees.map((degree) => (
-            <Degree degree={degree}/>
+            <Degree degree={degree} key={degree._id}/>
           ))}
         </Grid>
       )

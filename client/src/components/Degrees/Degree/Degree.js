@@ -1,23 +1,30 @@
 import React from 'react';
-import { Accordion, AccordionActions, AccordionSummary, Card, Button, Typography, AccordionDetails } from '@material-ui/core';
-import DeleteIcon from '@material-ui/icons/Delete';
+import { Accordion, AccordionActions, AccordionSummary, Container, Button, Typography, AccordionDetails } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { Link } from 'react-router-dom';
-import EditIcon from '@material-ui/icons/Edit';
+import { useHistory } from 'react-router-dom';
 
 import useStyles from './styles';
     
 
 const Degree = ({ degree }) => {
     const classes = useStyles();
+    const history = useHistory();
+
+    const handleClick = (e) => {
+        e.preventDefault();
+
+        history.push({pathname: `/csc530/dev/degrees/${degree._id}`, degree: degree})
+    }
+
     return (
+        <Container maxWidth="sm">
         <Accordion className={classes.card}>
             <AccordionSummary 
                 expandIcon={<ExpandMoreIcon />}>
                 <div>
                     <Typography className={classes.title} variant="body1">{degree.DegreeName}</Typography>
                 </div>
-                <Button color="primary" variant="contained">VIEW</Button>
+                <Button color="primary" variant="contained" onClick={handleClick}>VIEW</Button>
             </AccordionSummary>
             <AccordionDetails className={classes.details}>
                 <div>
@@ -25,6 +32,7 @@ const Degree = ({ degree }) => {
                 </div>
             </AccordionDetails>
         </Accordion>
+        </Container>
     );
 }
 

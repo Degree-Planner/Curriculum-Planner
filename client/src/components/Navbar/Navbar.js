@@ -4,7 +4,7 @@ import { Link, useHistory, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import useStyles from './styles';
-import murraystatelogowhite from '../../images/murraystatelogowhite.png';
+import murraystatelogowhite from '../../images/MSUCSISLOGO.png';
 
 const Navbar = () => {
     const classes = useStyles();    

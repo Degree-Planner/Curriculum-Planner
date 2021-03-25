@@ -32,13 +32,6 @@ const Auth = () => {
         console.log("Google sign in was unsuccessful. Try again later");
     }
 
-    useEffect(() => {
-        console.log(authData);
-        if (authData !== undefined){
-            history.push('/csc530/dev')
-        }
-    }, [authData])
-
     return (
         <Container component="main" maxWidth="xs">
             <Paper className={classes.paper} elevation={3}>

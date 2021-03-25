@@ -1,9 +1,9 @@
 import React from 'react';
 import { Container } from '@material-ui/core';
+import { useSelector } from 'react-redux';
 
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import useStyles from './styles';
-import { AppBar } from '@material-ui/core';
 
 import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
@@ -12,9 +12,18 @@ import DegreesList from './components/DegreesList/DegreesList';
 import Admin from './components/Admin/Admin';
 import AddDegree from './components/AddDegree/AddDegree';
 import Footer from './components/Footer/Footer';
+import Plan from './components/Plan/Plan';
 
 const App = () => {
     const classes = useStyles();
+    const degreeData = useSelector((state) => state.degree);
+
+    /*const renderDegree = (routerProps) => {
+        console.log(degreeData)
+        let degreeId = parseInt(routerProps.match.params.id)
+        let foundDegree = degreeData.find(degreeObj => degreeObj.id === degreeId)
+        return (foundDegree ? <Plan degree={foundDegree}/> : <h3>Not Found</h3>)
+    }*/
     
     return (
         <BrowserRouter>
@@ -39,6 +48,7 @@ const App = () => {
                             <AddDegree/>
                         )
                     )}/>
+                    <Route path='/csc530/dev/degrees/:id' component= {Plan}/>
                 </Switch>
                 </div>
                 <Footer/>

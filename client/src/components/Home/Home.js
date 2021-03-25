@@ -1,22 +1,13 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Grow, Grid, Button, Typography, IconButton} from '@material-ui/core';
+import { Container, Grow, Button, Typography, IconButton} from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
 
-import Courses from '../Courses/Courses';
-import Form from '../Form/Form';
 import useStyles from './styles';
-import { getCourses } from '../../actions/courses';
 
 const Home = () => {
     const classes = useStyles();
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(getCourses());
-    }, [dispatch]);
     
     return (
         <Grow in>

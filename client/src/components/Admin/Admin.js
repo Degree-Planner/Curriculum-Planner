@@ -9,10 +9,6 @@ import { getCourses } from '../../actions/courses';
 const Admin = () => {
     const classes = useStyles();
     const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(getCourses());
-    }, [dispatch]);
     
     return (
         <Grow in>
