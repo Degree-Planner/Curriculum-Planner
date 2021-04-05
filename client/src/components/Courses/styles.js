@@ -11,4 +11,13 @@ export default makeStyles((theme) => ({
   actionDiv: {
     textAlign: 'center',
   },
+  heading: {
+    color: '#ffffff',
+  },
+  course: {
+    color: '#ff0000',
+  },
+  course1: {
+    color: '#ffffff',
+  },
 }));

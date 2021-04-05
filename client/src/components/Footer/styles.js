@@ -4,17 +4,17 @@ export default makeStyles((theme) => ({
   footer:{
     top: 'auto',
     bottom: 0,
-    background: '#000080',
+    background: '#ffffff',
     padding: '10px 50px',
   },
   heading: {
-    color: 'rgba(255,255,255, 1)',
+    color: 'navy',
     textDecoration: 'none',
   },
   a: {
-    color: 'white'
+    color: 'navy'
   },
   divider: {
-      background: 'white'
+      background: 'navy'
   }
 }));
