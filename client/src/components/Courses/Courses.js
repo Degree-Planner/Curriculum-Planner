@@ -46,6 +46,24 @@ const styles = theme => ({
     position: 'relative',
     backgroundColor: '#00ff00',
   },
+  course3: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    borderRadius: '15px',
+    height: '100%',
+    position: 'relative',
+    backgroundColor: '#ffcccb',
+  },
+  course4: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    borderRadius: '15px',
+    height: '100%',
+    position: 'relative',
+    backgroundColor: '#90EE90',
+  },
 });
 
 class Courses extends React.Component {
@@ -74,6 +92,8 @@ class Courses extends React.Component {
       const red = classes.course;
       const white = classes.course1;
       const green = classes.course2;
+      const lightRed = classes.course3;
+      const lightGreen = classes.course4;
       const courses = this.state.courses
       const course = this.state.course
 
@@ -86,7 +106,7 @@ class Courses extends React.Component {
             {terms.map((term) => (
               <Container>
                 <Typography className={classes.heading} variant="h3" align="center">Term {term}</Typography>
-                <Term term={term} courses={courses} hovered={hovered} course={course} red={red} white={white} green={green} onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}/>
+                <Term term={term} courses={courses} hovered={hovered} course={course} red={red} lightRed={lightRed} white={white} green={green} lightGreen={lightGreen} onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}/>
               <br></br>
               </Container>
             ))}
