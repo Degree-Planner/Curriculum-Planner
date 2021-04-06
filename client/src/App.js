@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from '@material-ui/core';
+import { Container, Slide, useScrollTrigger } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
@@ -17,13 +17,6 @@ import Plan from './components/Plan/Plan';
 const App = () => {
     const classes = useStyles();
     const degreeData = useSelector((state) => state.degree);
-
-    /*const renderDegree = (routerProps) => {
-        console.log(degreeData)
-        let degreeId = parseInt(routerProps.match.params.id)
-        let foundDegree = degreeData.find(degreeObj => degreeObj.id === degreeId)
-        return (foundDegree ? <Plan degree={foundDegree}/> : <h3>Not Found</h3>)
-    }*/
     
     return (
         <BrowserRouter>
