@@ -53,7 +53,7 @@ const styles = theme => ({
     borderRadius: '15px',
     height: '100%',
     position: 'relative',
-    backgroundColor: '#ffcccb',
+    backgroundColor: '#ff6666',
   },
   course4: {
     display: 'flex',
