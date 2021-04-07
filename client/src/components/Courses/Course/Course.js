@@ -12,13 +12,16 @@ const Course = ({ course, style }) => {
 
     return (
         <Container>
-        <Accordion className={style}>
+        <Accordion square={true} className={style}>
             <AccordionSummary 
                 expandIcon={<ExpandMoreIcon />}>
                 <div>
                     <Typography className={classes.title} variant="body1">{course.CourseID}</Typography>
                 </div>
                 <Typography className={classes.title} variant="body1">{course.CourseTitle}</Typography>
+                <div>
+                    <Typography className={classes.credits} variant="body2">{course.CreditHours}</Typography>
+                </div>
             </AccordionSummary>
             <AccordionDetails className={classes.details}>
                 <div>

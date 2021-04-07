@@ -17,52 +17,34 @@ const styles = theme => ({
     textAlign: 'center',
   },
   heading: {
-    color: '#ffffff',
+    color: '#000080',
+    padding: "0px",
   },
   course: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    borderRadius: '15px',
-    height: '100%',
-    position: 'relative',
     backgroundColor: '#ff0000',
+    border: '1px solid rgba(0, 0, 0, 0.3)'
   },
   course1: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    borderRadius: '15px',
-    height: '100%',
-    position: 'relative',
     backgroundColor: '#ffffff',
+    border: '1px solid rgba(0, 0, 0, 0.3)'
   },
   course2: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    borderRadius: '15px',
-    height: '100%',
-    position: 'relative',
     backgroundColor: '#00ff00',
+    border: '1px solid rgba(0, 0, 0, 0.3)'
   },
   course3: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    borderRadius: '15px',
-    height: '100%',
-    position: 'relative',
     backgroundColor: '#ff6666',
+    border: '1px solid rgba(0, 0, 0, 0.3)'
   },
   course4: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    borderRadius: '15px',
-    height: '100%',
-    position: 'relative',
     backgroundColor: '#90EE90',
+    border: '1px solid rgba(0, 0, 0, 0.3)'
+  },
+  container: {
+    background: '#ffffff',
+    border: '5px solid rgba(0, 0, 128, 1)',
+    //boxShadow: '0 3px 5px 2px rgba(0, 0, 0, 1)',
+    padding: '10px',
   },
 });
 
@@ -99,12 +81,13 @@ class Courses extends React.Component {
 
       var terms = (courses.map(Course => Course.Term))
       terms = terms.filter((v, i, a) => a.indexOf(v) === i); 
+      terms.sort()
   
       return (
         !courses.length ? <CircularProgress /> : (
-          <Grid className={classes.container} container alignItems="stretch" spacing={2}>
+          <Grid container alignItems="stretch" spacing={2}>
             {terms.map((term) => (
-              <Container>
+              <Container className={classes.container}>
                 <Typography className={classes.heading} variant="h3" align="center">Term {term}</Typography>
                 <Term term={term} courses={courses} hovered={hovered} course={course} red={red} lightRed={lightRed} white={white} green={green} lightGreen={lightGreen} onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}/>
               <br></br>

@@ -2,7 +2,9 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles(() => ({
   appBar: {
-    padding: '150px 20px',
+    backgroundColor: '#ffffff',
+    color: '#000000',
+    boxShadow: '0 3px 5px 2px rgba(0, 0, 0, 0)',
   },
   heading: {
     color: '#000080',
@@ -19,5 +21,8 @@ export default makeStyles(() => ({
   container: {
     padding: '30px',
     maxWidth: '1000px',
+  },
+  box: {
+    backgroundColor: '#ffffff',
   },
 }));

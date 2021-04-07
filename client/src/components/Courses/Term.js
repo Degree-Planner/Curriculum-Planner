@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, CircularProgress, Container } from '@material-ui/core';
+import { Grid, CircularProgress, Container, Box } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 
 import Course from './Course/Course';
@@ -59,29 +59,39 @@ const Term = ({ term, courses, hovered, course, red, lightRed, white, green, lig
   
     return (
         !courses.length ? <CircularProgress /> : (
-        <Grid className={classes.container} container alignItems="stretch" spacing={2}>
+        <Grid container alignItems="stretch" spacing={2}>
             {courses.map((course) => (
                 course.Term === term ?
                 highlightRed.find(Course => Course.CourseID === course.CourseID) ?
-                <Container onMouseEnter={(event) => onMouseEnter(event, course)} onMouseLeave={onMouseLeave}>
+                <Container>
+                    <Box onMouseEnter={(event) => onMouseEnter(event, course)} onMouseLeave={onMouseLeave}>
                     <Course style={red} course={course} key={course.CourseID}/>
+                    </Box>
                 </Container> : 
                 highlightGreen.find(Course => Course.CourseID === course.CourseID) ?
-                <Container onMouseEnter={(event) => onMouseEnter(event, course)} onMouseLeave={onMouseLeave}>
+                <Container>
+                    <Box onMouseEnter={(event) => onMouseEnter(event, course)} onMouseLeave={onMouseLeave}>
                     <Course style={green} course={course} key={course.CourseID}/>
+                    </Box>
                 </Container> :
                 highlightLightRed.find(Course => Course.CourseID === course.CourseID) ?
-                <Container onMouseEnter={(event) => onMouseEnter(event, course)} onMouseLeave={onMouseLeave}>
+                <Container>
+                    <Box onMouseEnter={(event) => onMouseEnter(event, course)} onMouseLeave={onMouseLeave}>
                     <Course style={lightRed} course={course} key={course.CourseID}/>
+                    </Box>
                 </Container>:
                 highlightLightGreen.find(Course => Course.CourseID === course.CourseID) ?
-                <Container onMouseEnter={(event) => onMouseEnter(event, course)} onMouseLeave={onMouseLeave}>
+                <Container>
+                    <Box onMouseEnter={(event) => onMouseEnter(event, course)} onMouseLeave={onMouseLeave}>
                     <Course style={lightGreen} course={course} key={course.CourseID}/>
+                    </Box>
                 </Container>:
-                <Container onMouseEnter={(event) => onMouseEnter(event, course)} onMouseLeave={onMouseLeave}>
+                <Container>
+                    <Box onMouseEnter={(event) => onMouseEnter(event, course)} onMouseLeave={onMouseLeave}>
                     <Course style={white} course={course} key={course.CourseID}/>
+                    </Box>
                 </Container>
-            : <br></br>))}
+            : <></>))}
         </Grid>
       )
     );
