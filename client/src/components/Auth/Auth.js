@@ -21,7 +21,6 @@ const Auth = () => {
 
         try {
             dispatch(authAdmin(result, token, history));
-            //history.push('/csc530/dev');
         } catch (error) {
             console.log(error);
         }

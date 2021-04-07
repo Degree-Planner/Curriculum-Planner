@@ -1,27 +1,102 @@
-import React from 'react';
-import { Grid, CircularProgress, Container } from '@material-ui/core';
+import React, { Component } from 'react';
+import { Grid, CircularProgress, Container, Typography } from '@material-ui/core';
 import { useSelector } from 'react-redux';
+import { withStyles } from "@material-ui/core/styles";
 
-import Course from './Course/Course';
-import useStyles from './styles';
-    
-const Courses = (DegreeCourses) => {
-    const courses = DegreeCourses.courses;
-    const classes = useStyles();
+import Term from './Term'
+
+const styles = theme => ({
+  mainContainer: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+  smMargin: {
+    margin: theme.spacing(1),
+  },
+  actionDiv: {
+    textAlign: 'center',
+  },
+  heading: {
+    color: '#000080',
+    padding: "0px",
+  },
+  course: {
+    backgroundColor: '#ff0000',
+    border: '1px solid rgba(0, 0, 0, 0.3)'
+  },
+  course1: {
+    backgroundColor: '#ffffff',
+    border: '1px solid rgba(0, 0, 0, 0.3)'
+  },
+  course2: {
+    backgroundColor: '#00ff00',
+    border: '1px solid rgba(0, 0, 0, 0.3)'
+  },
+  course3: {
+    backgroundColor: '#ff6666',
+    border: '1px solid rgba(0, 0, 0, 0.3)'
+  },
+  course4: {
+    backgroundColor: '#90EE90',
+    border: '1px solid rgba(0, 0, 0, 0.3)'
+  },
+  container: {
+    background: '#ffffff',
+    border: '5px solid rgba(0, 0, 128, 1)',
+    //boxShadow: '0 3px 5px 2px rgba(0, 0, 0, 1)',
+    padding: '10px',
+  },
+});
+
+class Courses extends React.Component {
+  constructor(DegreeCourses) {
+    super(DegreeCourses);
+    this.state = {
+      hovered: false,
+      courses: DegreeCourses.courses,
+      course: 'Undefined'
+    };
+
+    this.onMouseEnter = this.onMouseEnter.bind(this)
+  };
+
+  onMouseEnter = (e, course) => {
+    this.setState({ hovered: true, course: course });
+  };
+
+  onMouseLeave = e => {
+    this.setState({ hovered: false });
+  };
+
+  render() {
+      const { classes } = this.props;
+      const hovered = this.state.hovered;
+      const red = classes.course;
+      const white = classes.course1;
+      const green = classes.course2;
+      const lightRed = classes.course3;
+      const lightGreen = classes.course4;
+      const courses = this.state.courses
+      const course = this.state.course
+
+      var terms = (courses.map(Course => Course.Term))
+      terms = terms.filter((v, i, a) => a.indexOf(v) === i); 
+      terms.sort()
   
-    console.log(courses)
+      return (
+        !courses.length ? <CircularProgress /> : (
+          <Grid container alignItems="stretch" spacing={2}>
+            {terms.map((term) => (
+              <Container className={classes.container}>
+                <Typography className={classes.heading} variant="h3" align="center">Term {term}</Typography>
+                <Term term={term} courses={courses} hovered={hovered} course={course} red={red} lightRed={lightRed} white={white} green={green} lightGreen={lightGreen} onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}/>
+              <br></br>
+              </Container>
+            ))}
+          </Grid>
+        )
+      );
+  };
+}
 
-    return (
-      !courses.length ? <CircularProgress /> : (
-        <Container>
-        <Grid className={classes.container} container alignItems="stretch" spacing={2}>
-          {courses.map((course) => (
-            <Course course={course} key={course.CourseID}/>
-          ))}
-        </Grid>
-        </Container>
-      )
-    );
-};
-
-export default Courses;
+export default withStyles(styles)(Courses);

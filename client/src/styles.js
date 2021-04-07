@@ -3,7 +3,7 @@ import background from "./HomePageGradient.png";
 
 export default makeStyles(() => ({
   topAppBar: {
-    padding: '150px 20px',
+    padding: '100px 20px',
   },
   bottomAppBar: {
     top: 'auto',

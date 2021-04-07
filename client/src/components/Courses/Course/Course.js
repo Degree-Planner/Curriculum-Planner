@@ -3,21 +3,25 @@ import { Accordion, AccordionActions, AccordionSummary, Container, Button, Typog
 import DeleteIcon from '@material-ui/icons/Delete';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import EditIcon from '@material-ui/icons/Edit';
+import { useSelector } from 'react-redux';
 
 import useStyles from './styles';
     
-
-const Course = ({ course }) => {
+const Course = ({ course, style }) => {
     const classes = useStyles();
+
     return (
         <Container>
-        <Accordion className={classes.card}>
+        <Accordion square={true} className={style}>
             <AccordionSummary 
                 expandIcon={<ExpandMoreIcon />}>
                 <div>
                     <Typography className={classes.title} variant="body1">{course.CourseID}</Typography>
                 </div>
                 <Typography className={classes.title} variant="body1">{course.CourseTitle}</Typography>
+                <div>
+                    <Typography className={classes.credits} variant="body2">{course.CreditHours}</Typography>
+                </div>
             </AccordionSummary>
             <AccordionDetails className={classes.details}>
                 <div>

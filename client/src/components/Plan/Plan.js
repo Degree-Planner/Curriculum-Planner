@@ -1,11 +1,38 @@
 import React, { useEffect } from 'react';
-import { Paper, Grow, Grid, Tabs, Tab, Typography } from '@material-ui/core';
+import { Paper, Grow, Grid, Tabs, Tab, Typography, Container, Box, AppBar } from '@material-ui/core';
 import { useState } from 'react';
 import { useLocation, Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import Courses from '../Courses/Courses';
 import useStyles from './styles';
+
+function TabPanel(props) {
+    const { children, value, index, ...other } = props;
+  
+    return (
+      <div
+        role="tabpanel"
+        hidden={value !== index}
+        id={`simple-tabpanel-${index}`}
+        aria-labelledby={`simple-tab-${index}`}
+        {...other}
+      >
+        {value === index && (
+          <Box p={3}>
+            <Typography>{children}</Typography>
+          </Box>
+        )}
+      </div>
+    );
+  }
+
+  function a11yProps(index) {
+    return {
+      id: `simple-tab-${index}`,
+      'aria-controls': `simple-tabpanel-${index}`,
+    };
+  }
 
 const Plan = () => {
     const classes = useStyles();
@@ -28,14 +55,28 @@ const Plan = () => {
         ) : (
             <Grow in>
                 <Paper variant="outlined" className={classes.paper}>
-                    <Typography className={classes.heading} variant="h2" align="center">{location.degree.DegreeName}</Typography>
-                    <Grid container justify="space-between" alignItems="stretch" spacing={3}>
-                        <Grid item xs={12} sm={7}>
-                            <Courses courses={location.degree.Courses}/>
-                        </Grid>
-                        <Grid item xs={12} sm={4}>
-                        </Grid>
-                    </Grid>
+                    <Box className={classes.box}>
+                    <Typography className={classes.heading} variant="h2" indicatorColor="primary" align="center">{location.degree.DegreeName}</Typography>
+                    <AppBar className={classes.appBar} position="static">
+                    <Tabs centered value={value} onChange={handleChange}>
+                        <Tab label="List" {...a11yProps(0)} />
+                        <Tab label="Grid" {...a11yProps(1)} />
+                        <Tab label="Graph" {...a11yProps(2)} />
+                    </Tabs>
+                    </AppBar>
+                    </Box>
+                    <TabPanel value={value} index={0}>
+                    <Container className={classes.container}>
+                        <Courses courses={location.degree.Courses}/>
+                    </Container>
+                    </TabPanel>
+                    <TabPanel value={value} index={1}>
+                    Item Two
+                    </TabPanel>
+                    <TabPanel value={value} index={2}>
+                    Item Three
+                    </TabPanel>
+                    
                 </Paper>
         </Grow>
         )
