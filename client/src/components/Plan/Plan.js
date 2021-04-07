@@ -5,6 +5,7 @@ import { useLocation, Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import Courses from '../Courses/Courses';
+import GridCourses from '../GridCourses/GridCourses';
 import useStyles from './styles';
 
 function TabPanel(props) {
@@ -71,7 +72,9 @@ const Plan = () => {
                     </Container>
                     </TabPanel>
                     <TabPanel value={value} index={1}>
-                    Item Two
+                    <Container className={classes.container}>
+                        <GridCourses courses={location.degree.Courses}/>
+                    </Container>
                     </TabPanel>
                     <TabPanel value={value} index={2}>
                     Item Three
