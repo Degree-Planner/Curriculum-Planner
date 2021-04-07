@@ -29,38 +29,52 @@ const Footer = () => {
     return (
     <AppBar className={classes.footer} position="fixed" color="inherit">
         <Grid container spacing={0}>
-            <Grid item xs={6}>
+            <Grid item xs={4}>
                 <Typography className={classes.heading} variant="h5" align="center">Links</Typography>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={4}>
+                <Typography className={classes.heading} variant="h5" align="center">Team Management</Typography>
+            </Grid>
+            <Grid item xs={4}>
                 <Typography className={classes.heading} variant="h5" align="center">Contributors</Typography>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={4}>
                 <center>
                     <a className={classes.a} href="https://www.murraystate.edu/academics/CollegesDepartments/CollegeOfBusiness/index.aspx">College Of Business</a>
                 </center>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={4}>
+                <center>
+                    <a className={classes.a} href="https://trello.com/b/G0ZZ6yAA/530-curriculum-plan">Trello</a>
+                </center>
+            </Grid>
+            <Grid item xs={4}>
                 <center>
                     <Typography className={classes.heading} variant="p" align="center">Jonathan Crafton</Typography>
                 </center>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={4}>
                 <center>
                     <a className={classes.a} href="http://campus.murraystate.edu/classes/">RacerNet</a>
                 </center>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={4}>
+
+            </Grid>
+            <Grid item xs={4}>
                 <center>
                     <Typography className={classes.heading} variant="p" align="center">Jacob Paluso</Typography>
                 </center>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={4}>
                 <center>
                     <a className={classes.a} href="https://www.murraystate.edu/">Murray State Main Webpage</a>
                 </center>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={4}>
+
+            </Grid>
+            <Grid item xs={4}>
                 <center>
                     <Typography className={classes.heading} variant="p" align="center">Noah Rudolph</Typography>
                 </center>

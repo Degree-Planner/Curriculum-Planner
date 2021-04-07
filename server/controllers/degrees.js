@@ -24,20 +24,17 @@ export const getCourses = async (req, res) => {
     }
 }
 
-export const searchDegrees = async (req, res) => {
+/*export const searchDegrees = async (req, res) => {
+    const degree = req.body;
     try {
-        const degreeInformation = await DegreeInformation.find({ "DegreeName": /Computer/i }, 
-        function(err,docs) { 
-    
-        }
-    );
+        const degreeInformation = await DegreeInformation.find({ "DegreeName": { "$regex": degree, "$options": "i" } });
 
 
         res.status(200).json(degreeInformation);
     } catch (error) {
         res.status(404).json({ message: error.message})
     }
-}
+}*/
 
 export const createDegree = async (req, res) => {
     const degree = req.body;

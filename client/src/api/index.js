@@ -14,7 +14,7 @@ export const authAdmin = (email) => API.post('/admins', email);
 
 export const fetchDegrees = () => API.get('/degrees');
 
-export const fetchSearchDegrees = () => API.get('/degrees');
+//export const fetchSearchDegrees = (degree) => API.get('/searchdegrees', degree);
 
 export const createDegree = (newDegree) => API.post('/degrees', newDegree);
 

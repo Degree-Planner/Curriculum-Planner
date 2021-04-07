@@ -9,6 +9,7 @@ import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
 import Auth from './components/Auth/Auth';
 import DegreesList from './components/DegreesList/DegreesList';
+import SearchDegreesList from './components/SearchDegreesList/SearchDegreesList';
 import Admin from './components/Admin/Admin';
 import AddDegree from './components/AddDegree/AddDegree';
 import Footer from './components/Footer/Footer';
@@ -34,6 +35,7 @@ const App = () => {
                     <Route path="/csc530/dev" exact component={Home}/>
                     <Route path="/csc530/dev/auth" exact component={Auth}/>
                     <Route path="/csc530/dev/degrees" exact component={DegreesList}/>
+                    <Route path="/csc530/dev/searchdegree" exact component={SearchDegreesList}/>
                     <Route path="/csc530/dev/admin" exact render={() => (
                         !localStorage.getItem('profile') ? (
                             <Redirect to="/csc530/dev/auth"/>

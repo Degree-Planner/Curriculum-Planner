@@ -2,11 +2,9 @@ import React from 'react';
 import { Accordion, AccordionSummary, Container, Button, Typography, AccordionDetails } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { useHistory } from 'react-router-dom';
+import useStyles from './styles'; 
 
-import useStyles from './styles';
-    
-
-const Degree = ({ degree }) => {
+const SearchDegree = ({ degree }) => {
     const classes = useStyles();
     const history = useHistory();
 
@@ -36,4 +34,4 @@ const Degree = ({ degree }) => {
     );
 }
 
-export default Degree;
+export default SearchDegree;
