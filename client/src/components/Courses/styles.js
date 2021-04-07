@@ -14,10 +14,4 @@ export default makeStyles((theme) => ({
   heading: {
     color: '#ffffff',
   },
-  course: {
-    color: '#ff0000',
-  },
-  course1: {
-    color: '#ffffff',
-  },
 }));
