@@ -12,6 +12,7 @@ const Course = ({ course, style }) => {
     const [anchorEl, setAnchorEl] = React.useState(null);
 
     const handleClick = (event) => {
+        console.log(event.currentTarget)
         setAnchorEl(event.currentTarget);
     };
 
@@ -23,7 +24,7 @@ const Course = ({ course, style }) => {
     const id = open ? 'simple-popover' : undefined;
 
     return (
-        <Paper square={true} className={style}>
+        <Paper square={true} className={style} onClick={handleClick}>
                 <Typography className={classes.id} variant="body1">{course.CourseID}</Typography>
                 <Typography className={classes.title} variant="body1">{course.CourseTitle}</Typography>
                 <Typography className={classes.credits} variant="body2">{course.CreditHours} Credits</Typography>
