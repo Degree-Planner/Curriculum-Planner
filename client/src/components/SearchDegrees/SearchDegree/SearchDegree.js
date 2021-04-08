@@ -15,14 +15,14 @@ const SearchDegree = ({ degree }) => {
     }
 
     return (
-        <Container maxWidth="sm">
+        <Container maxWidth="sm" className={classes.container}>
         <Accordion className={classes.card}>
             <AccordionSummary 
                 expandIcon={<ExpandMoreIcon />}>
+                <Button color="primary" className={classes.button} variant="contained" onClick={handleClick}>VIEW</Button>
                 <div>
                     <Typography className={classes.title} variant="body1">{degree.DegreeName}</Typography>
                 </div>
-                <Button color="primary" variant="contained" onClick={handleClick}>VIEW</Button>
             </AccordionSummary>
             <AccordionDetails className={classes.details}>
                 <div>
