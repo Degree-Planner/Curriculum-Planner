@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, CircularProgress, Container, Typography } from '@material-ui/core';
+import { Grid, CircularProgress, Container, Typography, Fade } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 import { withStyles } from "@material-ui/core/styles";
 
@@ -85,6 +85,8 @@ class Courses extends React.Component {
   
       return (
         !courses.length ? <CircularProgress /> : (
+          <div>
+            <Fade in>
           <Grid container alignItems="stretch" spacing={2}>
             {terms.map((term) => (
               <Container className={classes.container}>
@@ -94,6 +96,8 @@ class Courses extends React.Component {
               </Container>
             ))}
           </Grid>
+          </Fade>
+          </div>
         )
       );
   };

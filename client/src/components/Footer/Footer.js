@@ -27,7 +27,7 @@ const Footer = () => {
     }, [location]);
 
     return (
-    <AppBar className={classes.footer} position="fixed" color="inherit">
+    <AppBar className={classes.footer} position="static" color="inherit">
         <Grid container spacing={0}>
             <Grid item xs={4}>
                 <Typography className={classes.heading} variant="h5" align="center">Links</Typography>

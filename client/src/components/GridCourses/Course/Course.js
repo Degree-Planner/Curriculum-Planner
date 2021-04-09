@@ -1,9 +1,7 @@
 import React from 'react';
-import { Popover, AccordionActions, AccordionSummary, Container, Button, Typography, AccordionDetails, Paper } from '@material-ui/core';
-import DeleteIcon from '@material-ui/icons/Delete';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import EditIcon from '@material-ui/icons/Edit';
+import { Popover, Popper, AccordionSummary, Container, Box, Typography, IconButton, Paper } from '@material-ui/core';
 import { useSelector } from 'react-redux';
+import CloseIcon from '@material-ui/icons/Close';
 
 import useStyles from './styles';
     
@@ -12,7 +10,6 @@ const Course = ({ course, style }) => {
     const [anchorEl, setAnchorEl] = React.useState(null);
 
     const handleClick = (event) => {
-        console.log(event.currentTarget)
         setAnchorEl(event.currentTarget);
     };
 
@@ -21,29 +18,37 @@ const Course = ({ course, style }) => {
     };
 
     const open = Boolean(anchorEl);
-    const id = open ? 'simple-popover' : undefined;
+    const id = open ? 'simple-popper' : undefined;
 
     return (
-        <Paper square={true} className={style} onClick={handleClick}>
+        <Paper square={true} className={style} >
+            <Box onClick={handleClick}>
                 <Typography className={classes.id} variant="body1">{course.CourseID}</Typography>
                 <Typography className={classes.title} variant="body1">{course.CourseTitle}</Typography>
                 <Typography className={classes.credits} variant="body2">{course.CreditHours} Credits</Typography>
-                <Popover
-                    id={id}
-                    open={open}
-                    anchorEl={anchorEl}
-                    onClose={handleClose}
-                    anchorOrigin={{
-                    vertical: 'bottom',
-                    horizontal: 'center',
-                    }}
-                    transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'center',
-                    }}
-                >
-                    <Typography className={classes.typography}>The content of the Popover.</Typography>
-                </Popover>
+                </Box>
+                <Popper id={id} open={open} anchorEl={anchorEl}>
+                    <Paper className={classes.paper}>
+                        <IconButton onClick={handleClose} className={classes.closeicon}>
+                            <CloseIcon/>
+                        </IconButton>
+                        <div>
+                        <Typography className={classes.title} variant="body1">{course.CourseID}</Typography>
+                        </div>
+                        <Typography className={classes.title} variant="body1">{course.CourseTitle}</Typography>
+                        <div>
+                        <Typography className={classes.details} variant="body2">{course.CourseDescription}</Typography>
+                        </div>
+                        <div className={classes.details2}>
+                            <Typography className={classes.details} variant="body2">Minimum Grade: {course.MinimumGrade}</Typography>
+                            <Typography className={classes.details} variant="body2">Credit Hours: {course.CreditHours}</Typography>
+                        </div>
+                        <div className={classes.details2}>
+                            <Typography className={classes.details} variant="body2">Prerequisites: {course.PreReqs}</Typography>
+                            <Typography className={classes.details} variant="body2">Corequisites: {course.CoReqs}</Typography>
+                        </div>
+                    </Paper>
+                </Popper>
         </Paper>
     );
 }
