@@ -13,6 +13,10 @@ const Navbar = () => {
     const history = useHistory();
     const location = useLocation();
 
+    const admin = () => {
+        history.push('/csc530/dev/admin');
+    };
+
     const logout = () => {
         dispatch({ type: 'LOGOUT' });
 
@@ -46,10 +50,11 @@ const Navbar = () => {
                         </Grid>
                     </Grid>
                     <Grid container spacing={0}>
-                        <Grid item xs={4}>
+                        <Grid item xs={6}>
+                            <Button variant="contained" className={classes.admin} onClick={admin}>Admin</Button>
                         </Grid>
                         <Grid item xs={3}>
-                            <Button variant="contained" className={classes.logout} color="secondary" onClick={logout}>Logout</Button>
+                            <Button variant="contained" className={classes.logout} onClick={logout}>Logout</Button>
                         </Grid>
                     </Grid>
                 </div>

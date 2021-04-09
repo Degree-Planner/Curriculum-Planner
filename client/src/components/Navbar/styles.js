@@ -42,6 +42,15 @@ export default makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     marginTop: '10px',
+    backgroundColor: '#ff5050',
+    color:'white',
+  },
+  admin: {
+    display: 'flex',
+    alignItems: 'center',
+    marginTop: '10px',
+    color:'white',
+    backgroundColor: '#3eb489',
   },
   purple: {
     color: theme.palette.getContrastText(deepPurple[500]),
