@@ -11,7 +11,7 @@ import Auth from './components/Auth/Auth';
 import DegreesList from './components/DegreesList/DegreesList';
 import SearchDegreesList from './components/SearchDegreesList/SearchDegreesList';
 import Admin from './components/Admin/Admin';
-import AddDegree from './components/AddDegree/AddDegree';
+import AddDegreeStepper from './components/AddDegreeStepper/AddDegreeStepper';
 import Footer from './components/Footer/Footer';
 import Plan from './components/Plan/Plan';
 
@@ -40,7 +40,7 @@ const App = () => {
                         !localStorage.getItem('profile') ? (
                             <Redirect to="/csc530/dev/auth"/>
                         ) : (
-                            <AddDegree/>
+                            <AddDegreeStepper/>
                         )
                     )}/>
                     <Route path='/csc530/dev/degrees/:id' component= {Plan}/>
