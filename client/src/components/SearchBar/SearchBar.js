@@ -29,12 +29,14 @@ const SearchBar = () => {
     return (
         <Grow in>
             <Container>
+                <form>
                 <center>
                     <InputBase className={classes.input} placeholder="Search for a Plan" inputProps={{ 'aria-label': 'search for a plan' }} value={searchData.DepartmentName} onChange={(e) => setSearchData({ ...searchData, DegreeName: e.target.value })}/>
                     <IconButton type="submit" className={classes.iconButton} aria-label="search" onClick = {handleSubmit}>
                         Search <SearchIcon />
                     </IconButton>
                 </center>
+                </form>
             </Container>
         </Grow>
     )

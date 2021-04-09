@@ -1,5 +1,5 @@
 import React from 'react';
-import { Popover, Popper, AccordionSummary, Container, Box, Typography, IconButton, Paper } from '@material-ui/core';
+import { Fade, Popper, AccordionSummary, Container, Box, Typography, IconButton, Paper, Grow } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 import CloseIcon from '@material-ui/icons/Close';
 
@@ -26,14 +26,15 @@ const Course = ({ course, style }) => {
                 <Typography className={classes.id} variant="body1">{course.CourseID}</Typography>
                 <Typography className={classes.title} variant="body1">{course.CourseTitle}</Typography>
                 <Typography className={classes.credits} variant="body2">{course.CreditHours} Credits</Typography>
-                </Box>
+            </Box>
                 <Popper id={id} open={open} anchorEl={anchorEl}>
+                    <Grow in>
                     <Paper className={classes.paper}>
                         <IconButton onClick={handleClose} className={classes.closeicon}>
                             <CloseIcon/>
                         </IconButton>
                         <div>
-                        <Typography className={classes.title} variant="body1">{course.CourseID}</Typography>
+                        <Typography className={classes.title1} variant="body1">{course.CourseID}</Typography>
                         </div>
                         <Typography className={classes.title} variant="body1">{course.CourseTitle}</Typography>
                         <div>
@@ -48,6 +49,7 @@ const Course = ({ course, style }) => {
                             <Typography className={classes.details} variant="body2">Corequisites: {course.CoReqs}</Typography>
                         </div>
                     </Paper>
+                    </Grow>
                 </Popper>
         </Paper>
     );

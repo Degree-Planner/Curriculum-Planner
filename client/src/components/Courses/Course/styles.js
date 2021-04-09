@@ -44,6 +44,10 @@ export default makeStyles({
   title: {
     padding: '0 16px',
   },
+  title1: {
+    fontWeight: 'bold',
+    padding: '0 16px',
+  },
   credits: {
     //padding: '0 100px',
     position: 'absolute',

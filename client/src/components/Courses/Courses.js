@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, CircularProgress, Container, Typography, Fade } from '@material-ui/core';
+import { Grid, CircularProgress, Container, Typography, Fade, Paper } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 import { withStyles } from "@material-ui/core/styles";
 
@@ -46,6 +46,17 @@ const styles = theme => ({
     //boxShadow: '0 3px 5px 2px rgba(0, 0, 0, 1)',
     padding: '10px',
   },
+  credits: {
+    backgroundColor: '#ffffff',
+    border: '2px solid rgba(0, 0, 128, 1)',
+    padding: '0 45px',
+    fontWeight: 'bold',
+  },
+  paper: {
+    padding: '0 0 20px',
+    
+    //color: '#ffffff',
+  },
 });
 
 class Courses extends React.Component {
@@ -79,6 +90,12 @@ class Courses extends React.Component {
       const courses = this.state.courses
       const course = this.state.course
 
+      const TermCredits = (term) => {
+        var result = 0
+        courses.map((currentcourse) => result += currentcourse.Term === term ? currentcourse.CreditHours : 0)
+        return result
+      }
+
       var terms = (courses.map(Course => Course.Term))
       terms = terms.filter((v, i, a) => a.indexOf(v) === i); 
       terms.sort()
@@ -91,6 +108,9 @@ class Courses extends React.Component {
             {terms.map((term) => (
               <Container className={classes.container}>
                 <Typography className={classes.heading} variant="h3" align="center">Term {term}</Typography>
+                <Container align={'right'} className={classes.paper}>
+                  <Typography className={classes.credits}>{TermCredits(term)} Credit Hours</Typography>
+                </Container>
                 <Term term={term} courses={courses} hovered={hovered} course={course} red={red} lightRed={lightRed} white={white} green={green} lightGreen={lightGreen} onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}/>
               <br></br>
               </Container>

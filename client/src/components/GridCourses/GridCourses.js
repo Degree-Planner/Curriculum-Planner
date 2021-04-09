@@ -85,7 +85,7 @@ class GridCourses extends React.Component {
   };
 
   onMouseEnter = (e, course) => {
-    this.setState({ hovered: true, course: course });
+    this.setState({ hovered: true, course: course});
   };
 
   onMouseLeave = e => {
@@ -107,7 +107,7 @@ class GridCourses extends React.Component {
         var result = 0
         courses.map((currentcourse) => result += currentcourse.Term === term ? currentcourse.CreditHours : 0)
         return result
-    }
+      }
 
       var terms = (courses.map(Course => Course.Term))
       terms = terms.filter((v, i, a) => a.indexOf(v) === i); 

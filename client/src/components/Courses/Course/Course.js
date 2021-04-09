@@ -16,7 +16,7 @@ const Course = ({ course, style }) => {
             <AccordionSummary 
                 expandIcon={<ExpandMoreIcon />}>
                 <div>
-                    <Typography className={classes.title} variant="body1">{course.CourseID}</Typography>
+                    <Typography className={classes.title1} variant="body1">{course.CourseID}</Typography>
                 </div>
                 <Typography className={classes.title} variant="body1">{course.CourseTitle}</Typography>
                 <div>

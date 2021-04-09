@@ -43,9 +43,14 @@ export default makeStyles((theme) => ({
   },
   id: {
     fontSize: '17px',
+    fontWeight: 'bold',
   },
   title: {
     fontSize: '15px',
+  },
+  title1: {
+    fontSize: '15px',
+    fontWeight: 'bold',
   },
   credits: {
     //padding: '0 100px',
