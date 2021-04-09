@@ -13,6 +13,11 @@ const AddDegree = () => {
         e.preventDefault();
 
         dispatch(createDegree(degreeData));
+        clear();
+    }
+
+    const clear = () =>{
+        setDegreeData({DegreeName: '', DegreeDescription: ''});
     }
 
     return (

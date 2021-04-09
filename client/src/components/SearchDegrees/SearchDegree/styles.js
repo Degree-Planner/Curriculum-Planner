@@ -54,4 +54,7 @@ export default makeStyles({
     display: 'table',
     justifyContent: 'space-between',
   },
+  container: {
+    marginBottom: 10
+  },
 });

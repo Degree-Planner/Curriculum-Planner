@@ -10,20 +10,16 @@ export default makeStyles((theme) => ({
     },
     marginRight: theme.spacing(2),
     marginLeft: 0,
+    marginBottom: 30,
+    marginTop: 30,
     width: '100%',
     [theme.breakpoints.up('sm')]: {
       marginLeft: theme.spacing(3),
       width: '700px',
     },
   },
-  searchIcon: {
-    padding: theme.spacing(0, 2),
-    height: '100%',
-    position: 'absolute',
-    pointerEvents: 'none',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+  iconButton: {
+    marginBottom: 10,
   },
   
 }));
