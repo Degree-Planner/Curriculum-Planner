@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Paper, Grow, Grid, Tabs, Tab, Typography, Container, Box, AppBar } from '@material-ui/core';
+import { Paper, Grow, Slide, Tabs, Tab, Typography, Container, Box, AppBar } from '@material-ui/core';
 import { useState } from 'react';
 import { useLocation, Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -54,7 +54,7 @@ const Plan = () => {
         !location.degree ? (
             <Redirect to="/csc530/dev/degrees"/>
         ) : (
-            <Grow in>
+            <Slide in>
                 <Paper variant="outlined" className={classes.paper}>
                     <Box className={classes.box}>
                     <Typography className={classes.heading} variant="h2" indicatorColor="primary" align="center">{location.degree.DegreeName}</Typography>
@@ -81,7 +81,7 @@ const Plan = () => {
                     </TabPanel>
                     
                 </Paper>
-        </Grow>
+        </Slide>
         )
     )
 }
