@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Stepper, Step, Button, Typography, StepLabel} from '@material-ui/core';
 import AddDegree from '../AddDegree/AddDegree';
 import Form from '../Form/Form';
@@ -10,24 +10,28 @@ function getSteps() {
   return ['Add Degree Info', 'Add Course Info', 'Review'];
 }
 
-function getStepContent(step) {
-  switch (step) {
-    case 0:
-      return <AddDegree></AddDegree>;
-    case 1:
-      return <Form></Form>;
-    case 2:
-      return <AddDegreeStepperReview></AddDegreeStepperReview>;
-    default:
-      return 'Error: Unknown step';
-  }
-}
 
-export default function AddDegreeStepper() {
+
+export default function AddDegreeStepper({degreeInfo}) {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
   const steps = getSteps();
+  //const [degreeData, setDegreeData] = useState({DegreeName: '', DegreeDescription: ''});
+  console.log("DegreeInfo: ", degreeInfo);
+
+  const getStepContent=(step)=> {
+    switch (step) {
+      case 0:
+        return <AddDegree degreeInformation={degreeInformation}></AddDegree>;
+      case 1:
+        return <Form></Form>;
+      case 2:
+        return <AddDegreeStepperReview></AddDegreeStepperReview>;
+      default:
+        return 'Error: Unknown step';
+    }
+  }
 
 
   const isStepSkipped = (step) => {
@@ -43,7 +47,12 @@ export default function AddDegreeStepper() {
 
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
     setSkipped(newSkipped);
+
   };
+
+  const degreeInformation = (degreeData) =>{
+    console.log('next', degreeData);
+  }
 
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
