@@ -12,13 +12,13 @@ const AddDegree = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        dispatch(createDegree(degreeData));
-        clear();
+        //dispatch(createDegree(degreeData));
+        //clear();
     }
 
-    const clear = () =>{
+    /*const clear = () =>{
         setDegreeData({DegreeName: '', DegreeDescription: ''});
-    }
+    }*/
 
     return (
         <Paper className={classes.paper}>

@@ -26,7 +26,6 @@ const Home = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(searchData);
-        //dispatch(UserSearch(searchData));
     }
     
     
@@ -40,6 +39,7 @@ const Home = () => {
                     <SearchBar/>
                     <Button variant="contained" size="large" color="primary" component={Link} to="/csc530/dev/degrees">View All Plans</Button>
                     </center>
+                    <div className={classes.spacer}></div>
             </Container>
         </Grow>
     )

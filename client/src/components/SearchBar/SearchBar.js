@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 import useStyles from './styles';
 
 const SearchBar = () => {
-    const searchText = 'Computer Science B.S.';
+    //const searchText = 'Computer Science B.S.';
     const degrees = useSelector((state) => state.degrees);
 
     const classes = useStyles();
