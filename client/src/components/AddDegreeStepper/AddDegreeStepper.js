@@ -24,7 +24,7 @@ export default function AddDegreeStepper({degreeInfo}) {
   var temp = [];
   //console.log("DegreeInfo",savedDegreeData);
 
-  //console.log("DegreeInfo: ", localStorage.getItem('degrees'));
+  console.log("DegreeInfo: ", localStorage.getItem('degrees'));
   //console.log("DegreeName: ", JSON.parse(localStorage.getItem('degrees')).DegreeName);
 
   //console.log("CourseInfo: ", savedCourseData);
@@ -37,7 +37,7 @@ export default function AddDegreeStepper({degreeInfo}) {
       case 1:
         return <Form courseInformation={courseInformation}></Form>;
       case 2:
-        return <AddDegreeStepperReview></AddDegreeStepperReview>;
+        return <AddDegreeStepperReview degreeInformation={JSON.parse(localStorage.getItem('degrees'))} courseInformation={JSON.parse(localStorage.getItem('courses'))}></AddDegreeStepperReview>;
       default:
         return 'Error: Unknown step';
     }
@@ -66,7 +66,7 @@ export default function AddDegreeStepper({degreeInfo}) {
       console.log("Initial Pull", localStorage.getItem('courses'));
       //savedCourseData.push(localStorage.getItem('courses'));
       temp.push(courseData);
-      localStorage.clear();
+      //localStorage.clear();
       
       localStorage.setItem('courses', JSON.stringify(temp));
       //savedCourseData.push(localStorage.getItem('courses'));

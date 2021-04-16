@@ -3,11 +3,17 @@ import { Paper, Grow, Typography} from '@material-ui/core';
 
 import useStyles from './styles';
 
-const AddDegreeStepperReview = () => {
+const AddDegreeStepperReview = ({degreeInformation, courseInformation}) => {
     const classes = useStyles();
-    const degreeName = 'Placeholder';
-    const degreeDescription = 'Placeholder';
+    const degreeName = degreeInformation.DegreeName;
+    console.log("Review Degree Information: ", degreeInformation);
+    console.log("Review Degree Name: ", degreeInformation.DegreeName);
+    console.log("Review Degree Description: ", degreeInformation.DegreeDescription);
+    const degreeDescription = degreeInformation.DegreeDescription;
     const courses = ['Placeholder'];
+    console.log("Review Course Information: ", courseInformation);
+    console.log("Review Dept Code: ", courseInformation[0].DepartmentCode);
+    console.log("Review Course Number: ", courseInformation[0].CourseNumber);
 
     
     
