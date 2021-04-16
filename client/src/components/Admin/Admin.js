@@ -18,7 +18,7 @@ const Admin = () => {
                     <br></br>
                     <br></br>
                     <Button variant="contained" className={classes.buttons} size="large" color="primary" component={Link} to="/csc530/dev/admin/add">Add Degree</Button>
-                    <Button variant="contained" className={classes.buttons} size="large" color="primary" component={Link} to="/csc530/dev/degrees">Edit Existing Degree</Button>
+                    <Button variant="contained" className={classes.buttons} size="large" color="primary" component={Link} to="/csc530/dev/admin/editdegree">Edit Existing Degree</Button>
             </Container>
         </Grow>
     )

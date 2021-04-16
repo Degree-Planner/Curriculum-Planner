@@ -8,6 +8,6 @@ router.get('/', getDegrees);
 router.get('/', getCourses);
 //router.get('/search', searchDegrees);
 router.post('/', createDegree);
-router.patch('/', updateDegree);
+router.patch('/:id', updateDegree);
 
 export default router;

@@ -56,7 +56,7 @@ export const updateDegree = async (req, res) => {
     
     if(!mongoose.Types.ObjectId.isValid(_id)) return res.status(404).send('No post with that id');
 
-    const updatedDegree = await DegreeMessage.findByIdAndUpdate(_id, degree, { new: true });
+    const updatedDegree = await DegreeInformation.findByIdAndUpdate(_id, degree, { new: true });
 
     res.json(updatedDegree);
 }

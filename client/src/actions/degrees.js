@@ -39,11 +39,10 @@ export const createDegree = (degree) => async (dispatch) => {
     }
 }
 
-export const updateDegree = (degree) => async (dispatch) => {
+export const updateDegree = (id, degree) => async (dispatch) => {
     try{
-          const {data} = await api.updateDegree(degree);
-          
-          dispatch({type: 'UPDATE', payload: data});
+        const {data} = await api.updateDegree(id, degree);
+        dispatch({type: 'UPDATE', payload: data});
     }
     catch(error){
         console.log(error.message);
