@@ -17,4 +17,7 @@ export default makeStyles((theme) => ({
       marginTop: theme.spacing(1),
       marginBottom: theme.spacing(1),
     },
+    container: {
+      marginBottom: 20,
+    },
   }));
