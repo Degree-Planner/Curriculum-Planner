@@ -8,7 +8,8 @@ export default makeStyles((theme) => ({
   },
   subheading: {
     color: 'rgba(0,0,102, 1)',
-    marginLeft: 150
+    marginLeft: 150,
+    fontSize: 16
   },
   info: {
     color: 'rgba(0,0,102, 1)',

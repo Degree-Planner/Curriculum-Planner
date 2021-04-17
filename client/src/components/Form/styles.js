@@ -21,4 +21,12 @@ export default makeStyles((theme) => ({
   buttonSubmit: {
     marginBottom: 10,
   },
+  title: {
+    color: 'rgba(0,0,102, 1)',
+  },
+  note: {
+    color: 'rgba(0,0,102, 1)',
+    fontSize: 12,
+    fontStyle: 'italic'
+  },
 }));

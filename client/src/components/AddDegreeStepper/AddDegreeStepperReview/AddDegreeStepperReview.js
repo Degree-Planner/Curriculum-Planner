@@ -97,7 +97,7 @@ const AddDegreeStepperReview = ({degreeInformation, courseInformation}) => {
                   </AccordionDetails>
                   <AccordionDetails className={classes.details}>
                       <div>
-                          <Typography className={classes.details} variant="body5">Minimum Grade: {courseInformation.MinimumGrade}</Typography>
+                          <Typography className={classes.details} variant="body5">Minimum Grade: {courseInformation.MinimumGrade.toUpperCase()}</Typography>
                       </div>
                   </AccordionDetails>
                   <AccordionDetails className={classes.details}>
@@ -136,7 +136,7 @@ const AddDegreeStepperReview = ({degreeInformation, courseInformation}) => {
                   </AccordionDetails>
                   <AccordionDetails className={classes.details}>
                       <div>
-                          <Typography className={classes.details} variant="body5">Minimum Grade: {courseInformation.MinimumGrade}</Typography>
+                          <Typography className={classes.details} variant="body5">Minimum Grade: {courseInformation.MinimumGrade.toUpperCase()}</Typography>
                       </div>
                   </AccordionDetails>
                   <AccordionDetails className={classes.details}>
@@ -175,7 +175,7 @@ const AddDegreeStepperReview = ({degreeInformation, courseInformation}) => {
                   </AccordionDetails>
                   <AccordionDetails className={classes.details}>
                       <div>
-                          <Typography className={classes.details} variant="body5">Minimum Grade: {courseInformation.MinimumGrade}</Typography>
+                          <Typography className={classes.details} variant="body5">Minimum Grade: {courseInformation.MinimumGrade.toUpperCase()}</Typography>
                       </div>
                   </AccordionDetails>
                   <AccordionDetails className={classes.details}>
@@ -214,7 +214,7 @@ const AddDegreeStepperReview = ({degreeInformation, courseInformation}) => {
                   </AccordionDetails>
                   <AccordionDetails className={classes.details}>
                       <div>
-                          <Typography className={classes.details} variant="body5">Minimum Grade: {courseInformation.MinimumGrade}</Typography>
+                          <Typography className={classes.details} variant="body5">Minimum Grade: {courseInformation.MinimumGrade.toUpperCase()}</Typography>
                       </div>
                   </AccordionDetails>
                   <AccordionDetails className={classes.details}>
