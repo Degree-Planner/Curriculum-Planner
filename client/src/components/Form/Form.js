@@ -5,15 +5,22 @@ import useStyles from './styles';
 import { createCourse } from '../../actions/courses';
     
 const Form = ({courseInformation}) => {
-    const [courseData, setCourseData] = useState({DepartmentCode: '', CourseNumber: Number, CourseTitle: '', CourseDescription: '', MinimumGrade: '', CreditHours: Number, PreReqs: '', CoReqs: '', Term: Number});
+    const [courseData, setCourseData] = useState({DepartmentCode: '', CourseNumber: Number, CourseTitle: '', CourseDescription: '', MinimumGrade: '', CreditHours: '', PreReqs: '', CoReqs: '', Term: ''});
     const classes = useStyles();
     const dispatch = useDispatch();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        courseInformation(courseData);
         //dispatch(createCourse(courseData));
-        clear();
+
+        if(courseData.DepartmentCode == "" || courseData.CourseNumber == "" || courseData.CourseTitle == "" || courseData.CourseDescription == "" || courseData.MinimumGrade == "" || courseData.CreditHours == "" || courseData.Term == ""){
+            console.log("Please enter data in all required fields");
+            console.log("Required fields: Department Code, Course Number, Course Title, Course Description, Minimum Grade, Credit Hours, and Term");
+        }
+        else{
+            courseInformation(courseData);
+            clear();
+        }
 
     }
 
@@ -30,7 +37,7 @@ const Form = ({courseInformation}) => {
             <TextField name="coursetitle" variant="outlined" label="Course Title" placeholder="Ex. Introduction to Problem Solving Using Computers" fullWidth value={courseData.CourseTitle} onChange={(e) => setCourseData({ ...courseData, CourseTitle: e.target.value })}/>
             <TextField name="coursedescription" variant="outlined" label="Course Description" placeholder="Ex. This course is an introduction to problem-solving using computers..." fullWidth value={courseData.CourseDescription} onChange={(e) => setCourseData({ ...courseData, CourseDescription: e.target.value })}/>
             <TextField name="minimumgrade" variant="outlined" label="Minimum Grade" placeholder="Ex. C" fullWidth value={courseData.MinimumGrade} onChange={(e) => setCourseData({ ...courseData, MinimumGrade: e.target.value })}/>
-            <TextField name="credithours" variant="outlined" label="Credit Hours" placeholder="Ex. 6" fullWidth value={courseData.CreditHours} onChange={(e) => setCourseData({ ...courseData, CreditHours: e.target.value })}/>
+            <TextField name="credithours" variant="outlined" label="Credit Hours" placeholder="Ex. 3" fullWidth value={courseData.CreditHours} onChange={(e) => setCourseData({ ...courseData, CreditHours: e.target.value })}/>
             <TextField name="prerequisites" variant="outlined" label="Prerequisites" placeholder="Ex. CSC 223, CSC 310"fullWidth value={courseData.PreReqs} onChange={(e) => setCourseData({ ...courseData, PreReqs: e.target.value })}/>
             <TextField name="corequisites" variant="outlined" label="Corequisites" placeholder="Ex. CSC 125, CSC 325" fullWidth value={courseData.CoReqs} onChange={(e) => setCourseData({ ...courseData, CoReqs: e.target.value })}/>
             <TextField name="term" variant="outlined" label="Term" placeholder="Ex. 1" fullWidth value={courseData.Term} onChange={(e) => setCourseData({ ...courseData, Term : e.target.value })}/>

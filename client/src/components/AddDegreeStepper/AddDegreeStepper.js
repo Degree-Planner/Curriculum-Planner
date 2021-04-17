@@ -19,6 +19,7 @@ export default function AddDegreeStepper({degreeInfo}) {
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
   const steps = ['Add Degree Info', 'Add Course Info', 'Review'];
+  var numCourseAdded = 0;
   //var savedDegreeData;
   var savedCourseData = [];
   var temp = [];
@@ -44,7 +45,15 @@ export default function AddDegreeStepper({degreeInfo}) {
   }
 
   const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    if(activeStep == 0 && (JSON.parse(localStorage.getItem('degrees')).DegreeName == "" || JSON.parse(localStorage.getItem('degrees')).DegreeDescription == "")){
+      console.log("Please enter a degree name and description to continue");
+    }
+    else if(activeStep == 1 && numCourseAdded < 1){
+      console.log("Please add at least one course to continue");
+    }
+    else{
+      setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    }
 
   };
 
@@ -74,6 +83,7 @@ export default function AddDegreeStepper({degreeInfo}) {
       
       console.log("CoursesAfter: ", localStorage.getItem('courses'));
       console.log("Array", savedCourseData);
+      numCourseAdded++;
     }
     //console.log(savedCourseData);
   
