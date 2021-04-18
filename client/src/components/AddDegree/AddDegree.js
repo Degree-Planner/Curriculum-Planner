@@ -6,7 +6,7 @@ import { createDegree } from '../../actions/degrees';
 import { useHistory } from 'react-router-dom';
     
 const AddDegree = ({degreeInformation}) => {
-    const [degreeData, setDegreeData] = useState({DegreeName: '', DegreeDescription: ''});
+    const [degreeData, setDegreeData] = useState({DegreeName: '', DegreeDescription: '', Courses: []});
     const classes = useStyles();
     const dispatch = useDispatch();
     const history = useHistory();

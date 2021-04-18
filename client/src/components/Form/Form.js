@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import useStyles from './styles';
 import { createCourse } from '../../actions/courses';
     
-const Form = ({courseInformation}) => {
+const Form = ({courseInformation, updateCourseInfo}) => {
     const [courseData, setCourseData] = useState({DepartmentCode: '', CourseNumber: '', CourseTitle: '', CourseDescription: '', MinimumGrade: '', CreditHours: '', PreReqs: '', CoReqs: '', Term: ''});
     const classes = useStyles();
     const dispatch = useDispatch();
@@ -20,6 +20,7 @@ const Form = ({courseInformation}) => {
         else{
             courseInformation(courseData);
             clear();
+            updateCourseInfo();
         }
 
     }
