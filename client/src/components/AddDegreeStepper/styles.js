@@ -17,4 +17,17 @@ export default makeStyles((theme) => ({
       marginTop: theme.spacing(1),
       marginBottom: theme.spacing(1),
     },
+    container: {
+      marginBottom: 20,
+    },
+    title:{
+
+    },
+    details:{
+      
+    },
+    addedTitle:{
+      color: 'rgba(0,0,102, 1)',
+      fontSize: 20
+    }
   }));

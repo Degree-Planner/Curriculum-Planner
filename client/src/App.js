@@ -14,6 +14,8 @@ import Admin from './components/Admin/Admin';
 import AddDegreeStepper from './components/AddDegreeStepper/AddDegreeStepper';
 import Footer from './components/Footer/Footer';
 import Plan from './components/Plan/Plan';
+import EditDegreeList from './components/EditDegree/EditDegreeList/EditDegreeList';
+import EditDegree from './components/EditDegree/EditDegree';
 
 const App = () => {
     const classes = useStyles();
@@ -29,6 +31,7 @@ const App = () => {
                     <Route path="/csc530/dev/auth" exact component={Auth}/>
                     <Route path="/csc530/dev/degrees" exact component={DegreesList}/>
                     <Route path="/csc530/dev/searchdegree" exact component={SearchDegreesList}/>
+                    <Route path="/csc530/dev/admin/editdegree" exact component={EditDegreeList}/>
                     <Route path="/csc530/dev/admin" exact render={() => (
                         !localStorage.getItem('profile') ? (
                             <Redirect to="/csc530/dev/auth"/>
@@ -44,6 +47,13 @@ const App = () => {
                         )
                     )}/>
                     <Route path='/csc530/dev/degrees/:id' component= {Plan}/>
+                    <Route path='/csc530/dev/admin/edit/:id' exact render = {() => (
+                        !localStorage.getItem('profile') ? (
+                            <Redirect to="/csc530/dev/auth"/>
+                        ) : (
+                            <EditDegree/>
+                        )
+                    )}/>
                 </Switch>
                 </div>
                 <Footer/>
