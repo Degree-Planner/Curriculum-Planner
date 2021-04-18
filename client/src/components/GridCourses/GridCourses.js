@@ -17,15 +17,15 @@ const styles = theme => ({
     backgroundColor: '#000000',
   },
   grid: {
-    maxWidth: '150px',
+    //maxWidth: '150px',
   },
   heading: {
     color: '#ffffff',
-    fontSize: '30px',
+    fontSize: '20px',
   },
   credits: {
     color: '#ffffff',
-    fontSize: '15px',
+    fontSize: '12px',
   },
   course: {
     backgroundColor: '#ff0000',
@@ -37,7 +37,7 @@ const styles = theme => ({
   course1: {
     backgroundColor: '#ffffff',
     maxWidth: 'auto',
-    maxHeight: 'auto',
+    height: 'auto',
     border: '1px solid rgba(0, 0, 0, 0.3)',
     padding: theme.spacing(1),
     textAlign: 'center',
@@ -117,7 +117,7 @@ class GridCourses extends React.Component {
         !courses.length ? <CircularProgress /> : (
           <div className={classes.root}>
             <Fade in>
-          <Grid container>
+          <Grid container wrap={'nowrap'}>
             {terms.map((term) => (
               <Grid className={classes.grid} direction={'column'} item xs={terms.length}>
                 <Container align={'center'} className={classes.paper}>

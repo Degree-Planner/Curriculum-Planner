@@ -15,7 +15,7 @@ const Footer = () => {
     const logout = () => {
         dispatch({ type: 'LOGOUT' });
 
-        history.push('/csc530/dev');
+        history.push('/');
 
         setUser(null);
     };
