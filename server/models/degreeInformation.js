@@ -7,7 +7,8 @@ const courseSchema = mongoose.Schema({
     MinimumGrade: String,
     CreditHours: Number,
     PreReqs: [String],
-    CoReqs: [String]
+    CoReqs: [String],
+    Term: Number,
 });
 
 const degreeSchema = mongoose.Schema({
