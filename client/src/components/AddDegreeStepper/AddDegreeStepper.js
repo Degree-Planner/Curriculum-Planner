@@ -180,7 +180,7 @@ export default function AddDegreeStepper({degreeInfo}) {
                   <AccordionSummary 
                       expandIcon={<ExpandMoreIcon />}>
                       <div>
-                          <Typography className={classes.title} variant="body1">{savedCourseData.DepartmentCode} {savedCourseData.CourseNumber} {savedCourseData.CourseTitle}</Typography>
+                          <Typography className={classes.title} variant="body1">{savedCourseData.CourseID} {savedCourseData.CourseTitle}</Typography>
                       </div>
                   </AccordionSummary>
                   <AccordionDetails className={classes.details}>

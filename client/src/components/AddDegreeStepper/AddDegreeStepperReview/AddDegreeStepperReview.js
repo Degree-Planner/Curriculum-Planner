@@ -87,7 +87,7 @@ const AddDegreeStepperReview = ({degreeInformation, courseInformation}) => {
                   <AccordionSummary 
                       expandIcon={<ExpandMoreIcon />}>
                       <div>
-                          <Typography className={classes.title} variant="body1">{courseInformation.DepartmentCode} {courseInformation.CourseNumber} {courseInformation.CourseTitle}</Typography>
+                          <Typography className={classes.title} variant="body1">{courseInformation.CourseID} {courseInformation.CourseTitle}</Typography>
                       </div>
                   </AccordionSummary>
                   <AccordionDetails className={classes.details}>
@@ -126,7 +126,7 @@ const AddDegreeStepperReview = ({degreeInformation, courseInformation}) => {
                   <AccordionSummary 
                       expandIcon={<ExpandMoreIcon />}>
                       <div>
-                          <Typography className={classes.title} variant="body1">{courseInformation.DepartmentCode} {courseInformation.CourseNumber} {courseInformation.CourseTitle}</Typography>
+                          <Typography className={classes.title} variant="body1">{courseInformation.CourseID} {courseInformation.CourseTitle}</Typography>
                       </div>
                   </AccordionSummary>
                   <AccordionDetails className={classes.details}>
@@ -165,7 +165,7 @@ const AddDegreeStepperReview = ({degreeInformation, courseInformation}) => {
                   <AccordionSummary 
                       expandIcon={<ExpandMoreIcon />}>
                       <div>
-                          <Typography className={classes.title} variant="body1">{courseInformation.DepartmentCode} {courseInformation.CourseNumber} {courseInformation.CourseTitle}</Typography>
+                          <Typography className={classes.title} variant="body1">{courseInformation.CourseID} {courseInformation.CourseTitle}</Typography>
                       </div>
                   </AccordionSummary>
                   <AccordionDetails className={classes.details}>
@@ -204,7 +204,7 @@ const AddDegreeStepperReview = ({degreeInformation, courseInformation}) => {
                   <AccordionSummary 
                       expandIcon={<ExpandMoreIcon />}>
                       <div>
-                          <Typography className={classes.title} variant="body1">{courseInformation.DepartmentCode} {courseInformation.CourseNumber} {courseInformation.CourseTitle}</Typography>
+                          <Typography className={classes.title} variant="body1">{courseInformation.CourseID} {courseInformation.CourseTitle}</Typography>
                       </div>
                   </AccordionSummary>
                   <AccordionDetails className={classes.details}>

@@ -27,8 +27,10 @@ const Admin = () => {
                     <Typography className={classes.heading} variant="h5" align="center">Create a degree or edit an existing degree.</Typography>
                     <br></br>
                     <br></br>
-                    <Button variant="contained" className={classes.buttons} size="large" color="primary" onClick={handleClick}>Add Degree</Button>
-                    <Button variant="contained" className={classes.buttons} size="large" color="primary" component={Link} to="/csc530/dev/admin/editdegree">Edit Existing Degree</Button>
+                    <center>
+                        <Button variant="contained" className={classes.buttons} size="large" color="primary" onClick={handleClick}>Add Degree</Button>
+                        <Button variant="contained" className={classes.buttons} size="large" color="primary" component={Link} to="/csc530/dev/admin/editdegree">Edit Existing Degree</Button>
+                    </center>
             </Container>
         </Grow>
     )
