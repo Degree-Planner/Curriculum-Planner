@@ -61,3 +61,12 @@ export const updateDegree = async (req, res) => {
     res.json(updatedDegree);
 }
 
+export const deleteDegree = async (req, res) => {
+    const {id: _id} = req.params;
+
+    if(!mongoose.Types.ObjectId.isValid(_id)) return res.status(404).send('No post with that id');
+
+    await DegreeInformation.findByIdAndRemove(_id);
+    
+    res.json({message: 'Degree deleted successfully'});
+}

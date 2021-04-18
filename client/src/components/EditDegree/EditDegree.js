@@ -3,7 +3,8 @@ import { TextField, Button, Typography, Paper } from "@material-ui/core";
 import { useDispatch, useSelector } from 'react-redux';
 import useStyles from './styles';
 import { updateDegree } from '../../actions/degrees';
-import {useLocation, Redirect} from 'react-router-dom'
+import {useLocation, Redirect} from 'react-router-dom';
+import {deleteDegree} from '../../actions/degrees';
     
 const EditDegree = ({currentId, setCurrentId}) => {
     const [degreeData, setDegreeData] = useState({DegreeName: '', DegreeDescription: ''});
@@ -31,6 +32,19 @@ const EditDegree = ({currentId, setCurrentId}) => {
         clear();
     }
 
+    const handleDelete = (e) => {
+        e.preventDefault();
+        if(location.degree){
+            alert("Deleting Degree");
+            dispatch(deleteDegree(location.degree._id));
+            alert("Degree Sucessfully Deleted");
+        }else
+            <Redirect to='/csc530/dev/admin'/>
+
+        clear();
+
+    }
+
     const clear = () =>{
         setDegreeData({DegreeName: '', DegreeDescription: ''});
     }
@@ -46,7 +60,7 @@ const EditDegree = ({currentId, setCurrentId}) => {
             <TextField name="degreedescription" multiline rows={5} variant="outlined" label="Degree Description" fullWidth value={degreeData.DegreeDescription} onChange={(e) => setDegreeData({ ...degreeData, DegreeDescription: e.target.value })}/>
             <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
             <br></br>
-            <Button className={classes.buttonSubmit} variant="contained" color="Red" size="large" type="submit" fullWidth>DELETE</Button>
+            <Button className={classes.buttonSubmit} variant="contained" color="Red" size="large" fullWidth onClick={handleDelete}>DELETE</Button>
             </form>
         </Paper>
         )

@@ -48,3 +48,14 @@ export const updateDegree = (id, degree) => async (dispatch) => {
         console.log(error.message);
     }
 }
+
+export const deleteDegree = (id) => async (dispatch) => {
+    try{
+        await api.deleteDegree(id);
+
+        dispatch({type: 'DELETE', payload: id});
+    }catch(error)
+    {
+        console.log(error);
+    }
+}

@@ -19,3 +19,5 @@ export const fetchDegrees = () => API.get('/degrees');
 export const createDegree = (newDegree) => API.post('/degrees', newDegree);
 
 export const updateDegree = (id, updatedDegree) => API.patch(`/degrees/${id}`, updatedDegree);
+
+export const deleteDegree = (id) => API.delete(`/degrees/${id}`);
