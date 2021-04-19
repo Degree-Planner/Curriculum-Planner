@@ -3,7 +3,7 @@ import { TextField, Button, Typography, Paper } from "@material-ui/core";
 import { useDispatch, useSelector } from 'react-redux';
 import useStyles from './styles';
 import { updateDegree } from '../../actions/degrees';
-import {useLocation, Redirect} from 'react-router-dom';
+import {useLocation, Redirect, useHistory} from 'react-router-dom';
 import {deleteDegree} from '../../actions/degrees';
     
 const EditDegree = ({currentId, setCurrentId}) => {
@@ -12,6 +12,7 @@ const EditDegree = ({currentId, setCurrentId}) => {
     const degree = useSelector((state) => currentId ? state.degree.find((p) => p._id === currentId) : null);
     const classes = useStyles();
     const dispatch = useDispatch();
+    const history = useHistory();
 
     useEffect(() => {
         if(location.degree){
@@ -24,7 +25,7 @@ const EditDegree = ({currentId, setCurrentId}) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if(location.degree){
-            dispatch(updateDegree(location.degree._id, degreeData));
+            dispatch(updateDegree(location.degree._id, degreeData, history));
             console.log(location.degree._id);
         }else
             <Redirect to="/csc530/dev/admin"/>
@@ -36,7 +37,7 @@ const EditDegree = ({currentId, setCurrentId}) => {
         e.preventDefault();
         if(location.degree){
             alert("Deleting Degree");
-            dispatch(deleteDegree(location.degree._id));
+            dispatch(deleteDegree(location.degree._id, history));
             alert("Degree Sucessfully Deleted");
         }else
             <Redirect to='/csc530/dev/admin'/>

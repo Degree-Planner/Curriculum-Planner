@@ -39,21 +39,24 @@ export const createDegree = (degree) => async (dispatch) => {
     }
 }
 
-export const updateDegree = (id, degree) => async (dispatch) => {
+export const updateDegree = (id, degree, history) => async (dispatch) => {
     try{
         const {data} = await api.updateDegree(id, degree);
         dispatch({type: 'UPDATE', payload: data});
+        history.push("/csc530/dev/admin/editdegree");
     }
     catch(error){
         console.log(error.message);
     }
 }
 
-export const deleteDegree = (id) => async (dispatch) => {
+export const deleteDegree = (id, history) => async (dispatch) => {
     try{
         await api.deleteDegree(id);
 
         dispatch({type: 'DELETE', payload: id});
+        
+        history.push("/csc530/dev/admin/editdegree");
     }catch(error)
     {
         console.log(error);
