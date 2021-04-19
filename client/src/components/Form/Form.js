@@ -25,15 +25,25 @@ const Form = ({courseInformation, updateCourseInfo}) => {
 
     }
     const addPreReqs=(value)=>{
-        var temp = value.split(',');
-        console.log(temp);
-        setCourseData({ ...courseData, PreReqs: temp });
+        if(value != ""){
+            var temp = value.split(',');
+            console.log(temp);
+            setCourseData({ ...courseData, PreReqs: temp });
+        }
+        else{
+            setCourseData({ ...courseData, PreReqs: [] });
+        }
     }
 
     const addCoReqs=(value)=>{
-        var temp = value.split(',');
-        console.log(temp);
-        setCourseData({ ...courseData, CoReqs: temp });
+        if(value != ""){
+            var temp = value.split(',');
+            console.log(temp);
+            setCourseData({ ...courseData, CoReqs: temp });
+        }
+        else{
+            setCourseData({ ...courseData, CoReqs: [] });
+        }
     }
 
     const clear = () =>{
@@ -45,7 +55,7 @@ const Form = ({courseInformation, updateCourseInfo}) => {
             <Typography variant="h6" align="center" className={classes.title}>Add Course</Typography>
             <Typography variant="h6" align="center" className={classes.note}>Required fields that are not currently filled are denoted in red</Typography>
             <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
-            <TextField error={courseData.CourseID === ""} name="courseid" variant="outlined" label="CourseID" placeholder="Ex. CSC" fullWidth value={courseData.CourseID} onChange={(e) => setCourseData({ ...courseData, CourseID: e.target.value })}/>
+            <TextField error={courseData.CourseID === ""} name="courseid" variant="outlined" label="CourseID" placeholder="Ex. CSC 101" fullWidth value={courseData.CourseID} onChange={(e) => setCourseData({ ...courseData, CourseID: e.target.value })}/>
             <TextField error={courseData.CourseTitle === ""} name="coursetitle" variant="outlined" label="Course Title" placeholder="Ex. Introduction to Problem Solving Using Computers" fullWidth value={courseData.CourseTitle} onChange={(e) => setCourseData({ ...courseData, CourseTitle: e.target.value })}/>
             <TextField error={courseData.CourseDescription === ""} name="coursedescription" variant="outlined" label="Course Description" placeholder="Ex. This course is an introduction to problem-solving using computers..." fullWidth value={courseData.CourseDescription} onChange={(e) => setCourseData({ ...courseData, CourseDescription: e.target.value })}/>
             <TextField error={courseData.MinimumGrade === ""} inputProps={{ maxLength: 1 }} name="minimumgrade" variant="outlined" label="Minimum Grade" placeholder="Ex. C" fullWidth value={courseData.MinimumGrade} onChange={(e) => setCourseData({ ...courseData, MinimumGrade: e.target.value })}/>
