@@ -5,7 +5,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
 import { useDispatch } from 'react-redux';
 //import {searchDegrees} from '../../actions/degrees';
-import {useHistory} from 'react-router-dom';
+import {useHistory, useLocation} from 'react-router-dom';
 //import { UserSearch } from '../Degrees/Degrees';
 import Degree from '../Degrees/Degree/Degree';
 import SearchBar from '../SearchBar/SearchBar';
@@ -18,6 +18,7 @@ const Home = () => {
     const classes = useStyles();
     const [searchData, setSearchData] = useState({DepartmentName: ''});
     const dispatch = useDispatch();
+    const location = useLocation();
 
     useEffect(() => {
         dispatch(getDegrees());
@@ -39,6 +40,7 @@ const Home = () => {
                     <SearchBar/>
                     <Button variant="contained" size="large" color="primary" component={Link} to="/csc530/dev/degrees">View All Plans</Button>
                     </center>
+                    {location.message ? <Typography className={classes.signin} variant="h5" align="center">{location.message}</Typography> : <br></br>}
                     <div className={classes.spacer}></div>
             </Container>
         </Grow>
