@@ -26,6 +26,22 @@ export default makeStyles((theme) => ({
     details:{
       
     },
+    finish:{
+      marginTop: theme.spacing(1),
+      marginBottom: theme.spacing(1),
+      color: 'rgba(0,150,0, 1)',
+      fontSize: 24,
+    },
+    finishPaper:{
+      marginTop: 20,
+      padding: 20
+    },
+    message:{
+      color: 'rgba(0,0,102, 1)',
+      fontSize: 12,
+      fontStyle: 'italic',
+      marginBottom: 20,
+    },
     addedTitle:{
       color: 'rgba(0,0,102, 1)',
       fontSize: 20

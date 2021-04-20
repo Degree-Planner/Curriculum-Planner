@@ -43,5 +43,4 @@ export default makeStyles((theme) => ({
   spacer: {
     marginTop: '300px',
   },
-  
 }));

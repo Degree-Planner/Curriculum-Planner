@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
-import {Stepper, Step, Button, Typography, StepLabel} from '@material-ui/core';
+import {Stepper, Step, Button, Typography, StepLabel, Paper, Link} from '@material-ui/core';
 import AddDegree from '../AddDegree/AddDegree';
 import Form from '../Form/Form';
 import AddDegreeStepperReview from './AddDegreeStepperReview/AddDegreeStepperReview';
 import useStyles from './styles';
 import { useDispatch } from 'react-redux';
 import { createDegree } from '../../actions/degrees';
+import { useHistory } from 'react-router-dom';
 
 import { Accordion, AccordionSummary, Container, AccordionDetails } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -19,6 +20,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 export default function AddDegreeStepper({degreeInfo}) {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const history = useHistory();
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
   const steps = ['Add Degree Info', 'Add Course Info', 'Review'];
@@ -139,6 +141,11 @@ export default function AddDegreeStepper({degreeInfo}) {
     localStorage.removeItem('degrees');
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    history.push({pathname: `/csc530/dev/degrees`})
+}
+
   return (
     <div className={classes.root}>
       <Stepper activeStep={activeStep}>
@@ -155,7 +162,13 @@ export default function AddDegreeStepper({degreeInfo}) {
       <div>
         {activeStep === steps.length ? (
           <div>
-            <Typography className={classes.instructions}>Your new Degree Plan was added</Typography>
+            <Paper className={classes.finishPaper}>
+              <Typography className={classes.finish} align='center'>Your new Degree Plan was successfully added</Typography>
+              <Typography className={classes.message} align='center'>Click the Reset button at the bottom left to create another degree or click the View All Plans button to navigate to the list of plans</Typography>
+              <center>
+                <Button variant="contained" size="large" color="primary" onClick = {handleSubmit}>View All Plans</Button>
+              </center>
+            </Paper>
             <Button onClick={handleReset} className={classes.button}>Reset</Button>
           </div>
         ) : (
