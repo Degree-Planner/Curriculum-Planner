@@ -20,6 +20,7 @@ export default makeStyles((theme) => ({
   },
   buttonSubmit: {
     marginBottom: 10,
+    marginTop: 10,
   },
   title: {
     color: 'rgba(0,0,102, 1)',
@@ -28,5 +29,11 @@ export default makeStyles((theme) => ({
     color: 'rgba(0,0,102, 1)',
     fontSize: 12,
     fontStyle: 'italic'
+  },
+  formControl:{
+    width: '98.5%',
+    margin: theme.spacing(1),
+    marginTop: 10,
+    minWidth: 120,
   },
 }));
