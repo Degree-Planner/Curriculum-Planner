@@ -13,6 +13,9 @@ export default makeStyles((theme) => ({
   heading: {
     color: 'rgba(0,0,102, 1)',
   },
+  signin: {
+    color: 'rgba(50,150,50, 1)',
+  },
   image: {
     marginLeft: '15px',
   },

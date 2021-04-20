@@ -43,4 +43,8 @@ export default makeStyles((theme) => ({
   spacer: {
     marginTop: '300px',
   },
+  signin: {
+    color: 'rgba(150,50,50, 1)',
+    padding: '20px',
+  },
 }));
