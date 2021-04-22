@@ -16,6 +16,7 @@ import Footer from './components/Footer/Footer';
 import Plan from './components/Plan/Plan';
 import EditDegreeList from './components/EditDegree/EditDegreeList/EditDegreeList';
 import EditDegree from './components/EditDegree/EditDegree';
+import EditDegreeStepper from './components/EditDegreeStepper/EditDegreeStepper';
 import AddAdmin from './components/AddAdmin/AddAdmin';
 
 const App = () => {
@@ -53,7 +54,7 @@ const App = () => {
                         !localStorage.getItem('profile') ? (
                             <Redirect to="/csc530/dev/auth"/>
                         ) : (
-                            <EditDegree/>
+                            <EditDegreeStepper/>
                         )
                     )}/>
                 </Switch>

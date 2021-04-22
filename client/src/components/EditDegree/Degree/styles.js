@@ -28,4 +28,9 @@ export default makeStyles((theme) => ({
   heading: {
     color: '#ffffff',
   },
+  button: {
+    marginLeft: 10,
+    color: 'white',
+    backgroundColor: '#ff5050',
+  },
 }));

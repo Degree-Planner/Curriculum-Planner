@@ -36,7 +36,7 @@ const Degree = ({ degree, currentId, setCurrentId }) => {
             <AccordionSummary 
                 expandIcon={<ExpandMoreIcon />}>
                 <Button color="primary" variant="contained" onClick={handleClick}>EDIT</Button>
-                <Button color="RED" variant="contained" onClick={handleDelete}>DELETE</Button>
+                <Button className={classes.button} variant="contained" onClick={handleDelete}>DELETE</Button>
                 <div>
                     <Typography className={classes.title} variant="body1">{degree.DegreeName}</Typography>
                 </div>

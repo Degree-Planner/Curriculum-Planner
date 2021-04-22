@@ -59,9 +59,6 @@ const EditDegree = ({currentId, setCurrentId}) => {
             <Typography variant="h6">Edit Degree Information</Typography>
             <TextField name="degreename" variant="outlined" label="Degree Name" fullWidth value={degreeData.DegreeName} onChange={(e) => setDegreeData({ ...degreeData, DegreeName: e.target.value })}/>
             <TextField name="degreedescription" multiline rows={5} variant="outlined" label="Degree Description" fullWidth value={degreeData.DegreeDescription} onChange={(e) => setDegreeData({ ...degreeData, DegreeDescription: e.target.value })}/>
-            <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
-            <br></br>
-            <Button className={classes.buttonSubmit} variant="contained" color="Red" size="large" fullWidth onClick={handleDelete}>DELETE</Button>
             </form>
         </Paper>
         )
