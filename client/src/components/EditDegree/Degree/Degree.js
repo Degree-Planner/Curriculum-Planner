@@ -1,14 +1,17 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Accordion, AccordionSummary, Container, Button, Typography, AccordionDetails } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Redirect } from 'react-router-dom';
+import { useDispatch, } from 'react-redux';
+import {deleteDegree} from '../../../actions/degrees';
 
 import useStyles from './styles';
     
 
-const Degree = ({ degree, setCurrentId }) => {
+const Degree = ({ degree, currentId, setCurrentId }) => {
     const classes = useStyles();
     const history = useHistory();
+    const dispatch = useDispatch();
 
     const handleClick = (e) => {
         e.preventDefault();
@@ -17,12 +20,23 @@ const Degree = ({ degree, setCurrentId }) => {
         history.push({pathname: `/csc530/dev/admin/edit/${degree._id}`, degree: degree})
     }
 
+    const handleDelete = (e) => {
+        e.preventDefault();
+        if(degree){
+            alert("Deleting Degree");
+            dispatch(deleteDegree(degree._id, history));
+            alert("Degree Sucessfully Deleted");
+        }else
+            <Redirect to='/csc530/dev/admin'/>
+
+    }
     return (
         <Container maxWidth="sm" className={classes.container}>
         <Accordion className={classes.card}>
             <AccordionSummary 
                 expandIcon={<ExpandMoreIcon />}>
                 <Button color="primary" variant="contained" onClick={handleClick}>EDIT</Button>
+                <Button color="RED" variant="contained" onClick={handleDelete}>DELETE</Button>
                 <div>
                     <Typography className={classes.title} variant="body1">{degree.DegreeName}</Typography>
                 </div>
