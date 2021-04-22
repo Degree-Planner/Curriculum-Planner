@@ -6,7 +6,7 @@ import { updateDegree } from '../../actions/degrees';
 import {useLocation, Redirect, useHistory} from 'react-router-dom';
 import {deleteDegree} from '../../actions/degrees';
     
-const EditDegree = ({currentId, setCurrentId}) => {
+const EditDegree = ({currentId, setCurrentId, degreeInformation}) => {
     const [degreeData, setDegreeData] = useState({DegreeName: '', DegreeDescription: ''});
     const location = useLocation();
     const degree = useSelector((state) => currentId ? state.degree.find((p) => p._id === currentId) : null);
@@ -55,7 +55,7 @@ const EditDegree = ({currentId, setCurrentId}) => {
             <Redirect to="/csc530/dev/admin"/>
         ) : (
         <Paper className={classes.paper}>
-            <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
+            <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={degreeInformation(degreeData)}>
             <Typography variant="h6">Edit Degree Information</Typography>
             <TextField name="degreename" variant="outlined" label="Degree Name" fullWidth value={degreeData.DegreeName} onChange={(e) => setDegreeData({ ...degreeData, DegreeName: e.target.value })}/>
             <TextField name="degreedescription" multiline rows={5} variant="outlined" label="Degree Description" fullWidth value={degreeData.DegreeDescription} onChange={(e) => setDegreeData({ ...degreeData, DegreeDescription: e.target.value })}/>
