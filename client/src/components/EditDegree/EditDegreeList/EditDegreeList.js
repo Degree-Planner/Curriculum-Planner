@@ -12,6 +12,9 @@ const EditDegreeList = () => {
     useEffect(() => {
         dispatch(getDegrees());
     }, [dispatch]);
+
+    localStorage.removeItem('courses');
+    localStorage.removeItem('degrees');
     
     return (
         <Grow in>

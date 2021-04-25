@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Stepper, Step, Button, Typography, StepLabel, Paper, Link} from '@material-ui/core';
+import {Stepper, Step, Button, Typography, StepLabel, Paper, Grid, Link} from '@material-ui/core';
 import EditDegree from '../EditDegree/EditDegree';
 import EditCourses from '../EditCourses/EditCourses';
 import EditDegreeStepperReview from './EditDegreeStepperReview/EditDegreeStepperReview';
@@ -20,17 +20,19 @@ export default function EditDegreeStepper({degreeInfo}) {
   const [skipped, setSkipped] = React.useState(new Set());
   const steps = ['Edit Degree Info', 'Edit Course Info', 'Review'];
   var numCourseAdded = 0;
-  var [savedCourseData, setCourseData] = useState([]);
+  var [savedCourseData, setCourseData] = useState(JSON.parse(localStorage.getItem('courses')));
   var temp=[];
 
-  console.log("DegreeInfo: ", localStorage.getItem('degrees'));
+  //console.log("DegreeInfo: ", localStorage.getItem('degrees'));
+  //console.log("CourseInfo: ", JSON.parse(localStorage.getItem('degrees')).Courses);
+  
 
   const getStepContent=(step)=> {
     switch (step) {
       case 0:
-        return <EditDegree degreeInformation={degreeInformation}></EditDegree>;
+        return <EditDegree degreeInformation={degreeInformation} updateCourseInfo={updateCourseInfo}></EditDegree>;
       case 1:
-        return <EditCourses courseInformation={courseInformation} updateCourseInfo={updateCourseInfo}></EditCourses>;
+        return <EditCourses courseInformation={courseInformation}></EditCourses>;
       case 2:
         return <EditDegreeStepperReview degreeInformation={JSON.parse(localStorage.getItem('degrees'))} courseInformation={JSON.parse(localStorage.getItem('courses'))}></EditDegreeStepperReview>;
       default:
@@ -63,9 +65,11 @@ export default function EditDegreeStepper({degreeInfo}) {
 
   };
 
-  const updateCourseInfo = () => {
+  const updateCourseInfo = (courseInfo) => {
     //setActiveStep(1);
     console.log("Trying to update");
+    localStorage.setItem('courses', JSON.stringify(courseInfo));
+    console.log(localStorage.getItem('courses', JSON.stringify(courseInfo)));
   }
 
   const degreeInformation = (degreeData) =>{
@@ -132,6 +136,29 @@ export default function EditDegreeStepper({degreeInfo}) {
     history.push({pathname: `/csc530/dev/degrees`})
 }
 
+  const handleDelete = (e, removal) => {
+    e.preventDefault();
+    //console.log(e.target.value());
+    console.log(removal);
+    console.log(e);
+    temp = JSON.parse(localStorage.getItem('courses'));
+    for(var i = 0; i < temp.length; i++){
+      if(temp[i].CourseID == removal){
+        console.log("Found Match");
+        temp.splice(i,1);
+        console.log(temp);
+        //Need to set storage to new array
+
+        //JSON.parse(localStorage.setItem('courses', temp));
+        //console.log(JSON.parse(localStorage.getItem('courses')));
+      }
+    }
+  }
+
+  const handleEdit = (e) => {
+    e.preventDefault();
+  }
+
   return (
     <div className={classes.root}>
       <Stepper activeStep={activeStep}>
@@ -168,48 +195,56 @@ export default function EditDegreeStepper({degreeInfo}) {
         )}
       </div>
       <div>
-        {activeStep == 1 && savedCourseData.length > 0 ? (
+        {activeStep == 1 && JSON.parse(localStorage.getItem('courses')).length > 0 ? (
           <div>
             <center>
               <Typography className={classes.addedTitle}>Currently Added Courses</Typography>
             </center>
-            {savedCourseData.map((savedCourseData) => (
+            {JSON.parse(localStorage.getItem('courses')).map((savedCourseData) => (
             <Container maxWidth="sm" className={classes.container}>
               <Accordion className={classes.card}>
                   <AccordionSummary 
                       expandIcon={<ExpandMoreIcon />}>
-                      <div>
-                          <Typography className={classes.title} variant="body1">{savedCourseData.CourseID} {savedCourseData.CourseTitle}</Typography>
-                      </div>
+                      <Grid container spacing={12}>
+                        <Grid item xs={2}>
+                          <Button className={classes.edit} color="primary" variant="contained" onClick={handleEdit}>EDIT</Button>
+                        </Grid>
+                        <Grid item xs={2}>
+                          <Button className={classes.delete} id={savedCourseData.CourseID} label={savedCourseData.CourseID} variant="contained" onClick={(e) => handleDelete(e,e.target.id)}>DELETE</Button>
+                        </Grid>
+                        <Grid item xs={8}>
+                            <Typography className={classes.title} variant="body1">{savedCourseData.CourseID} {savedCourseData.CourseTitle}</Typography>
+                          </Grid>
+                      </Grid>
                   </AccordionSummary>
                   <AccordionDetails className={classes.details}>
                       <div>
                           <Typography className={classes.details} variant="body1">Course Description: {savedCourseData.CourseDescription}</Typography>
                       </div>
                   </AccordionDetails>
-                  <AccordionDetails className={classes.details}>
+                  <AccordionDetails className={classes.text}>
                       <div>
-                          <Typography className={classes.details} variant="body1">Minimum Grade: {savedCourseData.MinimumGrade}</Typography>
+                          <Typography className={classes.text} variant="body1">Minimum Grade: {savedCourseData.MinimumGrade}</Typography>
                       </div>
                   </AccordionDetails>
-                  <AccordionDetails className={classes.details}>
+                  <AccordionDetails className={classes.text}>
                       <div>
-                          <Typography className={classes.details} variant="body1">Credit Hours: {savedCourseData.CreditHours}</Typography>
+                          <Typography className={classes.text} variant="body1">Credit Hours: {savedCourseData.CreditHours}</Typography>
                       </div>
                   </AccordionDetails>
-                  <AccordionDetails className={classes.details}>
+                  <AccordionDetails className={classes.text}>
                       <div>
-                          <Typography className={classes.details} variant="body1">Prerequisites: {savedCourseData.PreReqs}</Typography>
+                          <Typography className={classes.text} variant="body1">Prerequisites: {savedCourseData.PreReqs}</Typography>
                       </div>
                   </AccordionDetails>
-                  <AccordionDetails className={classes.details}>
+                  <AccordionDetails className={classes.text}>
                       <div>
-                          <Typography className={classes.details} variant="body1">Corequisites: {savedCourseData.CoReqs}</Typography>
+                          <Typography className={classes.text} variant="body1">Corequisites: {savedCourseData.CoReqs}</Typography>
                       </div>
                   </AccordionDetails>
-                  <AccordionDetails className={classes.details}>
+                  <AccordionDetails className={classes.text}>
                       <div>
-                          <Typography className={classes.details} variant="body1">Term: {savedCourseData.Term}</Typography>
+                          <Typography className={classes.text} variant="body1">Term: {savedCourseData.Term}</Typography>
                       </div>
                   </AccordionDetails>
               </Accordion>

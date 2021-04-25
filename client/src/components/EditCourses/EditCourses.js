@@ -9,10 +9,12 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
     
-const EditCourses = ({courseInformation, updateCourseInfo}) => {
+const EditCourses = ({courseInformation}) => {
     const [courseData, setCourseData] = useState({CourseID:'', CourseTitle: '', CourseDescription: '', MinimumGrade: '', CreditHours: '', PreReqs: [], CoReqs: [], Term: ''});
     const classes = useStyles();
     const dispatch = useDispatch();
+
+    
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -25,7 +27,6 @@ const EditCourses = ({courseInformation, updateCourseInfo}) => {
         else{
             courseInformation(courseData);
             clear();
-            updateCourseInfo();
         }
 
     }
@@ -91,7 +92,7 @@ const EditCourses = ({courseInformation, updateCourseInfo}) => {
                     <MenuItem value={8}>8</MenuItem>
                 </Select>
             </FormControl>
-            <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Add</Button>
+            <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Save</Button>
             </form>
         </Paper>
     );

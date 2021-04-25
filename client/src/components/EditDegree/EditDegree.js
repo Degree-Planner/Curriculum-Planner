@@ -6,8 +6,8 @@ import { updateDegree } from '../../actions/degrees';
 import {useLocation, Redirect, useHistory} from 'react-router-dom';
 import {deleteDegree} from '../../actions/degrees';
     
-const EditDegree = ({currentId, setCurrentId, degreeInformation}) => {
-    const [degreeData, setDegreeData] = useState({DegreeName: '', DegreeDescription: ''});
+const EditDegree = ({currentId, setCurrentId, degreeInformation, updateCourseInfo}) => {
+    const [degreeData, setDegreeData] = useState({DegreeName: '', DegreeDescription: '', Courses: []});
     const location = useLocation();
     const degree = useSelector((state) => currentId ? state.degree.find((p) => p._id === currentId) : null);
     const classes = useStyles();
@@ -21,6 +21,8 @@ const EditDegree = ({currentId, setCurrentId, degreeInformation}) => {
             <Redirect to="/csc530/dev/admin"/>
     } , [degree])
 
+    console.log(degreeData.Courses);
+    updateCourseInfo(degreeData.Courses);
 
     const handleSubmit = (e) => {
         e.preventDefault();

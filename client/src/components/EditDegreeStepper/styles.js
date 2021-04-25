@@ -21,10 +21,20 @@ export default makeStyles((theme) => ({
       marginBottom: 20,
     },
     title:{
-
+      marginLeft: 30,
     },
     details:{
-      
+      marginTop: -5,
+    },
+    text:{
+      marginTop: -10,
+    },
+    card: {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'space-between',
+      height: '100%',
+      position: 'relative',
     },
     finish:{
       marginTop: theme.spacing(1),
@@ -45,5 +55,16 @@ export default makeStyles((theme) => ({
     addedTitle:{
       color: 'rgba(0,0,102, 1)',
       fontSize: 20
+    },
+    delete: {
+      //marginLeft: 10,
+      color: 'white',
+      backgroundColor: '#ff5050',
+      //marginRight: 10,
+      height: 40,
+      width: 85,
+    },
+    edit:{
+      height: 40,
     }
   }));
