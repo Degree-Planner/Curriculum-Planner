@@ -13,6 +13,8 @@ const Degree = ({ degree, currentId, setCurrentId }) => {
     const history = useHistory();
     const dispatch = useDispatch();
 
+
+
     const handleClick = (e) => {
         e.preventDefault();
 
@@ -23,9 +25,11 @@ const Degree = ({ degree, currentId, setCurrentId }) => {
     const handleDelete = (e) => {
         e.preventDefault();
         if(degree){
-            alert("Deleting Degree");
-            dispatch(deleteDegree(degree._id, history));
-            alert("Degree Sucessfully Deleted");
+            if(window.confirm('Are you sure you wish to delete this degree?')){
+                dispatch(deleteDegree(degree._id, history));
+                alert("Degree Sucessfully Deleted");
+            }
+            
         }else
             <Redirect to='/csc530/dev/admin'/>
 
