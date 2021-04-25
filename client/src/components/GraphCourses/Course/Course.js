@@ -1,11 +1,13 @@
 import React from 'react';
-import { Fade, Popper, AccordionSummary, Container, Box, Typography, IconButton, Paper, Grow } from '@material-ui/core';
+import { Fade, Popper, AccordionSummary, Container, Box, Typography, IconButton, Paper, Grow, Avatar } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 import CloseIcon from '@material-ui/icons/Close';
+import Xarrow from "react-xarrows";
 
 import useStyles from './styles';
+import Courses from '../../Courses/Courses';
     
-const Course = ({ course, style }) => {
+const Course = ({ course, style, hovered, currentCourse, related, onMouseEnter, onMouseLeave }) => {
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -21,12 +23,25 @@ const Course = ({ course, style }) => {
     const id = open ? 'simple-popper' : undefined;
 
     return (
-        <Paper square={true} className={style} >
-            <Box onClick={handleClick}>
-                <Typography className={classes.id} variant="body1">{course.CourseID}</Typography>
-                <Typography className={classes.title} variant="body1">{course.CourseTitle}</Typography>
-                <Typography className={classes.credits} variant="body2">{course.CreditHours} Credits</Typography>
-            </Box>
+        <Paper square={true} className={classes.grid}>
+            {hovered ? currentCourse.CourseID === course.CourseID ? course.PreReqs.map((preReq) => (
+                    <Xarrow start={preReq} end={course.CourseID} strokeWidth={2} color={"Grey"} passProps= {{pointerEvents: "none"}}/>)):
+                    related ? course.PreReqs.map((preReq) => (
+                        <Xarrow start={preReq} end={course.CourseID} strokeWidth={2} color={"Grey"} passProps= {{pointerEvents: "none"}}/>)): <></>:
+                    course.PreReqs.map((preReq) => (
+                    <Xarrow start={preReq} end={course.CourseID} strokeWidth={2} color={"Grey"} passProps= {{pointerEvents: "none"}}/>))
+            }
+            {hovered ? currentCourse.CourseID === course.CourseID ? course.CoReqs.map((preReq) => (
+                    <Xarrow start={preReq} end={course.CourseID} strokeWidth={2} color={"Grey"} passProps= {{pointerEvents: "none"}}/>)):
+                    related ? course.CoReqs.map((preReq) => (
+                        <Xarrow start={preReq} end={course.CourseID} strokeWidth={2} color={"Grey"} passProps= {{pointerEvents: "none"}}/>)): <></>:
+                    course.CoReqs.map((preReq) => (
+                    <Xarrow start={preReq} end={course.CourseID} strokeWidth={2} color={"Grey"} passProps= {{pointerEvents: "none"}}/>))
+            }
+            <Avatar onClick={handleClick} id={course.CourseID} className={style} onMouseEnter={(event) => onMouseEnter(event, course)} onMouseLeave={onMouseLeave}>
+                {course.CreditHours}
+            </Avatar>
+            <Typography className={classes.id} variant="body1">{course.CourseID}</Typography>
                 <Popper id={id} open={open} anchorEl={anchorEl}>
                     <Grow in>
                     <Paper className={classes.paper}>

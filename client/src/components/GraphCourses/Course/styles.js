@@ -34,19 +34,22 @@ export default makeStyles((theme) => ({
     color: 'white',
   },
   grid: {
-    display: 'flex',
+    display: 'block',
+    backgroundColor: '#ffffff',
+    //justifyContent: 'space-evenly',
   },
   details: {
     display: 'table',
-    justifyContent: 'space-between',
+    //justifyContent: 'space-between',
     margin: '10px',
   },
   id: {
-    fontSize: '17px',
+    fontSize: '13px',
     fontWeight: 'bold',
+    textAlign: 'center',
   },
   title: {
-    fontSize: '12px',
+    fontSize: '15px',
   },
   title1: {
     fontSize: '15px',

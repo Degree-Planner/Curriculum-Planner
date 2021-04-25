@@ -5,18 +5,18 @@ import { useSelector } from 'react-redux';
 import Course from './Course/Course';
 import useStyles from './styles';
     
-const Term = ({ term, courses, hovered, course, red, lightRed, white, green, lightGreen, onMouseEnter, onMouseLeave }) => {
+const Term = ({ term, courses, hovered, course, red, lightRed, white, green, lightGreen, yellow, onMouseEnter, onMouseLeave }) => {
     const classes = useStyles();
 
     const findHighlightedRed = () => {
         var result = []
-        course.PreReqs.map((course) => result.push(courses.find(Course => Course.CourseID === course))) 
+        course.PreReqs.map((course) => courses.find(Course => Course.CourseID === course) !== undefined ? result.push(courses.find(Course => Course.CourseID === course)) : result.push()) 
         return result
     }
 
     const findHighlightedRedArray = (courseArray) => {
         var result = []
-        courseArray.PreReqs.map((course) => result.push(courses.find(Course => Course.CourseID === course))) 
+        courseArray.PreReqs.map((course) => courses.find(Course => Course.CourseID === course) !== undefined ? result.push(courses.find(Course => Course.CourseID === course)) : result.push())  
         return result
     }
 
@@ -24,10 +24,16 @@ const Term = ({ term, courses, hovered, course, red, lightRed, white, green, lig
         var result = []
         var resultB = []
         var resultC = []
-        course.PreReqs.map((course) => result.push(courses.find(Course => Course.CourseID === course))) 
+        course.PreReqs.map((course) => courses.find(Course => Course.CourseID === course) !== undefined ? result.push(courses.find(Course => Course.CourseID === course)) : result.push()) 
         result.map(CourseA => resultB.push(findHighlightedRedArray(CourseA)))
         resultB.map(array => array.map(Course => resultC.push(Course)))
         return resultC
+    }
+
+    const findHighlightedYellow = () => {
+        var result = []
+        course.CoReqs.map((course) => courses.find(Course => Course.CourseID === course) !== undefined ? result.push(courses.find(Course => Course.CourseID === course)) : result.push()) 
+        return result
     }
 
     const findHighlightedGreen = () => {
@@ -56,6 +62,7 @@ const Term = ({ term, courses, hovered, course, red, lightRed, white, green, lig
     const highlightGreen = hovered && course !== undefined ? findHighlightedGreen() : []
     const highlightLightRed = hovered && course !== undefined ? findHighlightedLightRed() : []
     const highlightLightGreen = hovered && course !== undefined ? findHighlightedLightGreen() : []
+    const highlightYellow = hovered && course !== undefined ? findHighlightedYellow() : []
   
     return (
         !courses.length ? <CircularProgress /> : (
@@ -77,6 +84,10 @@ const Term = ({ term, courses, hovered, course, red, lightRed, white, green, lig
                 highlightLightGreen.find(Course => Course.CourseID === course.CourseID) ?
                     <Box onMouseEnter={(event) => onMouseEnter(event, course)} onMouseLeave={onMouseLeave}>
                     <Course style={lightGreen} course={course} key={course.CourseID}/>
+                    </Box>:
+                highlightYellow.find(Course => Course.CourseID === course.CourseID) ?
+                    <Box onMouseEnter={(event) => onMouseEnter(event, course)} onMouseLeave={onMouseLeave}>
+                    <Course style={yellow} course={course}/>
                     </Box>:
                     <Box onMouseEnter={(event) => onMouseEnter(event, course)} onMouseLeave={onMouseLeave}>
                     <Course style={white} course={course} key={course.CourseID}/>

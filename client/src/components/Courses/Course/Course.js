@@ -11,7 +11,6 @@ const Course = ({ course, style }) => {
     const classes = useStyles();
 
     return (
-        <Container>
         <Accordion square={true} className={style}>
             <AccordionSummary 
                 expandIcon={<ExpandMoreIcon />}>
@@ -32,12 +31,11 @@ const Course = ({ course, style }) => {
                     <Typography className={classes.details} variant="body2">Credit Hours: {course.CreditHours}</Typography>
                 </div>
                 <div className={classes.details2}>
-                    <Typography className={classes.details} variant="body2">Prerequisites: {course.PreReqs}</Typography>
-                    <Typography className={classes.details} variant="body2">Corequisites: {course.CoReqs}</Typography>
+                    <Typography className={classes.details} variant="body2">Prerequisites: {course.PreReqs.map((course) => course + ' ')}</Typography>
+                    <Typography className={classes.details} variant="body2">Corequisites: {course.CoReqs.map((course) => course + ' ')}</Typography>
                 </div>
             </AccordionDetails>
         </Accordion>
-        </Container>
     );
 }
 

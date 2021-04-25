@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, CircularProgress, Container, Box } from '@material-ui/core';
+import { Grid, CircularProgress, Container, Box, Paper } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 
 import Course from './Course/Course';
@@ -63,37 +63,26 @@ const Term = ({ term, courses, hovered, course, red, lightRed, white, green, yel
     const highlightLightRed = hovered && course !== undefined ? findHighlightedLightRed() : []
     const highlightLightGreen = hovered && course !== undefined ? findHighlightedLightGreen() : []
     const highlightYellow = hovered && course !== undefined ? findHighlightedYellow() : []
+    const currentCourse = course
+
   
     return (
         !courses.length ? <CircularProgress /> : (
-        <Container>
+        <Container fixed disableGutters>
             {courses.map((course) => (
-                course !== undefined ? 
-                    course.Term === term ?
-                    highlightRed.find(Course => Course.CourseID === course.CourseID) ?
-                        <Box onMouseEnter={(event) => onMouseEnter(event, course)} onMouseLeave={onMouseLeave}>
-                        <Course style={red} course={course} key={course.CourseID}/>
-                        </Box>: 
-                    highlightGreen.find(Course => Course.CourseID === course.CourseID) ?
-                        <Box onMouseEnter={(event) => onMouseEnter(event, course)} onMouseLeave={onMouseLeave}>
-                        <Course style={green} course={course} key={course.CourseID}/>
-                        </Box>:
-                    highlightYellow.find(Course => Course.CourseID === course.CourseID) ?
-                        <Box onMouseEnter={(event) => onMouseEnter(event, course)} onMouseLeave={onMouseLeave}>
-                        <Course style={yellow} course={course} key={course.CourseID}/>
-                        </Box>:
-                    highlightLightRed.find(Course => Course.CourseID === course.CourseID) ?
-                        <Box onMouseEnter={(event) => onMouseEnter(event, course)} onMouseLeave={onMouseLeave}>
-                        <Course style={yellow} course={course} key={course.CourseID}/>
-                        </Box>:
-                    highlightLightGreen.find(Course => Course.CourseID === course.CourseID) ?
-                        <Box onMouseEnter={(event) => onMouseEnter(event, course)} onMouseLeave={onMouseLeave}>
-                        <Course style={yellow} course={course} key={course.CourseID}/>
-                        </Box>:
-                        <Box onMouseEnter={(event) => onMouseEnter(event, course)} onMouseLeave={onMouseLeave}>
-                        <Course style={white} course={course} key={course.CourseID}/>
-                        </Box>
-                : <></>:<></>))}
+                course.Term === term ?
+                highlightRed.find(Course => Course.CourseID === course.CourseID) ?
+                    <Course style={red} course={course} hovered={hovered} related={true} currentCourse={currentCourse} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}/>: 
+                highlightGreen.find(Course => Course.CourseID === course.CourseID) ?
+                    <Course style={green} course={course} hovered={hovered} related={true} currentCourse={currentCourse} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}/>:
+                highlightLightRed.find(Course => Course.CourseID === course.CourseID) ?
+                    <Course style={lightRed} course={course} hovered={hovered} related={true} currentCourse={currentCourse} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}/>:
+                highlightLightGreen.find(Course => Course.CourseID === course.CourseID) ?
+                    <Course style={lightGreen} course={course} hovered={hovered} related={true} currentCourse={currentCourse} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}/>:
+                highlightYellow.find(Course => Course.CourseID === course.CourseID) ?
+                    <Course style={yellow} course={course} hovered={hovered} related={true} currentCourse={currentCourse} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}/>:
+                <Course style={white} course={course} hovered={hovered} related={false} currentCourse={currentCourse} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}/>
+            : <></>))}
         </Container>
       )
     );

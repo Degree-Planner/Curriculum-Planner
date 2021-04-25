@@ -40,6 +40,10 @@ const styles = theme => ({
     backgroundColor: '#90EE90',
     border: '1px solid rgba(0, 0, 0, 0.3)'
   },
+  course5: {
+    backgroundColor: '#FFD700',
+    border: '1px solid rgba(0, 0, 0, 0.3)'
+  },
   container: {
     background: '#ffffff',
     border: '5px solid rgba(0, 0, 128, 1)',
@@ -87,6 +91,7 @@ class Courses extends React.Component {
       const green = classes.course2;
       const lightRed = classes.course3;
       const lightGreen = classes.course4;
+      const yellow = classes.course5;
       const courses = this.state.courses
       const course = this.state.course
 
@@ -111,7 +116,7 @@ class Courses extends React.Component {
                 <Container align={'right'} className={classes.paper}>
                   <Typography className={classes.credits}>{TermCredits(term)} Credit Hours</Typography>
                 </Container>
-                <Term term={term} courses={courses} hovered={hovered} course={course} red={red} lightRed={lightRed} white={white} green={green} lightGreen={lightGreen} onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}/>
+                <Term term={term} courses={courses} hovered={hovered} course={course} red={red} lightRed={lightRed} white={white} green={green} lightGreen={lightGreen} yellow={yellow} onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}/>
               <br></br>
               </Container>
             ))}

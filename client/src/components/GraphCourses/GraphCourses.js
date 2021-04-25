@@ -30,46 +30,50 @@ const styles = theme => ({
   course: {
     backgroundColor: '#ff0000',
     border: '1px solid rgba(0, 0, 0, 0.3)',
-    padding: theme.spacing(1),
     textAlign: 'center',
     color: theme.palette.text.secondary,
+    marginLeft: 'auto',
+    marginRight: 'auto',
   },
   course1: {
     backgroundColor: '#ffffff',
-    maxWidth: 'auto',
-    height: 'auto',
     border: '1px solid rgba(0, 0, 0, 0.3)',
-    padding: theme.spacing(1),
     textAlign: 'center',
     color: theme.palette.text.secondary,
+    marginLeft: 'auto',
+    marginRight: 'auto',
   },
   course2: {
     backgroundColor: '#00ff00',
     border: '1px solid rgba(0, 0, 0, 0.3)',
-    padding: theme.spacing(1),
     textAlign: 'center',
     color: theme.palette.text.secondary,
+    marginLeft: 'auto',
+    marginRight: 'auto',
   },
   course3: {
     backgroundColor: '#ff6666',
     border: '1px solid rgba(0, 0, 0, 0.3)',
-    padding: theme.spacing(1),
     textAlign: 'center',
     color: theme.palette.text.secondary,
+    marginLeft: 'auto',
+    marginRight: 'auto',
   },
   course4: {
     backgroundColor: '#90EE90',
     border: '1px solid rgba(0, 0, 0, 0.3)',
-    padding: theme.spacing(1),
     textAlign: 'center',
     color: theme.palette.text.secondary,
+    marginLeft: 'auto',
+    marginRight: 'auto',
   },
   course5: {
     backgroundColor: '#FFD700',
     border: '1px solid rgba(0, 0, 0, 0.3)',
-    padding: theme.spacing(1),
     textAlign: 'center',
     color: theme.palette.text.secondary,
+    marginLeft: 'auto',
+    marginRight: 'auto',
   },
   container: {
     background: '#ffffff',
@@ -79,7 +83,7 @@ const styles = theme => ({
   },
 });
 
-class GridCourses extends React.Component {
+class GraphCourses extends React.Component {
   constructor(DegreeCourses) {
     super(DegreeCourses);
     this.state = {
@@ -145,4 +149,4 @@ class GridCourses extends React.Component {
   };
 }
 
-export default withStyles(styles)(GridCourses);
+export default withStyles(styles)(GraphCourses);

@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react';
-import { Paper, Grow, Slide, Tabs, Tab, Typography, Container, Box, AppBar } from '@material-ui/core';
+import { Paper, Grow, Slide, Tabs, Tab, Typography, Container, Box, AppBar, Card } from '@material-ui/core';
 import { useState } from 'react';
 import { useLocation, Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import Courses from '../Courses/Courses';
 import GridCourses from '../GridCourses/GridCourses';
+import GraphCourses from '../GraphCourses/GraphCourses';
+
 import useStyles from './styles';
 
 function TabPanel(props) {
@@ -66,6 +68,12 @@ const Plan = () => {
                     </Tabs>
                     </AppBar>
                     </Box>
+                    <br></br>
+                    <Card className={classes.legend}>
+                      <Paper className={classes.red}>Prerequisite</Paper>
+                      <Paper className={classes.green}>Unblocked</Paper>
+                      <Paper className={classes.yellow}>Corequisite</Paper>
+                    </Card>
                     <TabPanel value={value} index={0}>
                     <Container className={classes.container}>
                         <Courses courses={location.degree.Courses}/>
@@ -73,13 +81,14 @@ const Plan = () => {
                     </TabPanel>
                     <TabPanel value={value} index={1}>
                     <Container className={classes.container}>
-                        <GridCourses courses={location.degree.Courses}/>
+                      <GridCourses courses={location.degree.Courses}/>
                     </Container>
                     </TabPanel>
                     <TabPanel value={value} index={2}>
-                    Item Three
-                    </TabPanel>
-                    
+                    <Container className={classes.container}>
+                      <GraphCourses courses={location.degree.Courses}/>
+                    </Container>
+                    </TabPanel>  
                 </Paper>
         </Slide>
         )

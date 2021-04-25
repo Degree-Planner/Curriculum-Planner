@@ -18,9 +18,34 @@ export default makeStyles(() => ({
     boxShadow: '0 3px 5px 2px rgba(0, 0, 0, .3)',
     padding: '10px',
   },
+  red: {
+    backgroundColor: '#ff0000',
+    color: '#ffffff',
+    boxShadow: '0 3px 5px 2px rgba(0, 0, 0, .2)',
+    display: 'inline',
+    padding: '2px',
+  },
+  green: {
+    backgroundColor: '#00ff00',
+    boxShadow: '0 3px 5px 2px rgba(0, 0, 0, .2)',
+    display: 'inline',
+    padding: '2px',
+  },
+  yellow: {
+    backgroundColor: '#FFD700',
+    boxShadow: '0 3px 5px 2px rgba(0, 0, 0, .2)',
+    display: 'inline',
+    padding: '2px',
+  },
   container: {
-    padding: '30px',
-    maxWidth: '1000px',
+    //padding: '30px',
+    //display: 'flex',
+    //maxWidth: '1000px',
+  },
+  legend: {
+    display: 'flex',
+    padding: '5px',
+    justifyContent: 'space-evenly',
   },
   box: {
     backgroundColor: '#ffffff',
