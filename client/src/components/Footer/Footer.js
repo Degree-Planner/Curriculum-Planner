@@ -50,12 +50,26 @@ const Footer = () => {
             </Grid>
             <Grid item xs={4}>
                 <center>
-                    <Typography className={classes.heading} variant="p" align="center">Jonathan Crafton</Typography>
+                    <a className={classes.a} href="https://www.linkedin.com/in/jonathan-crafton-125b5120b/">Jonathan Crafton</a>
                 </center>
             </Grid>
             <Grid item xs={4}>
                 <center>
-                    <a className={classes.a} href="http://campus.murraystate.edu/classes/">RacerNet</a>
+                </center>
+            </Grid>
+            <Grid item xs={4}>
+                <center>
+                    <a className={classes.a} href="https://github.com/Degree-Planner/Curriculum-Planner">Github</a>
+                </center>
+            </Grid>
+            <Grid item xs={4}>
+                <center>
+                    <a className={classes.a} href="https://www.linkedin.com/in/jacob-paluso-2616a651/">Jacob Paluso</a>
+                </center>
+            </Grid>
+            <Grid item xs={4}>
+                <center>
+                    
                 </center>
             </Grid>
             <Grid item xs={4}>
@@ -63,20 +77,7 @@ const Footer = () => {
             </Grid>
             <Grid item xs={4}>
                 <center>
-                    <Typography className={classes.heading} variant="p" align="center">Jacob Paluso</Typography>
-                </center>
-            </Grid>
-            <Grid item xs={4}>
-                <center>
-                    <a className={classes.a} href="https://www.murraystate.edu/">Murray State Main Webpage</a>
-                </center>
-            </Grid>
-            <Grid item xs={4}>
-
-            </Grid>
-            <Grid item xs={4}>
-                <center>
-                    <Typography className={classes.heading} variant="p" align="center">Noah Rudolph</Typography>
+                    <a className={classes.a} href="https://www.linkedin.com/in/noah-rudolph-695098210/">Noah Rudolph</a>
                 </center>
             </Grid>
             <br></br>
