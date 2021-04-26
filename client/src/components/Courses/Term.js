@@ -84,7 +84,7 @@ const Term = ({ term, courses, hovered, course, red, lightRed, white, green, yel
                         </Box>:
                     highlightLightRed.find(Course => Course.CourseID === course.CourseID) ?
                         <Box onMouseEnter={(event) => onMouseEnter(event, course)} onMouseLeave={onMouseLeave}>
-                        <Course style={yellow} course={course} key={course.CourseID}/>
+                        <Course style={lightRed} course={course} key={course.CourseID}/>
                         </Box>:
                     highlightLightGreen.find(Course => Course.CourseID === course.CourseID) ?
                         <Box onMouseEnter={(event) => onMouseEnter(event, course)} onMouseLeave={onMouseLeave}>

@@ -28,20 +28,18 @@ const Course = ({ course, style, hovered, currentCourse, related, onMouseEnter, 
                     <Xarrow start={preReq} end={course.CourseID} strokeWidth={2} color={"Grey"} passProps= {{pointerEvents: "none"}}/>)):
                     related ? course.PreReqs.map((preReq) => (
                         <Xarrow start={preReq} end={course.CourseID} strokeWidth={2} color={"Grey"} passProps= {{pointerEvents: "none"}}/>)): <></>:
-                    course.PreReqs.map((preReq) => (
-                    <Xarrow start={preReq} end={course.CourseID} strokeWidth={2} color={"Grey"} passProps= {{pointerEvents: "none"}}/>))
+                    <></>
             }
             {hovered ? currentCourse.CourseID === course.CourseID ? course.CoReqs.map((preReq) => (
-                    <Xarrow start={preReq} end={course.CourseID} strokeWidth={2} color={"Grey"} passProps= {{pointerEvents: "none"}}/>)):
+                    <Xarrow start={preReq} end={course.CourseID} dashness={true} strokeWidth={2} color={"Grey"} passProps= {{pointerEvents: "none"}}/>)):
                     related ? course.CoReqs.map((preReq) => (
-                        <Xarrow start={preReq} end={course.CourseID} strokeWidth={2} color={"Grey"} passProps= {{pointerEvents: "none"}}/>)): <></>:
-                    course.CoReqs.map((preReq) => (
-                    <Xarrow start={preReq} end={course.CourseID} strokeWidth={2} color={"Grey"} passProps= {{pointerEvents: "none"}}/>))
+                        <Xarrow start={preReq} end={course.CourseID} dashness={true} strokeWidth={2} color={"Grey"} passProps= {{pointerEvents: "none"}}/>)): <></>:
+                    <></>
             }
             <Avatar onClick={handleClick} id={course.CourseID} className={style} onMouseEnter={(event) => onMouseEnter(event, course)} onMouseLeave={onMouseLeave}>
                 {course.CreditHours}
             </Avatar>
-            <Typography className={classes.id} variant="body1">{course.CourseID}</Typography>
+            <Typography className={classes.id} variant="body1" onMouseEnter={(event) => onMouseEnter(event, course)} onMouseLeave={onMouseLeave}>{course.CourseID}</Typography>
                 <Popper id={id} open={open} anchorEl={anchorEl}>
                     <Grow in>
                     <Paper className={classes.paper}>

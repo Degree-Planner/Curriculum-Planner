@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-//const API = axios.create({ baseURL: 'https://csclab.murraystate.edu/csc530/dev'});
+//const API = axios.create({ baseURL: 'https://csclab.murraystate.edu/csc530/server'});
 
 const API = axios.create({ baseURL: 'http://localhost:5000'});
 
