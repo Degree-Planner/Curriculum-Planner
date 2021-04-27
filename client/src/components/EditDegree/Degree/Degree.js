@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { Accordion, AccordionSummary, Container, Button, Typography, AccordionDetails } from '@material-ui/core';
+import { Accordion, AccordionSummary, Container, Grid, Button, Typography, AccordionDetails } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { useHistory, Redirect } from 'react-router-dom';
 import { useDispatch, } from 'react-redux';
@@ -39,11 +39,17 @@ const Degree = ({ degree, currentId, setCurrentId }) => {
         <Accordion className={classes.card}>
             <AccordionSummary 
                 expandIcon={<ExpandMoreIcon />}>
-                <Button color="primary" variant="contained" onClick={handleClick}>EDIT</Button>
-                <Button className={classes.button} variant="contained" onClick={handleDelete}>DELETE</Button>
-                <div>
-                    <Typography className={classes.title} variant="body1">{degree.DegreeName}</Typography>
-                </div>
+                <Grid container spacing={12}>
+                    <Grid item xs={2}>
+                        <Button color="primary" variant="contained" onClick={handleClick}>EDIT</Button>
+                    </Grid>
+                    <Grid item xs={2}>
+                        <Button className={classes.button} variant="contained" onClick={handleDelete}>DELETE</Button>
+                    </Grid>
+                    <Grid item xs={8}>
+                        <Typography className={classes.title} variant="body1">{degree.DegreeName}</Typography>
+                    </Grid>
+                </Grid>
             </AccordionSummary>
             <AccordionDetails className={classes.details}>
                 <div>

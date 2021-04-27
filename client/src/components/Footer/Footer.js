@@ -40,7 +40,7 @@ const Footer = () => {
             </Grid>
             <Grid item xs={4}>
                 <center>
-                    <a className={classes.a} href="https://www.murraystate.edu/academics/CollegesDepartments/CollegeOfBusiness/index.aspx">College Of Business</a>
+                    <a className={classes.a} href="https://www.murraystate.edu/academics/CollegesDepartments/CollegeOfBusiness/index.aspx">College of Business</a>
                 </center>
             </Grid>
             <Grid item xs={4}>
