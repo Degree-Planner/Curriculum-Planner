@@ -1,26 +1,18 @@
 import React, { useState } from 'react';
 import { TextField, Button, Typography, Paper } from "@material-ui/core";
-import { useDispatch } from 'react-redux';
 import useStyles from './styles';
-import { createCourse } from '../../actions/courses';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
     
 const EditCourses = ({courseInformation}) => {
     const [courseData, setCourseData] = useState({CourseID:'', CourseTitle: '', CourseDescription: '', MinimumGrade: '', CreditHours: '', PreReqs: [], CoReqs: [], Term: ''});
     const classes = useStyles();
-    const dispatch = useDispatch();
-
-    
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        //dispatch(createCourse(courseData));
-
-        if(courseData.CourseID =="" || courseData.CourseTitle == "" || courseData.CourseDescription == "" || courseData.MinimumGrade == "" || courseData.CreditHours == "" || courseData.Term == ""){
+        if(courseData.CourseID ==="" || courseData.CourseTitle === "" || courseData.CourseDescription === "" || courseData.MinimumGrade === "" || courseData.CreditHours === "" || courseData.Term === ""){
             console.log("Please enter data in all required fields");
             console.log("Required fields: Department Code, Course Number, Course Title, Course Description, Minimum Grade, Credit Hours, and Term");
         }
@@ -28,10 +20,9 @@ const EditCourses = ({courseInformation}) => {
             courseInformation(courseData);
             clear();
         }
-
     }
     const addPreReqs=(value)=>{
-        if(value != ""){
+        if(value !== ""){
             var temp = value.split(',');
             console.log(temp);
             setCourseData({ ...courseData, PreReqs: temp });
@@ -42,7 +33,7 @@ const EditCourses = ({courseInformation}) => {
     }
 
     const addCoReqs=(value)=>{
-        if(value != ""){
+        if(value !== ""){
             var temp = value.split(',');
             console.log(temp);
             setCourseData({ ...courseData, CoReqs: temp });

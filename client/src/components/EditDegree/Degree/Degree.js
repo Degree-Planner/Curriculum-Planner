@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import { Accordion, AccordionSummary, Container, Grid, Button, Typography, AccordionDetails } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { useHistory, Redirect } from 'react-router-dom';
@@ -8,7 +8,7 @@ import {deleteDegree} from '../../../actions/degrees';
 import useStyles from './styles';
     
 
-const Degree = ({ degree, currentId, setCurrentId }) => {
+const Degree = ({ degree, setCurrentId }) => {
     const classes = useStyles();
     const history = useHistory();
     const dispatch = useDispatch();

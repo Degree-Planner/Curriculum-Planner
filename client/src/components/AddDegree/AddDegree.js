@@ -1,20 +1,10 @@
 import React, { useState } from 'react';
-import { TextField, Button, Typography, Paper } from "@material-ui/core";
-import { useDispatch } from 'react-redux';
+import { TextField, Typography, Paper } from "@material-ui/core";
 import useStyles from './styles';
-import { createDegree } from '../../actions/degrees';
-import { useHistory } from 'react-router-dom';
     
 const AddDegree = ({degreeInformation}) => {
     const [degreeData, setDegreeData] = useState({DegreeName: '', DegreeDescription: '', Courses: []});
     const classes = useStyles();
-    const dispatch = useDispatch();
-    const history = useHistory();
-
-
-    /*const clear = () =>{
-        setDegreeData({DegreeName: '', DegreeDescription: ''});
-    }*/
 
     return (
         <Paper className={classes.paper}>

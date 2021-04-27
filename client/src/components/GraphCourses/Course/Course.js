@@ -1,11 +1,9 @@
 import React from 'react';
-import { Fade, Popper, AccordionSummary, Container, Box, Typography, IconButton, Paper, Grow, Avatar } from '@material-ui/core';
-import { useSelector } from 'react-redux';
+import { Popper, Typography, IconButton, Paper, Grow, Avatar } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import Xarrow from "react-xarrows";
 
 import useStyles from './styles';
-import Courses from '../../Courses/Courses';
     
 const Course = ({ course, style, hovered, currentCourse, related, onMouseEnter, onMouseLeave }) => {
     const classes = useStyles();

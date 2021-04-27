@@ -1,47 +1,31 @@
 import React, {useState} from 'react';
-import {Stepper, Step, Button, Typography, StepLabel, Paper, Link} from '@material-ui/core';
-import AddDegree from '../AddDegree/AddDegree';
-import Form from '../Form/Form';
-import AddDegreeStepperReview from './AddDegreeStepperReview/AddDegreeStepperReview';
-import useStyles from './styles';
-import { useDispatch } from 'react-redux';
-import { createDegree } from '../../actions/degrees';
+import {Stepper, Step, Button, Typography, StepLabel, Paper, Accordion, AccordionSummary, Container, AccordionDetails} from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
-
-import { Accordion, AccordionSummary, Container, AccordionDetails } from '@material-ui/core';
+import { useDispatch } from 'react-redux';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-
-
-//var savedDegreeData;
-//var savedCourseData = [];
-
+import useStyles from './styles';
+import Form from '../Form/Form';
+import AddDegree from '../AddDegree/AddDegree';
+import { createDegree } from '../../actions/degrees';
+import AddDegreeStepperReview from './AddDegreeStepperReview/AddDegreeStepperReview';
 
 export default function AddDegreeStepper({degreeInfo}) {
   const classes = useStyles();
   const dispatch = useDispatch();
   const history = useHistory();
   const [activeStep, setActiveStep] = React.useState(0);
-  const [skipped, setSkipped] = React.useState(new Set());
   const steps = ['Add Degree Info', 'Add Course Info', 'Review'];
   var numCourseAdded = 0;
-  //var savedDegreeData;
   var [savedCourseData, setCourseData] = useState([]);
   var temp=[];
-  //console.log("DegreeInfo",savedDegreeData);
-
-  console.log("DegreeInfo: ", localStorage.getItem('degrees'));
-  //console.log("DegreeName: ", JSON.parse(localStorage.getItem('degrees')).DegreeName);
-
-  //console.log("CourseInfo: ", savedCourseData);
-  //console.log("CoursesBefore: ", localStorage.getItem('courses'));
 
   const getStepContent=(step)=> {
     switch (step) {
       case 0:
         return <AddDegree degreeInformation={degreeInformation}></AddDegree>;
       case 1:
-        return <Form courseInformation={courseInformation} updateCourseInfo={updateCourseInfo}></Form>;
+        return <Form courseInformation={courseInformation}></Form>;
       case 2:
         return <AddDegreeStepperReview degreeInformation={JSON.parse(localStorage.getItem('degrees'))} courseInformation={JSON.parse(localStorage.getItem('courses'))}></AddDegreeStepperReview>;
       default:
@@ -51,25 +35,14 @@ export default function AddDegreeStepper({degreeInfo}) {
 
   const handleNext = () => {
     console.log("Number of Courses (Next): ", numCourseAdded);
-    if(activeStep == 0 && (JSON.parse(localStorage.getItem('degrees')).DegreeName == "" || JSON.parse(localStorage.getItem('degrees')).DegreeDescription == "")){
-      console.log("Please enter a degree name and description to continue");
+    if(activeStep === 0 && (JSON.parse(localStorage.getItem('degrees')).DegreeName === "" || JSON.parse(localStorage.getItem('degrees')).DegreeDescription === "")){
     }
-    else if(activeStep == 1 && savedCourseData.length < 1){
-      console.log("Please add at least one course to continue");
+    else if(activeStep === 1 && savedCourseData.length < 1){
     }
     else{
-      if(activeStep==2){
-        console.log("Sending info to DB");
-        /*var sendToDegree=[];
-        sendToDegree.push(JSON.parse(localStorage.getItem('degrees')));
-        var courseToSend = JSON.parse(localStorage.getItem('courses'));
-        sendToDegree.push(courseToSend);
-        console.log("Info sent to DB: ", sendToDegree);
-        dispatch(sendToDegree);*/
-        
+      if(activeStep===2){   
         var sendToDegree=JSON.parse(localStorage.getItem('degrees'));
         sendToDegree.Courses= JSON.parse(localStorage.getItem('courses'));
-        console.log("Info sent to DB: ", sendToDegree);
         dispatch(createDegree(sendToDegree));
       }
       setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -77,61 +50,30 @@ export default function AddDegreeStepper({degreeInfo}) {
 
   };
 
-  const updateCourseInfo = () => {
-    //setActiveStep(1);
-    console.log("Trying to update");
-  }
-
   const degreeInformation = (degreeData) =>{
-    if(activeStep == 0){
-      //savedDegreeData = degreeData;
-      //localStorage.setItem('degrees', JSON.stringify(degreeData));
+    if(activeStep === 0){
     }
-    //console.log("DegreeBefore: ", savedDegreeData);
-
-    //const orginalDegree = localStorage.getItem('degree');
     localStorage.setItem('degrees', JSON.stringify(degreeData));
-    console.log("DegreeAfter: ", localStorage.getItem('degrees'));
   }
 
   const courseInformation = (courseData) =>{
-    if(activeStep == 1){
-      //var temp = [];
+    if(activeStep === 1){
       var current;
-      console.log("Initial Pull", localStorage.getItem('courses'));
       temp.push(courseData);
       if(localStorage.getItem('courses') != null){
-        //savedCourseData.push(localStorage.getItem('courses'));
-        //localStorage.clear();
-        console.log("This is temp before push: ", temp);
         current = JSON.parse(localStorage.getItem('courses'));
-        console.log("This is current before push: ", current);
         for(var i = 0; i< current.length; i++){
           temp.push(current[i]);
         }
-        console.log("This is temp after push: ", temp);
-
-        //localStorage.removeItem('courses');
       }
-      
       localStorage.setItem('courses', JSON.stringify(temp));
-      //savedCourseData.push(localStorage.getItem('courses'));
       setCourseData(JSON.parse(localStorage.getItem('courses')));
-      
-      console.log("CoursesAfter: ", localStorage.getItem('courses'));
-      console.log("Array", savedCourseData);
       numCourseAdded++;
-      console.log("Number of Courses: ", numCourseAdded);
     }
-    //console.log(savedCourseData);
-  
-    //setTimeout(()=>handleNext(), 1);
-    //handleBack();
   }
 
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
-    console.log("Yes");
   };
 
 
@@ -182,7 +124,7 @@ export default function AddDegreeStepper({degreeInfo}) {
         )}
       </div>
       <div>
-        {activeStep == 1 && savedCourseData.length > 0 ? (
+        {activeStep === 1 && savedCourseData.length > 0 ? (
           <div>
             <center>
               <Typography className={classes.addedTitle}>Currently Added Courses</Typography>

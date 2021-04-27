@@ -1,11 +1,10 @@
 import React, {useState} from 'react';
-import {Stepper, Step, Button, Typography, StepLabel, Paper, Grid, Link} from '@material-ui/core';
+import {Stepper, Step, Button, Typography, StepLabel, Paper, Grid} from '@material-ui/core';
 import EditDegree from '../EditDegree/EditDegree';
 import EditCourses from '../EditCourses/EditCourses';
 import EditDegreeStepperReview from './EditDegreeStepperReview/EditDegreeStepperReview';
 import useStyles from './styles';
-import { useDispatch } from 'react-redux';
-import { createDegree } from '../../actions/degrees';
+//import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { Accordion, AccordionSummary, Container, AccordionDetails } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -14,10 +13,9 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 export default function EditDegreeStepper({degreeInfo}) {
   const classes = useStyles();
-  const dispatch = useDispatch();
+  //const dispatch = useDispatch();
   const history = useHistory();
   const [activeStep, setActiveStep] = React.useState(0);
-  const [skipped, setSkipped] = React.useState(new Set());
   const steps = ['Edit Degree Info', 'Edit Course Info', 'Review'];
   var numCourseAdded = 0;
   var [savedCourseData, setCourseData] = useState(JSON.parse(localStorage.getItem('courses')));
@@ -42,14 +40,14 @@ export default function EditDegreeStepper({degreeInfo}) {
 
   const handleNext = () => {
     console.log("Number of Courses (Next): ", numCourseAdded);
-    if(activeStep == 0 && (JSON.parse(localStorage.getItem('degrees')).DegreeName == "" || JSON.parse(localStorage.getItem('degrees')).DegreeDescription == "")){
+    if(activeStep === 0 && (JSON.parse(localStorage.getItem('degrees')).DegreeName === "" || JSON.parse(localStorage.getItem('degrees')).DegreeDescription === "")){
       console.log("Please enter a degree name and description to continue");
     }
-    else if(activeStep == 1 && savedCourseData.length < 1){
+    else if(activeStep === 1 && savedCourseData.length < 1){
       console.log("Please add at least one course to continue");
     }
     else{
-      if(activeStep==2){
+      if(activeStep===2){
         console.log("Sending info to DB");
         
         var sendToDegree=JSON.parse(localStorage.getItem('degrees'));
@@ -73,7 +71,7 @@ export default function EditDegreeStepper({degreeInfo}) {
   }
 
   const degreeInformation = (degreeData) =>{
-    if(activeStep == 0){
+    if(activeStep === 0){
       //savedDegreeData = degreeData;
       //localStorage.setItem('degrees', JSON.stringify(degreeData));
     }
@@ -85,7 +83,7 @@ export default function EditDegreeStepper({degreeInfo}) {
   }
 
   const courseInformation = (courseData) =>{
-    if(activeStep == 1){
+    if(activeStep === 1){
       //var temp = [];
       var current;
       console.log("Initial Pull", localStorage.getItem('courses'));
@@ -143,7 +141,7 @@ export default function EditDegreeStepper({degreeInfo}) {
     console.log(e);
     temp = JSON.parse(localStorage.getItem('courses'));
     for(var i = 0; i < temp.length; i++){
-      if(temp[i].CourseID == removal){
+      if(temp[i].CourseID === removal){
         console.log("Found Match");
         temp.splice(i,1);
         console.log(temp);
@@ -195,7 +193,7 @@ export default function EditDegreeStepper({degreeInfo}) {
         )}
       </div>
       <div>
-        {activeStep == 1 && JSON.parse(localStorage.getItem('courses')).length > 0 ? (
+        {activeStep === 1 && JSON.parse(localStorage.getItem('courses')).length > 0 ? (
           <div>
             <center>
               <Typography className={classes.addedTitle}>Currently Added Courses</Typography>

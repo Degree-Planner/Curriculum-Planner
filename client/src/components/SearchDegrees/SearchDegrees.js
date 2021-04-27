@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 
 import SearchDegree from './SearchDegree/SearchDegree';
 import useStyles from './styles';
-import SearchBar from '../SearchBar/SearchBar';
     
 const SearchDegrees = ({ degreeSearch }) => {
     const searchText = 'test';

@@ -17,10 +17,6 @@ const AddAdmin = ({courseInformation, updateCourseInfo}) => {
         history.push({pathname: '/csc530/dev/admin', message: 'Admin successfully added!'})
     }
 
-    const clear = () =>{
-        setAdminData({email:''});
-    }
-
     return (
         <Paper className={classes.paper}>
             <Typography variant="h6" align="center" className={classes.title}>Add New Administrator</Typography>

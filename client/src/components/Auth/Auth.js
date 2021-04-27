@@ -1,8 +1,8 @@
-import React, {useEffect} from 'react';
-import { Avatar, Button, Paper, Grid, Typography, Container, FormHelperText } from '@material-ui/core';
+import React from 'react';
+import { Avatar, Button, Paper, Typography, Container } from '@material-ui/core';
 import { GoogleLogin } from 'react-google-login';
-import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 import Icon from './icon';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
@@ -13,8 +13,6 @@ const Auth = () => {
     const classes = useStyles();
     const dispatch = useDispatch();
     const history = useHistory();
-    const authData = useSelector(state => state.authData);
-    const location = useLocation();
 
     const googleSuccess = async (res) => {
         const result = res?.profileObj;

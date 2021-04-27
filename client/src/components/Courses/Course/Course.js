@@ -1,9 +1,6 @@
 import React from 'react';
-import { Accordion, AccordionActions, AccordionSummary, Container, Button, Typography, AccordionDetails } from '@material-ui/core';
-import DeleteIcon from '@material-ui/icons/Delete';
+import { Accordion, AccordionSummary, Typography, AccordionDetails } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import EditIcon from '@material-ui/icons/Edit';
-import { useSelector } from 'react-redux';
 
 import useStyles from './styles';
     

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Paper, Grow, Slide, Tabs, Tab, Typography, Container, Box, AppBar, Card } from '@material-ui/core';
+import { Paper, Slide, Tabs, Tab, Typography, Container, Box, AppBar, Card } from '@material-ui/core';
 import { useState } from 'react';
 import { useLocation, Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
