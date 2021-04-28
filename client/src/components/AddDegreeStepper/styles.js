@@ -20,11 +20,18 @@ export default makeStyles((theme) => ({
     container: {
       marginBottom: 20,
     },
-    title:{
-
-    },
     details:{
-      
+      marginTop: -5,
+    },
+    text:{
+      marginTop: -10,
+    },
+    card: {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'space-between',
+      height: '100%',
+      position: 'relative',
     },
     finish:{
       marginTop: theme.spacing(1),

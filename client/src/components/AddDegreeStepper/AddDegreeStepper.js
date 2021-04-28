@@ -143,29 +143,29 @@ export default function AddDegreeStepper({degreeInfo}) {
                           <Typography className={classes.details} variant="body1">Course Description: {savedCourseData.CourseDescription}</Typography>
                       </div>
                   </AccordionDetails>
-                  <AccordionDetails className={classes.details}>
+                  <AccordionDetails className={classes.text}>
                       <div>
-                          <Typography className={classes.details} variant="body1">Minimum Grade: {savedCourseData.MinimumGrade}</Typography>
+                          <Typography className={classes.text} variant="body1">Minimum Grade: {savedCourseData.MinimumGrade}</Typography>
                       </div>
                   </AccordionDetails>
-                  <AccordionDetails className={classes.details}>
+                  <AccordionDetails className={classes.text}>
                       <div>
-                          <Typography className={classes.details} variant="body1">Credit Hours: {savedCourseData.CreditHours}</Typography>
+                          <Typography className={classes.text} variant="body1">Credit Hours: {savedCourseData.CreditHours}</Typography>
                       </div>
                   </AccordionDetails>
-                  <AccordionDetails className={classes.details}>
+                  <AccordionDetails className={classes.text}>
                       <div>
-                          <Typography className={classes.details} variant="body1">Prerequisites: {savedCourseData.PreReqs}</Typography>
+                          <Typography className={classes.text} variant="body1">Prerequisites: {savedCourseData.PreReqs.join(",")}</Typography>
                       </div>
                   </AccordionDetails>
-                  <AccordionDetails className={classes.details}>
+                  <AccordionDetails className={classes.text}>
                       <div>
-                          <Typography className={classes.details} variant="body1">Corequisites: {savedCourseData.CoReqs}</Typography>
+                          <Typography className={classes.text} variant="body1">Corequisites: {savedCourseData.CoReqs.join(",")}</Typography>
                       </div>
                   </AccordionDetails>
-                  <AccordionDetails className={classes.details}>
+                  <AccordionDetails className={classes.text}>
                       <div>
-                          <Typography className={classes.details} variant="body1">Term: {savedCourseData.Term}</Typography>
+                          <Typography className={classes.text} variant="body1">Term: {savedCourseData.Term}</Typography>
                       </div>
                   </AccordionDetails>
               </Accordion>

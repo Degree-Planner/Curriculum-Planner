@@ -127,6 +127,7 @@ export default function EditDegreeStepper({degreeInfo}) {
     setActiveStep(0);
     localStorage.removeItem('courses');
     localStorage.removeItem('degrees');
+    history.push({pathname: `/csc530/dev/admin/editdegree`})
   };
 
   const handleSubmit = (e) => {
@@ -175,12 +176,12 @@ export default function EditDegreeStepper({degreeInfo}) {
           <div>
             <Paper className={classes.finishPaper}>
               <Typography className={classes.finish} align='center'>Your new Degree Plan was successfully added</Typography>
-              <Typography className={classes.message} align='center'>Click the Reset button at the bottom left to create another degree or click the View All Plans button to navigate to the list of plans</Typography>
+              <Typography className={classes.message} align='center'>Click the Edit Another Degree button at the bottom left to edit another degree or click the View All Plans button to navigate to the list of plans</Typography>
               <center>
                 <Button variant="contained" size="large" color="primary" onClick = {handleSubmit}>View All Plans</Button>
               </center>
             </Paper>
-            <Button onClick={handleReset} className={classes.button}>Reset</Button>
+            <Button onClick={handleReset} className={classes.button}>Edit Another Degree</Button>
           </div>
         ) : (
           <div>
@@ -232,12 +233,12 @@ export default function EditDegreeStepper({degreeInfo}) {
                   </AccordionDetails>
                   <AccordionDetails className={classes.text}>
                       <div>
-                          <Typography className={classes.text} variant="body1">Prerequisites: {savedCourseData.PreReqs}</Typography>
+                          <Typography className={classes.text} variant="body1">Prerequisites: {savedCourseData.PreReqs.join(",")}</Typography>
                       </div>
                   </AccordionDetails>
                   <AccordionDetails className={classes.text}>
                       <div>
-                          <Typography className={classes.text} variant="body1">Corequisites: {savedCourseData.CoReqs}</Typography>
+                          <Typography className={classes.text} variant="body1">Corequisites: {savedCourseData.CoReqs.join(",")}</Typography>
                       </div>
                   </AccordionDetails>
                   <AccordionDetails className={classes.text}>

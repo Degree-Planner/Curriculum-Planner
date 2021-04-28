@@ -158,12 +158,12 @@ const AddDegreeStepperReview = ({degreeInformation, courseInformation}) => {
                   </AccordionDetails>
                   <AccordionDetails className={classes.details}>
                       <div>
-                          <Typography className={classes.details} variant="body7">Prerequisites: {courseInformation.PreReqs}</Typography>
+                          <Typography className={classes.details} variant="body7">Prerequisites: {courseInformation.PreReqs.join(",")}</Typography>
                       </div>
                   </AccordionDetails>
                   <AccordionDetails className={classes.details}>
                       <div>
-                          <Typography className={classes.details} variant="body8">Corequisites: {courseInformation.CoReqs}</Typography>
+                          <Typography className={classes.details} variant="body8">Corequisites: {courseInformation.CoReqs.join(",")}</Typography>
                       </div>
                   </AccordionDetails>
               </Accordion>
@@ -197,12 +197,12 @@ const AddDegreeStepperReview = ({degreeInformation, courseInformation}) => {
                   </AccordionDetails>
                   <AccordionDetails className={classes.details}>
                       <div>
-                          <Typography className={classes.details} variant="body7">Prerequisites: {courseInformation.PreReqs}</Typography>
+                          <Typography className={classes.details} variant="body7">Prerequisites: {courseInformation.PreReqs.join(",")}</Typography>
                       </div>
                   </AccordionDetails>
                   <AccordionDetails className={classes.details}>
                       <div>
-                          <Typography className={classes.details} variant="body8">Corequisites: {courseInformation.CoReqs}</Typography>
+                          <Typography className={classes.details} variant="body8">Corequisites: {courseInformation.CoReqs.join(",")}</Typography>
                       </div>
                   </AccordionDetails>
               </Accordion>
@@ -236,12 +236,12 @@ const AddDegreeStepperReview = ({degreeInformation, courseInformation}) => {
                   </AccordionDetails>
                   <AccordionDetails className={classes.details}>
                       <div>
-                          <Typography className={classes.details} variant="body7">Prerequisites: {courseInformation.PreReqs}</Typography>
+                          <Typography className={classes.details} variant="body7">Prerequisites: {courseInformation.PreReqs.join(",")}</Typography>
                       </div>
                   </AccordionDetails>
                   <AccordionDetails className={classes.details}>
                       <div>
-                          <Typography className={classes.details} variant="body8">Corequisites: {courseInformation.CoReqs}</Typography>
+                          <Typography className={classes.details} variant="body8">Corequisites: {courseInformation.CoReqs.join(",")}</Typography>
                       </div>
                   </AccordionDetails>
               </Accordion>
@@ -275,12 +275,12 @@ const AddDegreeStepperReview = ({degreeInformation, courseInformation}) => {
                   </AccordionDetails>
                   <AccordionDetails className={classes.details}>
                       <div>
-                          <Typography className={classes.details} variant="body7">Prerequisites: {courseInformation.PreReqs}</Typography>
+                          <Typography className={classes.details} variant="body7">Prerequisites: {courseInformation.PreReqs.join(",")}</Typography>
                       </div>
                   </AccordionDetails>
                   <AccordionDetails className={classes.details}>
                       <div>
-                          <Typography className={classes.details} variant="body8">Corequisites: {courseInformation.CoReqs}</Typography>
+                          <Typography className={classes.details} variant="body8">Corequisites: {courseInformation.CoReqs.join(",")}</Typography>
                       </div>
                   </AccordionDetails>
               </Accordion>
@@ -313,12 +313,12 @@ const AddDegreeStepperReview = ({degreeInformation, courseInformation}) => {
                   </AccordionDetails>
                   <AccordionDetails className={classes.details}>
                       <div>
-                          <Typography className={classes.details} variant="body7">Prerequisites: {courseInformation.PreReqs}</Typography>
+                          <Typography className={classes.details} variant="body7">Prerequisites: {courseInformation.PreReqs.join(",")}</Typography>
                       </div>
                   </AccordionDetails>
                   <AccordionDetails className={classes.details}>
                       <div>
-                          <Typography className={classes.details} variant="body8">Corequisites: {courseInformation.CoReqs}</Typography>
+                          <Typography className={classes.details} variant="body8">Corequisites: {courseInformation.CoReqs.join(",")}</Typography>
                       </div>
                   </AccordionDetails>
               </Accordion>
@@ -351,12 +351,12 @@ const AddDegreeStepperReview = ({degreeInformation, courseInformation}) => {
                   </AccordionDetails>
                   <AccordionDetails className={classes.details}>
                       <div>
-                          <Typography className={classes.details} variant="body7">Prerequisites: {courseInformation.PreReqs}</Typography>
+                          <Typography className={classes.details} variant="body7">Prerequisites: {courseInformation.PreReqs.join(",")}</Typography>
                       </div>
                   </AccordionDetails>
                   <AccordionDetails className={classes.details}>
                       <div>
-                          <Typography className={classes.details} variant="body8">Corequisites: {courseInformation.CoReqs}</Typography>
+                          <Typography className={classes.details} variant="body8">Corequisites: {courseInformation.CoReqs.join(",")}</Typography>
                       </div>
                   </AccordionDetails>
               </Accordion>
@@ -389,12 +389,12 @@ const AddDegreeStepperReview = ({degreeInformation, courseInformation}) => {
                   </AccordionDetails>
                   <AccordionDetails className={classes.details}>
                       <div>
-                          <Typography className={classes.details} variant="body7">Prerequisites: {courseInformation.PreReqs}</Typography>
+                          <Typography className={classes.details} variant="body7">Prerequisites: {courseInformation.PreReqs.join(",")}</Typography>
                       </div>
                   </AccordionDetails>
                   <AccordionDetails className={classes.details}>
                       <div>
-                          <Typography className={classes.details} variant="body8">Corequisites: {courseInformation.CoReqs}</Typography>
+                          <Typography className={classes.details} variant="body8">Corequisites: {courseInformation.CoReqs.join(",")}</Typography>
                       </div>
                   </AccordionDetails>
               </Accordion>
@@ -427,12 +427,12 @@ const AddDegreeStepperReview = ({degreeInformation, courseInformation}) => {
                   </AccordionDetails>
                   <AccordionDetails className={classes.details}>
                       <div>
-                          <Typography className={classes.details} variant="body7">Prerequisites: {courseInformation.PreReqs}</Typography>
+                          <Typography className={classes.details} variant="body7">Prerequisites: {courseInformation.PreReqs.join(",")}</Typography>
                       </div>
                   </AccordionDetails>
                   <AccordionDetails className={classes.details}>
                       <div>
-                          <Typography className={classes.details} variant="body8">Corequisites: {courseInformation.CoReqs}</Typography>
+                          <Typography className={classes.details} variant="body8">Corequisites: {courseInformation.CoReqs.join(",")}</Typography>
                       </div>
                   </AccordionDetails>
               </Accordion>
