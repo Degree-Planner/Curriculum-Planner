@@ -102,7 +102,7 @@ const EditCourses = ({courseInformation}) => {
             </Grid>
             <TextField name="prerequisites" variant="outlined" label="Prerequisites" placeholder="Ex. CSC 223, CSC 310"fullWidth value={courseData.PreReqs} onChange={(e) => addPreReqs(e.target.value.split(" ").join(""))}/>
             <TextField name="corequisites" variant="outlined" label="Corequisites" placeholder="Ex. CSC 125, CSC 325" fullWidth value={courseData.CoReqs} onChange={(e) => addCoReqs(e.target.value.split(" ").join(""))}/>
-            <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Add</Button>
+            <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Save</Button>
             </form>
         </Paper>
     );

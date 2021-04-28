@@ -21,7 +21,7 @@ export default makeStyles((theme) => ({
       marginBottom: 20,
     },
     title:{
-      marginLeft: 2222,
+      marginLeft: 30,
     },
     details:{
       marginTop: -5,
