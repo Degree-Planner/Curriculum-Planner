@@ -68,7 +68,7 @@ const Footer = () => {
             <br></br>
             <Grid item xs={12}>
                 <center>
-                    <Typography className={classes.heading} variant="p" align="center">&copy;{new Date().getFullYear()} CSC 530 Degree Plan Project | All rights reserved </Typography>
+                    <Typography className={classes.heading} align="center">&copy;{new Date().getFullYear()} CSC 530 Degree Plan Project | All rights reserved </Typography>
                 </center>
             </Grid>
       </Grid>

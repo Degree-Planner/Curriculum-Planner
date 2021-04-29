@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import useStyles from './styles';
 import {useLocation, Redirect } from 'react-router-dom';
     
-const EditDegree = ({currentId, degreeInformation, updateCourseInfo}) => {
+const EditDegree = ({currentId, degreeInformation, updateCourseInfo, getDegreeId}) => {
     const [degreeData, setDegreeData] = useState({DegreeName: '', DegreeDescription: '', Courses: []});
     const location = useLocation();
     const degree = useSelector((state) => currentId ? state.degree.find((p) => p._id === currentId) : null);
@@ -19,6 +19,7 @@ const EditDegree = ({currentId, degreeInformation, updateCourseInfo}) => {
 
     console.log(degreeData.Courses);
     updateCourseInfo(degreeData.Courses);
+    getDegreeId(location.degree._id);
 
     return (
         !location.degree ? (

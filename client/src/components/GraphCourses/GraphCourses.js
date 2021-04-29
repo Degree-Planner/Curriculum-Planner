@@ -126,7 +126,7 @@ class GraphCourses extends React.Component {
             <Fade in>
           <Grid container wrap={'nowrap'}>
             {terms.map((term) => (
-              <Grid className={classes.grid} direction={'column'} item xs={terms.length}>
+              <Grid className={classes.grid} item xs={terms.length}>
                 <Container align={'center'} className={classes.paper}>
                   <Typography className={classes.heading} variant="h3">Term {term}</Typography>
                 </Container>

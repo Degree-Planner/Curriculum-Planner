@@ -17,5 +17,4 @@ const AddDegree = ({degreeInformation}) => {
         </Paper>
     );
 }
-
 export default AddDegree;

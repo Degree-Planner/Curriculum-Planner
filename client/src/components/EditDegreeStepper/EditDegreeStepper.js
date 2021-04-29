@@ -4,7 +4,8 @@ import EditDegree from '../EditDegree/EditDegree';
 import EditCourses from '../EditCourses/EditCourses';
 import EditDegreeStepperReview from './EditDegreeStepperReview/EditDegreeStepperReview';
 import useStyles from './styles';
-//import { useDispatch } from 'react-redux';
+import { updateDegree } from '../../actions/degrees';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { Accordion, AccordionSummary, Container, AccordionDetails } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -13,13 +14,14 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 export default function EditDegreeStepper({degreeInfo}) {
   const classes = useStyles();
-  //const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const history = useHistory();
   const [activeStep, setActiveStep] = React.useState(0);
   const steps = ['Edit Degree Info', 'Edit Course Info', 'Review'];
   var numCourseAdded = 0;
   var [savedCourseData, setCourseData] = useState(JSON.parse(localStorage.getItem('courses')));
   var temp=[];
+  var savedDegreeId;
 
   //console.log("DegreeInfo: ", localStorage.getItem('degrees'));
   //console.log("CourseInfo: ", JSON.parse(localStorage.getItem('degrees')).Courses);
@@ -28,7 +30,7 @@ export default function EditDegreeStepper({degreeInfo}) {
   const getStepContent=(step)=> {
     switch (step) {
       case 0:
-        return <EditDegree degreeInformation={degreeInformation} updateCourseInfo={updateCourseInfo}></EditDegree>;
+        return <EditDegree degreeInformation={degreeInformation} updateCourseInfo={updateCourseInfo} getDegreeId={getDegreeId}></EditDegree>;
       case 1:
         return <EditCourses courseInformation={courseInformation}></EditCourses>;
       case 2:
@@ -43,6 +45,10 @@ export default function EditDegreeStepper({degreeInfo}) {
     if(activeStep === 0 && (JSON.parse(localStorage.getItem('degrees')).DegreeName === "" || JSON.parse(localStorage.getItem('degrees')).DegreeDescription === "")){
       console.log("Please enter a degree name and description to continue");
     }
+    else if (activeStep === 0){
+      setCourseData(JSON.parse(localStorage.getItem('courses')));
+      setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    }
     else if(activeStep === 1 && savedCourseData.length < 1){
       console.log("Please add at least one course to continue");
     }
@@ -52,11 +58,11 @@ export default function EditDegreeStepper({degreeInfo}) {
         
         var sendToDegree=JSON.parse(localStorage.getItem('degrees'));
         sendToDegree.Courses= JSON.parse(localStorage.getItem('courses'));
+        //delete sendToDegree._id;
         console.log("Info sent to DB: ", sendToDegree);
 
         // sending data to db
-        //dispatch(createDegree(sendToDegree));
-        // dispatch(updateDegree(location.degree._id, sendToDegree, history));
+        dispatch(updateDegree(savedDegreeId, sendToDegree, history));
       }
       setActiveStep((prevActiveStep) => prevActiveStep + 1);
     }
@@ -68,6 +74,11 @@ export default function EditDegreeStepper({degreeInfo}) {
     console.log("Trying to update");
     localStorage.setItem('courses', JSON.stringify(courseInfo));
     console.log(localStorage.getItem('courses', JSON.stringify(courseInfo)));
+  }
+
+  const getDegreeId = (degreeId) => {
+    savedDegreeId = degreeId;
+    console.log("Degree ID: ", savedDegreeId);
   }
 
   const degreeInformation = (degreeData) =>{
@@ -147,6 +158,8 @@ export default function EditDegreeStepper({degreeInfo}) {
         temp.splice(i,1);
         console.log(temp);
         //Need to set storage to new array
+        setCourseData(temp);
+        localStorage.setItem('courses', JSON.stringify(temp));
 
         //JSON.parse(localStorage.setItem('courses', temp));
         //console.log(JSON.parse(localStorage.getItem('courses')));
@@ -199,12 +212,12 @@ export default function EditDegreeStepper({degreeInfo}) {
             <center>
               <Typography className={classes.addedTitle}>Currently Added Courses</Typography>
             </center>
-            {JSON.parse(localStorage.getItem('courses')).map((savedCourseData) => (
+            {savedCourseData.map((savedCourseData) => (
             <Container maxWidth="sm" className={classes.container}>
               <Accordion className={classes.card}>
                   <AccordionSummary 
                       expandIcon={<ExpandMoreIcon />}>
-                      <Grid container spacing={12}>
+                      <Grid container spacing={0}>
                         <Grid item xs={2}>
                           <Button className={classes.edit} color="primary" variant="contained" onClick={handleEdit}>EDIT</Button>
                         </Grid>

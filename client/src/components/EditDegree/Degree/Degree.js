@@ -39,7 +39,7 @@ const Degree = ({ degree, setCurrentId }) => {
         <Accordion className={classes.card}>
             <AccordionSummary 
                 expandIcon={<ExpandMoreIcon />}>
-                <Grid container spacing={12}>
+                <Grid container spacing={0}>
                     <Grid item xs={2}>
                         <Button color="primary" variant="contained" onClick={handleClick}>EDIT</Button>
                     </Grid>

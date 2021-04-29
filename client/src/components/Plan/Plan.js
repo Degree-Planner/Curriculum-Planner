@@ -59,7 +59,7 @@ const Plan = () => {
             <Slide in>
                 <Paper variant="outlined" className={classes.paper}>
                     <Box className={classes.box}>
-                    <Typography className={classes.heading} variant="h2" indicatorColor="primary" align="center">{location.degree.DegreeName}</Typography>
+                    <Typography className={classes.heading} variant="h2" align="center">{location.degree.DegreeName}</Typography>
                     <AppBar className={classes.appBar} position="static">
                     <Tabs centered value={value} onChange={handleChange}>
                         <Tab label="List" {...a11yProps(0)} />
