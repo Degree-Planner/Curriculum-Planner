@@ -34,7 +34,4 @@ const Home = () => {
     )
 }
 
-console.warn = () => {};
-console.error = () => {};
-
 export default Home;

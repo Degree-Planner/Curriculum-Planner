@@ -39,11 +39,11 @@ export const createDegree = (degree) => async (dispatch) => {
     }
 }
 
-export const updateDegree = (id, degree, history) => async (dispatch) => {
+export const updateDegree = (id, degree) => async (dispatch) => {
     try{
         const {data} = await api.updateDegree(id, degree);
         dispatch({type: 'UPDATE', payload: data});
-        history.push("/csc530/dev/admin/editdegree");
+        
     }
     catch(error){
         console.log(error.message);

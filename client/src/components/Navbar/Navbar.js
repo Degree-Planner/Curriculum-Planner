@@ -40,7 +40,7 @@ const Navbar = () => {
         </div>
         <Toolbar className={classes.toolbar}>
             {user ? (
-                <div className={classes.profile}>
+                <div classname={classes.profile}>
                     <Grid container spacing={5}>
                         <Grid item xs={3}>
                             <Avatar className={classes.purple} alt={user.userData.name} src={user.userData.imageUrl}>{user.userData.name.charAt(0)}</Avatar>

@@ -62,7 +62,7 @@ export default function EditDegreeStepper({degreeInfo}) {
         console.log("Info sent to DB: ", sendToDegree);
 
         // sending data to db
-        dispatch(updateDegree(savedDegreeId, sendToDegree, history));
+        dispatch(updateDegree(savedDegreeId, sendToDegree));
       }
       setActiveStep((prevActiveStep) => prevActiveStep + 1);
     }
