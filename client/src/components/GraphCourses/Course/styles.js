@@ -36,11 +36,9 @@ export default makeStyles((theme) => ({
   grid: {
     display: 'block',
     backgroundColor: '#ffffff',
-    //justifyContent: 'space-evenly',
   },
   details: {
     display: 'table',
-    //justifyContent: 'space-between',
     margin: '10px',
   },
   id: {
@@ -54,9 +52,6 @@ export default makeStyles((theme) => ({
   title1: {
     fontSize: '15px',
     fontWeight: 'bold',
-  },
-  credits: {
-    //padding: '0 100px',
   },
   cardActions: {
     padding: '0 16px 8px 16px',

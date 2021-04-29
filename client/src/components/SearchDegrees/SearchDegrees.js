@@ -12,10 +12,6 @@ const SearchDegrees = ({ degreeSearch }) => {
     const array = [];
     array.push(search);
     const classes = useStyles();
-    console.log(degrees);
-    console.log(search);
-    console.log(array);
-    console.log(degreeSearch);
     
     function UserSearch() {
         return      !degrees.length ? <CircularProgress /> : (

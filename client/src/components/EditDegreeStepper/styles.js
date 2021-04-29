@@ -57,10 +57,8 @@ export default makeStyles((theme) => ({
       fontSize: 20
     },
     delete: {
-      //marginLeft: 10,
       color: 'white',
       backgroundColor: '#ff5050',
-      //marginRight: 10,
       height: 40,
       width: 85,
     },

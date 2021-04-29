@@ -13,8 +13,6 @@ const EditCourses = ({courseInformation}) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if(courseData.CourseID ==="" || courseData.CourseTitle === "" || courseData.CourseDescription === "" || courseData.MinimumGrade === "" || courseData.CreditHours === "" || courseData.Term === ""){
-            console.log("Please enter data in all required fields");
-            console.log("Required fields: Department Code, Course Number, Course Title, Course Description, Minimum Grade, Credit Hours, and Term");
         }
         else{
             courseInformation(courseData);
@@ -24,7 +22,6 @@ const EditCourses = ({courseInformation}) => {
     const addPreReqs=(value)=>{
         if(value !== ""){
             var temp = value.split(',');
-            console.log(temp);
             setCourseData({ ...courseData, PreReqs: temp });
         }
         else{
@@ -35,7 +32,6 @@ const EditCourses = ({courseInformation}) => {
     const addCoReqs=(value)=>{
         if(value !== ""){
             var temp = value.split(',');
-            console.log(temp);
             setCourseData({ ...courseData, CoReqs: temp });
         }
         else{

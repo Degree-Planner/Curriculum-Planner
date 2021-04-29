@@ -44,7 +44,6 @@ const Plan = () => {
     const [value, setValue] = useState(0);
 
     useEffect(() => {
-        console.log(degrees)
     }, [location]);
 
     const handleChange = (event, newValue) => {

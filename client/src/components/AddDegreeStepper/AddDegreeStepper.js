@@ -34,7 +34,6 @@ export default function AddDegreeStepper({degreeInfo}) {
   }
 
   const handleNext = () => {
-    console.log("Number of Courses (Next): ", numCourseAdded);
     if(activeStep === 0 && (JSON.parse(localStorage.getItem('degrees')).DegreeName === "" || JSON.parse(localStorage.getItem('degrees')).DegreeDescription === "")){
     }
     else if(activeStep === 1 && savedCourseData.length < 1){

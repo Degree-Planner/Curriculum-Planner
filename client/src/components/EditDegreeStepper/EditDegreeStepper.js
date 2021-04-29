@@ -23,10 +23,6 @@ export default function EditDegreeStepper({degreeInfo}) {
   var temp=[];
   var savedDegreeId;
 
-  //console.log("DegreeInfo: ", localStorage.getItem('degrees'));
-  //console.log("CourseInfo: ", JSON.parse(localStorage.getItem('degrees')).Courses);
-  
-
   const getStepContent=(step)=> {
     switch (step) {
       case 0:
@@ -41,27 +37,18 @@ export default function EditDegreeStepper({degreeInfo}) {
   }
 
   const handleNext = () => {
-    console.log("Number of Courses (Next): ", numCourseAdded);
     if(activeStep === 0 && (JSON.parse(localStorage.getItem('degrees')).DegreeName === "" || JSON.parse(localStorage.getItem('degrees')).DegreeDescription === "")){
-      console.log("Please enter a degree name and description to continue");
     }
     else if (activeStep === 0){
       setCourseData(JSON.parse(localStorage.getItem('courses')));
       setActiveStep((prevActiveStep) => prevActiveStep + 1);
     }
     else if(activeStep === 1 && savedCourseData.length < 1){
-      console.log("Please add at least one course to continue");
     }
     else{
       if(activeStep===2){
-        console.log("Sending info to DB");
-        
         var sendToDegree=JSON.parse(localStorage.getItem('degrees'));
         sendToDegree.Courses= JSON.parse(localStorage.getItem('courses'));
-        //delete sendToDegree._id;
-        console.log("Info sent to DB: ", sendToDegree);
-
-        // sending data to db
         dispatch(updateDegree(savedDegreeId, sendToDegree));
       }
       setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -70,67 +57,39 @@ export default function EditDegreeStepper({degreeInfo}) {
   };
 
   const updateCourseInfo = (courseInfo) => {
-    //setActiveStep(1);
-    console.log("Trying to update");
     localStorage.setItem('courses', JSON.stringify(courseInfo));
-    console.log(localStorage.getItem('courses', JSON.stringify(courseInfo)));
   }
 
   const getDegreeId = (degreeId) => {
     savedDegreeId = degreeId;
-    console.log("Degree ID: ", savedDegreeId);
   }
 
   const degreeInformation = (degreeData) =>{
     if(activeStep === 0){
-      //savedDegreeData = degreeData;
-      //localStorage.setItem('degrees', JSON.stringify(degreeData));
     }
-    //console.log("DegreeBefore: ", savedDegreeData);
-
-    //const orginalDegree = localStorage.getItem('degree');
     localStorage.setItem('degrees', JSON.stringify(degreeData));
-    console.log("DegreeAfter: ", localStorage.getItem('degrees'));
   }
 
   const courseInformation = (courseData) =>{
     if(activeStep === 1){
-      //var temp = [];
       var current;
-      console.log("Initial Pull", localStorage.getItem('courses'));
       temp.push(courseData);
       if(localStorage.getItem('courses') != null){
-        //savedCourseData.push(localStorage.getItem('courses'));
-        //localStorage.clear();
-        console.log("This is temp before push: ", temp);
         current = JSON.parse(localStorage.getItem('courses'));
-        console.log("This is current before push: ", current);
         for(var i = 0; i< current.length; i++){
           temp.push(current[i]);
         }
-        console.log("This is temp after push: ", temp);
-
-        //localStorage.removeItem('courses');
       }
       
       localStorage.setItem('courses', JSON.stringify(temp));
-      //savedCourseData.push(localStorage.getItem('courses'));
       setCourseData(JSON.parse(localStorage.getItem('courses')));
       
-      console.log("CoursesAfter: ", localStorage.getItem('courses'));
-      console.log("Array", savedCourseData);
       numCourseAdded++;
-      console.log("Number of Courses: ", numCourseAdded);
     }
-    //console.log(savedCourseData);
-  
-    //setTimeout(()=>handleNext(), 1);
-    //handleBack();
   }
 
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
-    console.log("Yes");
   };
 
 
@@ -148,21 +107,12 @@ export default function EditDegreeStepper({degreeInfo}) {
 
   const handleDelete = (e, removal) => {
     e.preventDefault();
-    //console.log(e.target.value());
-    console.log(removal);
-    console.log(e);
     temp = JSON.parse(localStorage.getItem('courses'));
     for(var i = 0; i < temp.length; i++){
       if(temp[i].CourseID === removal){
-        console.log("Found Match");
         temp.splice(i,1);
-        console.log(temp);
-        //Need to set storage to new array
         setCourseData(temp);
         localStorage.setItem('courses', JSON.stringify(temp));
-
-        //JSON.parse(localStorage.setItem('courses', temp));
-        //console.log(JSON.parse(localStorage.getItem('courses')));
       }
     }
   }

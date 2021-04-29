@@ -17,7 +17,6 @@ const EditDegree = ({currentId, degreeInformation, updateCourseInfo, getDegreeId
             <Redirect to="/csc530/dev/admin"/>
     } , [degree])
 
-    console.log(degreeData.Courses);
     updateCourseInfo(degreeData.Courses);
     getDegreeId(location.degree._id);
 
