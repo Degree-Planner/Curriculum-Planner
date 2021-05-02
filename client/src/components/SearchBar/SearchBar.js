@@ -8,7 +8,6 @@ import { useSelector } from 'react-redux';
 import useStyles from './styles';
 
 const SearchBar = () => {
-    //const searchText = 'Computer Science B.S.';
     const degrees = useSelector((state) => state.degrees);
 
     const classes = useStyles();
@@ -17,11 +16,8 @@ const SearchBar = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(searchData.DegreeName);
         
         const search = degrees.filter(d=>d.DegreeName.toLowerCase().includes(searchData.DegreeName.toLowerCase()));
-        console.log('SearchBar: ',search);
-        console.log(degrees);
         history.push({pathname: `/csc530/dev/searchdegree`, degreeSearch: search})
     }
     

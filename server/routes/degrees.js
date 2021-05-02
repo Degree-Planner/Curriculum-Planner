@@ -6,7 +6,6 @@ const router = express.Router();
 
 router.get('/', getDegrees);
 router.get('/', getCourses);
-//router.get('/search', searchDegrees);
 router.post('/', createDegree);
 router.patch('/:id', updateDegree);
 router.delete('/:id', deleteDegree);

@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
-import { Grid, CircularProgress, Container, Typography, Paper, Fade } from '@material-ui/core';
-import { useSelector } from 'react-redux';
+import React from 'react';
+import { Grid, CircularProgress, Container, Typography, Fade } from '@material-ui/core';
 import { withStyles } from "@material-ui/core/styles";
 
 import Term from './Term'
@@ -15,9 +14,6 @@ const styles = theme => ({
   },
   paper: {
     backgroundColor: '#000000',
-  },
-  grid: {
-    //maxWidth: '150px',
   },
   heading: {
     color: '#ffffff',
@@ -74,7 +70,6 @@ const styles = theme => ({
   container: {
     background: '#ffffff',
     border: '5px solid rgba(0, 0, 128, 1)',
-    //boxShadow: '0 3px 5px 2px rgba(0, 0, 0, 1)',
     padding: '10px',
   },
 });
@@ -127,7 +122,7 @@ class GridCourses extends React.Component {
             <Fade in>
           <Grid container wrap={'nowrap'}>
             {terms.map((term) => (
-              <Grid className={classes.grid} direction={'column'} item xs={terms.length}>
+              <Grid className={classes.grid} item xs={terms.length}>
                 <Container align={'center'} className={classes.paper}>
                   <Typography className={classes.heading} variant="h3">Term {term}</Typography>
                 </Container>

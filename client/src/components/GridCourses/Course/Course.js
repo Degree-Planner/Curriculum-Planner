@@ -1,6 +1,5 @@
 import React from 'react';
-import { Fade, Popper, AccordionSummary, Container, Box, Typography, IconButton, Paper, Grow } from '@material-ui/core';
-import { useSelector } from 'react-redux';
+import { Popper, Box, Typography, IconButton, Paper, Grow } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 
 import useStyles from './styles';

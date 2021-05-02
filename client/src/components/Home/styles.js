@@ -1,5 +1,4 @@
 import { makeStyles, fade } from '@material-ui/core/styles';
-import SearchIcon from '@material-ui/icons/Search';
 
 export default makeStyles((theme) => ({
   appBar: {

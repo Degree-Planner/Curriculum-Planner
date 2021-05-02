@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 
 import SearchDegree from './SearchDegree/SearchDegree';
 import useStyles from './styles';
-import SearchBar from '../SearchBar/SearchBar';
     
 const SearchDegrees = ({ degreeSearch }) => {
     const searchText = 'test';
@@ -13,10 +12,6 @@ const SearchDegrees = ({ degreeSearch }) => {
     const array = [];
     array.push(search);
     const classes = useStyles();
-    console.log(degrees);
-    console.log(search);
-    console.log(array);
-    console.log(degreeSearch);
     
     function UserSearch() {
         return      !degrees.length ? <CircularProgress /> : (

@@ -1,6 +1,5 @@
 import React from 'react';
-import { Container, Slide, useScrollTrigger } from '@material-ui/core';
-import { useSelector } from 'react-redux';
+import { Container } from '@material-ui/core';
 
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import useStyles from './styles';
@@ -15,13 +14,11 @@ import AddDegreeStepper from './components/AddDegreeStepper/AddDegreeStepper';
 import Footer from './components/Footer/Footer';
 import Plan from './components/Plan/Plan';
 import EditDegreeList from './components/EditDegree/EditDegreeList/EditDegreeList';
-import EditDegree from './components/EditDegree/EditDegree';
 import EditDegreeStepper from './components/EditDegreeStepper/EditDegreeStepper';
 import AddAdmin from './components/AddAdmin/AddAdmin';
 
 const App = () => {
     const classes = useStyles();
-    const degreeData = useSelector((state) => state.degree);
     
     return (
         <BrowserRouter>

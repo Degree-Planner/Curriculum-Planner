@@ -1,12 +1,9 @@
 import React from 'react';
-import { Grid, CircularProgress, Container, Box } from '@material-ui/core';
-import { useSelector } from 'react-redux';
+import { CircularProgress, Container, Box } from '@material-ui/core';
 
 import Course from './Course/Course';
-import useStyles from './styles';
     
 const Term = ({ term, courses, hovered, course, red, lightRed, white, green, yellow, lightGreen, onMouseEnter, onMouseLeave }) => {
-    const classes = useStyles();
 
     const findHighlightedRed = () => {
         var result = []

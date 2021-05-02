@@ -1,34 +1,21 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Grow, Button, Typography, IconButton} from '@material-ui/core';
-import SearchIcon from '@material-ui/icons/Search';
-import InputBase from '@material-ui/core/InputBase';
+import { Container, Grow, Button, Typography } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
-//import {searchDegrees} from '../../actions/degrees';
-import {useHistory, useLocation} from 'react-router-dom';
-//import { UserSearch } from '../Degrees/Degrees';
-import Degree from '../Degrees/Degree/Degree';
+import {useLocation} from 'react-router-dom';
 import SearchBar from '../SearchBar/SearchBar';
 import { getDegrees } from '../../actions/degrees';
 
 import useStyles from './styles';
 
 const Home = () => {
-    const history = useHistory();
     const classes = useStyles();
-    const [searchData, setSearchData] = useState({DepartmentName: ''});
     const dispatch = useDispatch();
     const location = useLocation();
 
     useEffect(() => {
         dispatch(getDegrees());
     }, [dispatch]);
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(searchData);
-    }
-    
     
     return (
         <Grow in>

@@ -31,7 +31,7 @@ export default makeStyles((theme) => ({
     fontStyle: 'italic'
   },
   formControl:{
-    width: '98.5%',
+    width: '100%',
     margin: theme.spacing(1),
     minWidth: 120,
   },

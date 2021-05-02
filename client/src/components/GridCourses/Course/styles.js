@@ -53,7 +53,6 @@ export default makeStyles((theme) => ({
     fontWeight: 'bold',
   },
   credits: {
-    //padding: '0 100px',
   },
   cardActions: {
     padding: '0 16px 8px 16px',

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Paper, Grow, Slide, Tabs, Tab, Typography, Container, Box, AppBar, Card } from '@material-ui/core';
+import { Paper, Slide, Tabs, Tab, Typography, Container, Box, AppBar, Card } from '@material-ui/core';
 import { useState } from 'react';
 import { useLocation, Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -44,7 +44,6 @@ const Plan = () => {
     const [value, setValue] = useState(0);
 
     useEffect(() => {
-        console.log(degrees)
     }, [location]);
 
     const handleChange = (event, newValue) => {
@@ -59,7 +58,7 @@ const Plan = () => {
             <Slide in>
                 <Paper variant="outlined" className={classes.paper}>
                     <Box className={classes.box}>
-                    <Typography className={classes.heading} variant="h2" indicatorColor="primary" align="center">{location.degree.DegreeName}</Typography>
+                    <Typography className={classes.heading} variant="h2" align="center">{location.degree.DegreeName}</Typography>
                     <AppBar className={classes.appBar} position="static">
                     <Tabs centered value={value} onChange={handleChange}>
                         <Tab label="List" {...a11yProps(0)} />

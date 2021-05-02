@@ -37,11 +37,6 @@ export default makeStyles(() => ({
     display: 'inline',
     padding: '2px',
   },
-  container: {
-    //padding: '30px',
-    //display: 'flex',
-    //maxWidth: '1000px',
-  },
   legend: {
     display: 'flex',
     padding: '5px',

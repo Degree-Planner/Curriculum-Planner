@@ -1,20 +1,16 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Container, Grow, Button, Typography } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 
 import useStyles from './styles';
-import { getCourses } from '../../actions/courses';
 
 const Admin = () => {
     const classes = useStyles();
-    const dispatch = useDispatch();
     const history = useHistory();
     const location = useLocation();
 
     const handleClick =()=>{
-        //e.preventDefault();
         localStorage.removeItem('courses');
         localStorage.removeItem('degrees');
         history.push({pathname: `/csc530/dev/admin/add`});

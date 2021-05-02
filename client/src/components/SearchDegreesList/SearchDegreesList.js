@@ -14,8 +14,6 @@ const SearchDegreeList = () => {
     const location = useLocation();
     const degreeSearch = location.degreeSearch;
 
-    console.log('SearchDegreeList: ', degreeSearch);
-
     useEffect(() => {
         dispatch(getDegrees());
     }, [dispatch]);
