@@ -22,6 +22,7 @@ export default function EditDegreeStepper({degreeInfo}) {
   var numCourseAdded = 0;
   var [savedCourseData, setCourseData] = useState(JSON.parse(localStorage.getItem('courses')));
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [isOpen, setIsOpen] = useState(false);
   var temp=[];
   var savedDegreeId;
 
@@ -33,7 +34,12 @@ export default function EditDegreeStepper({degreeInfo}) {
       case 0:
         return <EditDegree degreeInformation={degreeInformation} updateCourseInfo={updateCourseInfo} getDegreeId={getDegreeId}></EditDegree>;
       case 1:
-        return <EditCourses courseInformation={courseInformation}></EditCourses>;
+        if(isOpen === false){
+          return <EditCourses courseInformation={courseInformation}></EditCourses>
+        }
+        else{
+          return <div></div>
+        }
       case 2:
         return <EditDegreeStepperReview degreeInformation={JSON.parse(localStorage.getItem('degrees'))} courseInformation={JSON.parse(localStorage.getItem('courses'))}></EditDegreeStepperReview>;
       default:
@@ -125,10 +131,12 @@ export default function EditDegreeStepper({degreeInfo}) {
   const handleEdit = (e) => {
     e.preventDefault();
     setAnchorEl(e.currentTarget);
+    setIsOpen(true);
   }
 
   const handleClose = () => {
     setAnchorEl(null);
+    setIsOpen(false);
   };
 
   return (
@@ -226,7 +234,7 @@ export default function EditDegreeStepper({degreeInfo}) {
                     <IconButton onClick={handleClose} className={classes.closeicon}>
                             <CloseIcon/>
                         </IconButton>
-                      <EditCourses></EditCourses>
+                        <EditCourses></EditCourses>
                     </Paper>
                     </Grow>
                 </Popper>
