@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Stepper, Step, Button, Typography, StepLabel, Paper, Grid} from '@material-ui/core';
+import {Stepper, Step, Button, Typography, StepLabel, Paper, Grid, Popper, Grow, IconButton} from '@material-ui/core';
 import EditDegree from '../EditDegree/EditDegree';
 import EditCourses from '../EditCourses/EditCourses';
 import EditDegreeStepperReview from './EditDegreeStepperReview/EditDegreeStepperReview';
@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { Accordion, AccordionSummary, Container, AccordionDetails } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import CloseIcon from '@material-ui/icons/Close';
 
 
 
@@ -20,8 +21,12 @@ export default function EditDegreeStepper({degreeInfo}) {
   const steps = ['Edit Degree Info', 'Edit Course Info', 'Review'];
   var numCourseAdded = 0;
   var [savedCourseData, setCourseData] = useState(JSON.parse(localStorage.getItem('courses')));
+  const [anchorEl, setAnchorEl] = React.useState(null);
   var temp=[];
   var savedDegreeId;
+
+  const open = Boolean(anchorEl);
+  const id = open ? 'simple-popper' : undefined;
 
   const getStepContent=(step)=> {
     switch (step) {
@@ -107,10 +112,9 @@ export default function EditDegreeStepper({degreeInfo}) {
 
   const handleDelete = (e, removal) => {
     e.preventDefault();
-    console.log(removal);
     temp = JSON.parse(localStorage.getItem('courses'));
     for(var i = 0; i < temp.length; i++){
-      if(temp[i]._id === removal){
+      if(temp[i]._id + temp[i].CourseID === removal){
         temp.splice(i,1);
         setCourseData(temp);
         localStorage.setItem('courses', JSON.stringify(temp));
@@ -120,7 +124,12 @@ export default function EditDegreeStepper({degreeInfo}) {
 
   const handleEdit = (e) => {
     e.preventDefault();
+    setAnchorEl(e.currentTarget);
   }
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   return (
     <div className={classes.root}>
@@ -170,10 +179,10 @@ export default function EditDegreeStepper({degreeInfo}) {
                       expandIcon={<ExpandMoreIcon />}>
                       <Grid container spacing={0}>
                         <Grid item xs={2}>
-                          <Button className={classes.edit} color="primary" variant="contained" onClick={handleEdit}>EDIT</Button>
+                          <Button className={classes.edit} id={savedCourseData._id + savedCourseData.CourseID} color="primary" variant="contained" onClick={(e) => handleEdit(e,e.target.id)}>EDIT</Button>
                         </Grid>
                         <Grid item xs={2}>
-                          <Button className={classes.delete} id={savedCourseData._id} variant="contained" onClick={(e) => handleDelete(e,e.target.id)}>DELETE</Button>
+                          <Button className={classes.delete} id={savedCourseData._id + savedCourseData.CourseID} variant="contained" onClick={(e) => handleDelete(e,e.target.id)}>DELETE</Button>
                         </Grid>
                         <Grid item xs={8}>
                             <Typography className={classes.title} variant="body1">{savedCourseData.CourseID} {savedCourseData.CourseTitle}</Typography>
@@ -211,6 +220,16 @@ export default function EditDegreeStepper({degreeInfo}) {
                       </div>
                   </AccordionDetails>
               </Accordion>
+              <Popper id={id} open={open} anchorEl={anchorEl}>
+                    <Grow in>
+                    <Paper className={classes.paper}>
+                    <IconButton onClick={handleClose} className={classes.closeicon}>
+                            <CloseIcon/>
+                        </IconButton>
+                      <EditCourses></EditCourses>
+                    </Paper>
+                    </Grow>
+                </Popper>
             </Container>
             ))}
           </div>
