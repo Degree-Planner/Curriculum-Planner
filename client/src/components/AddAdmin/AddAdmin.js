@@ -5,16 +5,24 @@ import useStyles from './styles';
 import { createAdmin } from '../../actions/auth';
 import { useHistory } from 'react-router-dom';
     
-const AddAdmin = ({courseInformation, updateCourseInfo}) => {
+const AddAdmin = () => {
     const [adminData, setAdminData] = useState({email:''});
+    const [isEmail, setIsEmail] = useState({bool:false});
     const classes = useStyles();
     const dispatch = useDispatch();
     const history = useHistory();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(createAdmin(adminData));
-        history.push({pathname: '/csc530/dev/admin', message: 'Admin successfully added!'})
+
+        // email validation from https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript
+        const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        setIsEmail(re.test(String(adminData.email).toLowerCase()));
+        
+        if(isEmail === true){
+            dispatch(createAdmin(adminData));
+            history.push({pathname: '/csc530/dev/admin', message: 'Admin successfully added!'})
+        }
     }
 
     return (
