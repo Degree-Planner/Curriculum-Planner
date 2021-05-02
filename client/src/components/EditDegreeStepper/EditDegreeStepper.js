@@ -107,9 +107,10 @@ export default function EditDegreeStepper({degreeInfo}) {
 
   const handleDelete = (e, removal) => {
     e.preventDefault();
+    console.log(removal);
     temp = JSON.parse(localStorage.getItem('courses'));
     for(var i = 0; i < temp.length; i++){
-      if(temp[i].CourseID === removal){
+      if(temp[i]._id === removal){
         temp.splice(i,1);
         setCourseData(temp);
         localStorage.setItem('courses', JSON.stringify(temp));
@@ -172,7 +173,7 @@ export default function EditDegreeStepper({degreeInfo}) {
                           <Button className={classes.edit} color="primary" variant="contained" onClick={handleEdit}>EDIT</Button>
                         </Grid>
                         <Grid item xs={2}>
-                          <Button className={classes.delete} id={savedCourseData.CourseID} label={savedCourseData.CourseID} variant="contained" onClick={(e) => handleDelete(e,e.target.id)}>DELETE</Button>
+                          <Button className={classes.delete} id={savedCourseData._id} variant="contained" onClick={(e) => handleDelete(e,e.target.id)}>DELETE</Button>
                         </Grid>
                         <Grid item xs={8}>
                             <Typography className={classes.title} variant="body1">{savedCourseData.CourseID} {savedCourseData.CourseTitle}</Typography>
