@@ -1,12 +1,6 @@
 To run Locally:
 
-In one Terminal:
-cd client
-npm install
-
-In another Terminal:
-cd server
-npm install
-
-In Both:
-npm start
+Run
+#npm install 
+in both the client and server directories.
+After installing, npm start
