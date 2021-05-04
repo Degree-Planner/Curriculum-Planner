@@ -1,7 +1,7 @@
 To run Locally:
 
 Run 
-## npm install 
+<h2> npm install <h2>
 in both the client and server directories. After installing, run
-## npm start
+<h2> npm start <h2>
 in both directories
