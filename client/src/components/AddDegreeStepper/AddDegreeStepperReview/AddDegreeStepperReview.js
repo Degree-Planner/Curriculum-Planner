@@ -22,6 +22,7 @@ const AddDegreeStepperReview = ({degreeInformation, courseInformation}) => {
         var temp = [];
         for(var i=0; i<courseInformation.length; i++){
             if (courseInformation[i].Term === 2){
+                temp.push(courseInformation[i]);
             }
         }
         return temp;
