@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API = axios.create({ baseURL: 'http://localhost:5000'});
+const API = axios.create({ baseURL: 'https://csc530-project.herokuapp.com/'});
 
 export const createCourse = (newCourse) => API.post('/courses', newCourse);
 

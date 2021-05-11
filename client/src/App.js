@@ -30,8 +30,20 @@ const App = () => {
                     <Route path="/csc530/dev/auth" exact component={Auth}/>
                     <Route path="/csc530/dev/degrees" exact component={DegreesList}/>
                     <Route path="/csc530/dev/searchdegree" exact component={SearchDegreesList}/>
-                    <Route path="/csc530/dev/admin/editdegree" exact component={EditDegreeList}/>
-                    <Route path="/csc530/dev/admin/addadmin" exact component={AddAdmin}/>
+                    <Route path="/csc530/dev/admin/editdegree" exact render={() => (
+                        !localStorage.getItem('profile') ? (
+                            <Redirect to="/csc530/dev/auth"/>
+                        ) : (
+                            <EditDegreeList/>
+                        )
+                    )}/>
+                    <Route path="/csc530/dev/admin/addadmin" exact render={() => (
+                        !localStorage.getItem('profile') ? (
+                            <Redirect to="/csc530/dev/auth"/>
+                        ) : (
+                            <AddAdmin/>
+                        )
+                    )}/>
                     <Route path="/csc530/dev/admin" exact render={() => (
                         !localStorage.getItem('profile') ? (
                             <Redirect to="/csc530/dev/auth"/>
