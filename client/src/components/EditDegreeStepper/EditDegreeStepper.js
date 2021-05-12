@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {Stepper, Step, Button, Typography, StepLabel, Paper, Grid, Popper, Grow, IconButton} from '@material-ui/core';
 import EditDegree from '../EditDegree/EditDegree';
 import EditCourses from '../EditCourses/EditCourses';
+import EditExistingCourse from '../EditExistingCourse/EditExistingCourse';
 import EditDegreeStepperReview from './EditDegreeStepperReview/EditDegreeStepperReview';
 import useStyles from './styles';
 import { updateDegree } from '../../actions/degrees';
@@ -99,6 +100,28 @@ export default function EditDegreeStepper({degreeInfo}) {
     }
   }
 
+  const existingCourseInformation = (courseData) =>{
+    var temp2 = [];
+    if(activeStep === 1){
+      temp2 = JSON.parse(localStorage.getItem('courses'));
+      for(var i = 0; i < temp2.length; i++){
+        if(temp2[i]._id + temp2[i].CourseID === courseData._id + courseData.CourseID){
+          temp2.splice(i,1);
+          temp2.push(courseData);
+          setCourseData(temp2);
+          localStorage.setItem('courses', JSON.stringify(temp2));
+        }
+      }
+
+      
+      localStorage.setItem('courses', JSON.stringify(temp2));
+      setCourseData(JSON.parse(localStorage.getItem('courses')));
+      
+      numCourseAdded++;
+    }
+    handleClose();
+  }
+
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
@@ -128,10 +151,20 @@ export default function EditDegreeStepper({degreeInfo}) {
     }
   }
 
-  const handleEdit = (e) => {
+  const handleEdit = (e, edit) => {
     e.preventDefault();
-    setAnchorEl(e.currentTarget);
-    setIsOpen(true);
+    localStorage.removeItem('existing');
+    if(edit != "" && edit != null && edit != undefined){
+      temp = JSON.parse(localStorage.getItem('courses'));
+      for(var i = 0; i < temp.length; i++){
+        if(temp[i]._id + temp[i].CourseID === edit){
+          localStorage.setItem('existing', JSON.stringify(temp[i]));
+        }
+      }
+      setAnchorEl(e.currentTarget);
+      setIsOpen(true);
+    }
+
   }
 
   const handleClose = () => {
@@ -234,7 +267,7 @@ export default function EditDegreeStepper({degreeInfo}) {
                     <IconButton onClick={handleClose} className={classes.closeicon}>
                             <CloseIcon/>
                         </IconButton>
-                        <EditCourses></EditCourses>
+                        <EditExistingCourse existingCourse={JSON.parse(localStorage.getItem('existing'))} existingCourseInformation={existingCourseInformation}></EditExistingCourse>
                     </Paper>
                     </Grow>
                 </Popper>
