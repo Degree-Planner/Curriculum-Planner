@@ -7,7 +7,6 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
     
 const EditExistingCourse = ({existingCourse, existingCourseInformation}) => {
-    console.log(existingCourse.CourseID);
     const [courseData, setCourseData] = useState({_id: existingCourse._id, CourseID:existingCourse.CourseID, CourseTitle:existingCourse.CourseTitle, CourseDescription: existingCourse.CourseDescription, MinimumGrade: existingCourse.MinimumGrade, CreditHours: existingCourse.CreditHours, PreReqs: existingCourse.PreReqs, CoReqs: existingCourse.CoReqs, Term: existingCourse.Term});
     const classes = useStyles();
 
